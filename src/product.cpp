@@ -1,19 +1,8 @@
 #include "product.h"
-#include <math.h>
 #include <QString>
 
 Product::Product()
 {
-    m_number = 0;
-    m_priceIn = .0f;
-    m_priceOut = .0f;
-    m_pakUnit = 0;
-    m_mWeight = .0f;
-    m_jWeight = .0f;
-    m_volume = .0f;
-    m_zTax = 17.0f;
-    m_xTax = .0f;
-    m_tTax = .0f;
 }
 
 Product::~Product()
@@ -133,8 +122,98 @@ int Product::getPakNumber () const
 {
     if (m_pakUnit == 0)
         return 0;
-    return (int)ceil((float)m_number / (float)m_pakUnit);
+    return (int)ceilf((float)m_number / (float)m_pakUnit);
 }
+QString Product::id() const
+{
+    return m_id;
+}
+
+void Product::setId(const QString &id)
+{
+    m_id = id;
+}
+QString Product::nameEn() const
+{
+    return m_nameEn;
+}
+
+void Product::setNameEn(const QString &nameEn)
+{
+    m_nameEn = nameEn;
+}
+QString Product::type() const
+{
+    return m_type;
+}
+
+void Product::setType(const QString &type)
+{
+    m_type = type;
+}
+QString Product::haiguan() const
+{
+    return m_haiguan;
+}
+
+void Product::setHaiguan(const QString &haiguan)
+{
+    m_haiguan = haiguan;
+}
+QString Product::birth() const
+{
+    return m_birth;
+}
+
+void Product::setBirth(const QString &birth)
+{
+    m_birth = birth;
+}
+QString Product::pc() const
+{
+    return m_pc;
+}
+
+void Product::setPc(const QString &pc)
+{
+    m_pc = pc;
+}
+QString Product::carton() const
+{
+    return m_carton;
+}
+
+void Product::setCarton(const QString &carton)
+{
+    m_carton = carton;
+}
+QString Product::descZh() const
+{
+    return m_descZh;
+}
+
+void Product::setDescZh(const QString &descZh)
+{
+    m_descZh = descZh;
+}
+QString Product::descEn() const
+{
+    return m_descEn;
+}
+
+void Product::setDescEn(const QString &descEn)
+{
+    m_descEn = descEn;
+}
+
+
+
+
+
+
+
+
+
 float Product::zTax() const
 {
     return m_zTax;

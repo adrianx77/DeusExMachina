@@ -20,10 +20,17 @@ public:
     float getTotalPriceIn () const;
     float getTotalPriceOut () const;
     float getTotalMWeight () const;
+    float getTotalJWeight () const;
     float getTotalVolume () const;
     int getTotalPakNumber () const;
     int getTotalProductNumber () const;
     float getTotalTTax () const;
+
+    QString getProductPakType () const;
+    QString getProductQuantityType () const;
+    QString getProductBigType () const;
+    QString getPakInfoEn () const;
+    QString getProductNameEn () const;
 private:
     QVector<Product*> m_productList;
 };

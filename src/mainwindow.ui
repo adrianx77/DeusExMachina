@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>出口神器DeusExMachina_v1.1（翔哥出品，必属精品，版权所有，盗版必究）</string>
+   <string>出口神器DeusExMachina_v2.0（翔哥出品，必属精品，版权所有，盗版必究）</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="sizePolicy">

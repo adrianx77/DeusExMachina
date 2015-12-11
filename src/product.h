@@ -49,6 +49,33 @@ public:
     float getTotalVolume () const;
     int getPakNumber () const;
 
+    QString id() const;
+    void setId(const QString &id);
+
+    QString nameEn() const;
+    void setNameEn(const QString &nameEn);
+
+    QString type() const;
+    void setType(const QString &type);
+
+    QString haiguan() const;
+    void setHaiguan(const QString &haiguan);
+
+    QString birth() const;
+    void setBirth(const QString &birth);
+
+    QString pc() const;
+    void setPc(const QString &pc);
+
+    QString carton() const;
+    void setCarton(const QString &carton);
+
+    QString descZh() const;
+    void setDescZh(const QString &descZh);
+
+    QString descEn() const;
+    void setDescEn(const QString &descEn);
+
 private:
     int         m_number;
     float       m_priceIn;
@@ -63,6 +90,16 @@ private:
     float       m_zTax;
     float       m_xTax;
     float       m_tTax;
+
+	QString		m_id;
+	QString     m_nameEn;
+	QString		m_type;
+	QString     m_haiguan;
+	QString		m_birth;
+	QString     m_pc;
+	QString     m_carton;
+	QString     m_descZh;
+	QString     m_descEn;
 };
 
 #endif // PRODUCT_H
