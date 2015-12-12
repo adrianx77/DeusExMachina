@@ -1,5 +1,4 @@
 #include "product.h"
-#include <math.h>
 #include <QString>
 
 Product::Product()
@@ -123,7 +122,7 @@ int Product::getPakNumber () const
 {
     if (m_pakUnit == 0)
         return 0;
-    return (int)ceil((float)m_number / (float)m_pakUnit);
+    return (int)ceilf((float)m_number / (float)m_pakUnit);
 }
 QString Product::id() const
 {

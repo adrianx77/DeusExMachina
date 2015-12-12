@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1500</width>
-    <height>761</height>
+    <height>780</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,13 +19,445 @@
   <property name="minimumSize">
    <size>
     <width>1500</width>
-    <height>761</height>
+    <height>780</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="1" colspan="4">
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>210</height>
+      </size>
+     </property>
+     <property name="title">
+      <string>产品：</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QTreeWidget" name="productList">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>100</height>
+         </size>
+        </property>
+        <attribute name="headerDefaultSectionSize">
+         <number>100</number>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Index</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>名称</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>包裹数量</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>产品数量</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>单位进价（本币）</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>单位卖价（外币）</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>增值税</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>消费税</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>出口退税</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>毛重</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>净重</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>体积</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>总买价（本币）</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>总卖价（外币）</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>总毛重</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>总体积</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_4">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>1000</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1000</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QSpinBox" name="totalProductNumber">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>642</x>
+           <y>38</y>
+           <width>81</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="maximum">
+          <number>999999999</number>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_9">
+         <property name="geometry">
+          <rect>
+           <x>9</x>
+           <y>19</y>
+           <width>96</width>
+           <height>12</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>总买价（本币）：</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="deleteProduct">
+         <property name="geometry">
+          <rect>
+           <x>920</x>
+           <y>30</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>删除</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_11">
+         <property name="geometry">
+          <rect>
+           <x>9</x>
+           <y>44</y>
+           <width>96</width>
+           <height>12</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>总卖价（外币）：</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_14">
+         <property name="geometry">
+          <rect>
+           <x>573</x>
+           <y>43</y>
+           <width>72</width>
+           <height>12</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>总产品数量：</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_10">
+         <property name="geometry">
+          <rect>
+           <x>228</x>
+           <y>19</y>
+           <width>48</width>
+           <height>12</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>总毛重：</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_12">
+         <property name="geometry">
+          <rect>
+           <x>228</x>
+           <y>44</y>
+           <width>48</width>
+           <height>12</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>总体积：</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="modifyProduct">
+         <property name="geometry">
+          <rect>
+           <x>838</x>
+           <y>30</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>修改</string>
+         </property>
+        </widget>
+        <widget class="QDoubleSpinBox" name="totalMWeight">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>278</x>
+           <y>14</y>
+           <width>121</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="maximum">
+          <double>999999999.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>0.000000000000000</double>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="addProduct">
+         <property name="geometry">
+          <rect>
+           <x>755</x>
+           <y>30</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>添加</string>
+         </property>
+        </widget>
+        <widget class="QDoubleSpinBox" name="totalVolume">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>278</x>
+           <y>39</y>
+           <width>121</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="maximum">
+          <double>999999999.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>0.000000000000000</double>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="totalPakNumber">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>484</x>
+           <y>39</y>
+           <width>81</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="maximum">
+          <number>999999999</number>
+         </property>
+        </widget>
+        <widget class="QDoubleSpinBox" name="totalPriceIn">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>103</x>
+           <y>14</y>
+           <width>121</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="maximum">
+          <double>999999999.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>0.000000000000000</double>
+         </property>
+        </widget>
+        <widget class="QDoubleSpinBox" name="totalPriceOut">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>103</x>
+           <y>39</y>
+           <width>121</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="maximum">
+          <double>999999999.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>0.000000000000000</double>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_13">
+         <property name="geometry">
+          <rect>
+           <x>404</x>
+           <y>43</y>
+           <width>72</width>
+           <height>12</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>总包裹数量：</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_85">
+         <property name="geometry">
+          <rect>
+           <x>403</x>
+           <y>19</y>
+           <width>48</width>
+           <height>12</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>总净重：</string>
+         </property>
+        </widget>
+        <widget class="QDoubleSpinBox" name="totalJWeight">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>453</x>
+           <y>14</y>
+           <width>121</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="maximum">
+          <double>999999999.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>0.000000000000000</double>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
    <item row="0" column="0" rowspan="2">
     <widget class="QGroupBox" name="groupBox">
      <property name="sizePolicy">
@@ -717,493 +1149,35 @@
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-    </widget>
-   </item>
-   <item row="0" column="1" colspan="3">
-    <widget class="QGroupBox" name="groupBox_2">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>210</height>
-      </size>
-     </property>
-     <property name="title">
-      <string>产品：</string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QTreeWidget" name="productList">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>100</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>100</height>
-         </size>
-        </property>
-        <attribute name="headerDefaultSectionSize">
-         <number>100</number>
-        </attribute>
-        <column>
-         <property name="text">
-          <string>Index</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>名称</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>包裹数量</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>产品数量</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>单位进价（本币）</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>单位卖价（外币）</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>增值税</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>消费税</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>出口退税</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>毛重</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>净重</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>体积</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>总买价（本币）</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>总卖价（外币）</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>总毛重</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>总体积</string>
-         </property>
-        </column>
-       </widget>
-      </item>
-      <item>
-       <widget class="QFrame" name="frame_4">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>1000</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>1000</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <widget class="QSpinBox" name="totalProductNumber">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="geometry">
-          <rect>
-           <x>642</x>
-           <y>27</y>
-           <width>81</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-         <property name="maximum">
-          <number>999999999</number>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_9">
-         <property name="geometry">
-          <rect>
-           <x>9</x>
-           <y>8</y>
-           <width>96</width>
-           <height>12</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>总买价（本币）：</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="deleteProduct">
-         <property name="geometry">
-          <rect>
-           <x>920</x>
-           <y>1</y>
-           <width>75</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>删除</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_11">
-         <property name="geometry">
-          <rect>
-           <x>9</x>
-           <y>33</y>
-           <width>96</width>
-           <height>12</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>总卖价（外币）：</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_14">
-         <property name="geometry">
-          <rect>
-           <x>573</x>
-           <y>32</y>
-           <width>72</width>
-           <height>12</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>总产品数量：</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_10">
-         <property name="geometry">
-          <rect>
-           <x>228</x>
-           <y>8</y>
-           <width>48</width>
-           <height>12</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>总毛重：</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_12">
-         <property name="geometry">
-          <rect>
-           <x>228</x>
-           <y>33</y>
-           <width>48</width>
-           <height>12</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>总体积：</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="modifyProduct">
-         <property name="geometry">
-          <rect>
-           <x>838</x>
-           <y>1</y>
-           <width>75</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>修改</string>
-         </property>
-        </widget>
-        <widget class="QDoubleSpinBox" name="totalMWeight">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="geometry">
-          <rect>
-           <x>278</x>
-           <y>3</y>
-           <width>121</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-         <property name="maximum">
-          <double>999999999.000000000000000</double>
-         </property>
-         <property name="value">
-          <double>0.000000000000000</double>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="addProduct">
-         <property name="geometry">
-          <rect>
-           <x>755</x>
-           <y>1</y>
-           <width>75</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>添加</string>
-         </property>
-        </widget>
-        <widget class="QDoubleSpinBox" name="totalVolume">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="geometry">
-          <rect>
-           <x>278</x>
-           <y>28</y>
-           <width>121</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-         <property name="maximum">
-          <double>999999999.000000000000000</double>
-         </property>
-         <property name="value">
-          <double>0.000000000000000</double>
-         </property>
-        </widget>
-        <widget class="QSpinBox" name="totalPakNumber">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="geometry">
-          <rect>
-           <x>484</x>
-           <y>28</y>
-           <width>81</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-         <property name="maximum">
-          <number>999999999</number>
-         </property>
-        </widget>
-        <widget class="QDoubleSpinBox" name="totalPriceIn">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="geometry">
-          <rect>
-           <x>103</x>
-           <y>3</y>
-           <width>121</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-         <property name="maximum">
-          <double>999999999.000000000000000</double>
-         </property>
-         <property name="value">
-          <double>0.000000000000000</double>
-         </property>
-        </widget>
-        <widget class="QDoubleSpinBox" name="totalPriceOut">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="geometry">
-          <rect>
-           <x>103</x>
-           <y>28</y>
-           <width>121</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-         <property name="maximum">
-          <double>999999999.000000000000000</double>
-         </property>
-         <property name="value">
-          <double>0.000000000000000</double>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_13">
-         <property name="geometry">
-          <rect>
-           <x>404</x>
-           <y>32</y>
-           <width>72</width>
-           <height>12</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>总包裹数量：</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="totalPriceOutEn">
-         <property name="geometry">
-          <rect>
-           <x>102</x>
-           <y>50</y>
-           <width>371</width>
-           <height>20</height>
-          </rect>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_80">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>55</y>
-           <width>72</width>
-           <height>12</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>总卖价英文：</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_83">
-         <property name="geometry">
-          <rect>
-           <x>485</x>
-           <y>53</y>
-           <width>72</width>
-           <height>12</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>总包裹英文：</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="totalPakNumberEn">
-         <property name="geometry">
-          <rect>
-           <x>565</x>
-           <y>48</y>
-           <width>421</width>
-           <height>20</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_85">
-         <property name="geometry">
-          <rect>
-           <x>403</x>
-           <y>8</y>
-           <width>48</width>
-           <height>12</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>总净重：</string>
-         </property>
-        </widget>
-        <widget class="QDoubleSpinBox" name="totalJWeight">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="geometry">
-          <rect>
-           <x>453</x>
-           <y>3</y>
-           <width>121</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-         <property name="maximum">
-          <double>999999999.000000000000000</double>
-         </property>
-         <property name="value">
-          <double>0.000000000000000</double>
-         </property>
-        </widget>
-       </widget>
-      </item>
-     </layout>
+     <widget class="QTextBrowser" name="textBrowser">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>517</y>
+        <width>171</width>
+        <height>241</height>
+       </rect>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;注意：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#5500ff;&quot;&gt;(蓝色字体)&lt;/span&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;为每单必须检查重新填写项目&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#ff0000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#00007f;&quot;&gt;(紫色字体)&lt;/span&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;为根据实际情况选择填写项目&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#ff0000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#aa007f;&quot;&gt;(暗粉色字体)&lt;/span&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;是自动导出表格所需要的数据&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#ff0000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#005500;&quot;&gt;(深绿色字体)&lt;/span&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;也是自动导出表格所需要的数据，但是需要在填单过程中才能获取。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#ff0000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;(黑色字体)&lt;/span&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;基本上是固定数值的项目&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
     </widget>
    </item>
    <item row="1" column="1">
@@ -1265,7 +1239,7 @@
        <double>999999999.000000000000000</double>
       </property>
       <property name="value">
-       <double>100.000000000000000</double>
+       <double>80.000000000000000</double>
       </property>
      </widget>
      <widget class="QLabel" name="label_8">
@@ -1319,7 +1293,7 @@
        <double>999999999.000000000000000</double>
       </property>
       <property name="value">
-       <double>100.000000000000000</double>
+       <double>114.000000000000000</double>
       </property>
      </widget>
      <widget class="QLabel" name="label_25">
@@ -1351,7 +1325,7 @@
        <double>999999999.000000000000000</double>
       </property>
       <property name="value">
-       <double>1500.000000000000000</double>
+       <double>1730.000000000000000</double>
       </property>
      </widget>
      <widget class="QDoubleSpinBox" name="h10">
@@ -1367,7 +1341,7 @@
        <double>999999999.000000000000000</double>
       </property>
       <property name="value">
-       <double>4000.000000000000000</double>
+       <double>3280.000000000000000</double>
       </property>
      </widget>
      <widget class="QLabel" name="label_26">
@@ -1399,7 +1373,7 @@
        <double>999999999.000000000000000</double>
       </property>
       <property name="value">
-       <double>50.000000000000000</double>
+       <double>69.000000000000000</double>
       </property>
      </widget>
      <widget class="QLabel" name="label_27">
@@ -1447,7 +1421,7 @@
        <double>999999999.000000000000000</double>
       </property>
       <property name="value">
-       <double>50.000000000000000</double>
+       <double>84.000000000000000</double>
       </property>
      </widget>
      <widget class="QLabel" name="label_29">
@@ -1479,7 +1453,7 @@
        <double>999999999.000000000000000</double>
       </property>
       <property name="value">
-       <double>150.000000000000000</double>
+       <double>131.000000000000000</double>
       </property>
      </widget>
      <widget class="QDoubleSpinBox" name="h12">
@@ -1495,7 +1469,7 @@
        <double>999999999.000000000000000</double>
       </property>
       <property name="value">
-       <double>150.000000000000000</double>
+       <double>160.000000000000000</double>
       </property>
      </widget>
      <widget class="QLabel" name="label_30">
@@ -1645,799 +1619,14 @@
      </widget>
     </widget>
    </item>
-   <item row="1" column="2">
-    <widget class="QGroupBox" name="groupBox_4">
-     <property name="maximumSize">
+   <item row="1" column="4">
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="minimumSize">
       <size>
-       <width>190</width>
-       <height>16777215</height>
+       <width>350</width>
+       <height>0</height>
       </size>
      </property>
-     <property name="title">
-      <string>拓展填写信息</string>
-     </property>
-     <widget class="QLabel" name="label_16">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>62</y>
-        <width>72</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 255)</string>
-      </property>
-      <property name="text">
-       <string>报检次数：</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="t1">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>58</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="readOnly">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>999999999</number>
-      </property>
-      <property name="value">
-       <number>1</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_18">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>85</y>
-        <width>72</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 255)</string>
-      </property>
-      <property name="text">
-       <string>报关次数：</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="t2">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>81</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="readOnly">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>999999999</number>
-      </property>
-      <property name="value">
-       <number>1</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_20">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>109</y>
-        <width>72</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 255)</string>
-      </property>
-      <property name="text">
-       <string>出口国汇率：</string>
-      </property>
-     </widget>
-     <widget class="QDoubleSpinBox" name="t3">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>105</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="readOnly">
-       <bool>false</bool>
-      </property>
-      <property name="decimals">
-       <number>5</number>
-      </property>
-      <property name="maximum">
-       <double>999999999.000000000000000</double>
-      </property>
-      <property name="value">
-       <double>10.000000000000000</double>
-      </property>
-     </widget>
-     <widget class="QFrame" name="frame">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>128</y>
-        <width>161</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLabel" name="label_31">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>5</y>
-         <width>84</width>
-         <height>12</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 255)</string>
-       </property>
-       <property name="text">
-        <string>海运方式选择：</string>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="t4_0">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>20</y>
-         <width>47</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>拼箱</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="t4_1">
-       <property name="geometry">
-        <rect>
-         <x>58</x>
-         <y>20</y>
-         <width>47</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>20箱</string>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="t4_2">
-       <property name="geometry">
-        <rect>
-         <x>109</x>
-         <y>20</y>
-         <width>47</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>40箱</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QDoubleSpinBox" name="t6">
-      <property name="geometry">
-       <rect>
-        <x>86</x>
-        <y>196</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="maximum">
-       <double>999999999.000000000000000</double>
-      </property>
-      <property name="value">
-       <double>0.960000000000000</double>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_33">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>201</y>
-        <width>60</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 255)</string>
-      </property>
-      <property name="text">
-       <string>保险费率：</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_34">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>200</y>
-        <width>6</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>%</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_35">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>176</y>
-        <width>72</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>保险加成率：</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_36">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>175</y>
-        <width>6</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>%</string>
-      </property>
-     </widget>
-     <widget class="QDoubleSpinBox" name="t5">
-      <property name="geometry">
-       <rect>
-        <x>86</x>
-        <y>171</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="maximum">
-       <double>999999999.000000000000000</double>
-      </property>
-      <property name="value">
-       <double>10.000000000000000</double>
-      </property>
-     </widget>
-     <widget class="QFrame" name="frame_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>15</y>
-        <width>161</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLabel" name="label_37">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>5</y>
-         <width>84</width>
-         <height>12</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 255)</string>
-       </property>
-       <property name="text">
-        <string>成交方式：</string>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="t0_0">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>20</y>
-         <width>47</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>FOB</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="t0_1">
-       <property name="geometry">
-        <rect>
-         <x>58</x>
-         <y>20</y>
-         <width>47</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>CFR</string>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="t0_2">
-       <property name="geometry">
-        <rect>
-         <x>109</x>
-         <y>20</y>
-         <width>47</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>CIF</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QFrame" name="frame_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>219</y>
-        <width>161</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLabel" name="label_51">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>5</y>
-         <width>108</width>
-         <height>12</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 255)</string>
-       </property>
-       <property name="text">
-        <string>银行结算方式选择：</string>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="t6_0">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>20</y>
-         <width>47</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>T/T</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="t6_1">
-       <property name="geometry">
-        <rect>
-         <x>103</x>
-         <y>20</y>
-         <width>47</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>L/C</string>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="t6_2">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>40</y>
-         <width>47</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>D/P</string>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="t6_3">
-       <property name="geometry">
-        <rect>
-         <x>103</x>
-         <y>39</y>
-         <width>47</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>D/A</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QLabel" name="label_47">
-      <property name="geometry">
-       <rect>
-        <x>8</x>
-        <y>281</y>
-        <width>78</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 255)</string>
-      </property>
-      <property name="text">
-       <string>L/C通知次数：</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="t8">
-      <property name="geometry">
-       <rect>
-        <x>105</x>
-        <y>300</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="readOnly">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>999999999</number>
-      </property>
-      <property name="value">
-       <number>0</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_48">
-      <property name="geometry">
-       <rect>
-        <x>8</x>
-        <y>304</y>
-        <width>102</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 255)</string>
-      </property>
-      <property name="text">
-       <string>L/C修改通知次数：</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="t7">
-      <property name="geometry">
-       <rect>
-        <x>105</x>
-        <y>277</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="readOnly">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>999999999</number>
-      </property>
-      <property name="value">
-       <number>0</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_49">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>330</y>
-        <width>60</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 255)</string>
-      </property>
-      <property name="text">
-       <string>证书个数：</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="t9">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>326</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="readOnly">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>999999999</number>
-      </property>
-      <property name="value">
-       <number>1</number>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="t10">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>350</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="readOnly">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>999999999</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_50">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>354</y>
-        <width>60</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 255)</string>
-      </property>
-      <property name="text">
-       <string>邮寄次数：</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="t11">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>373</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="readOnly">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>999999999</number>
-      </property>
-      <property name="value">
-       <number>1</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_64">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>377</y>
-        <width>60</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 255)</string>
-      </property>
-      <property name="text">
-       <string>核销次数：</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_65">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>405</y>
-        <width>60</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 127)</string>
-      </property>
-      <property name="text">
-       <string>广告次数：</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="t12">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>401</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="readOnly">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>999999999</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_66">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>428</y>
-        <width>60</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 127)</string>
-      </property>
-      <property name="text">
-       <string>信息次数：</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="t13">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>424</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="readOnly">
-       <bool>false</bool>
-      </property>
-      <property name="maximum">
-       <number>999999999</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_67">
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>452</y>
-        <width>72</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 127)</string>
-      </property>
-      <property name="text">
-       <string>贷款金额：</string>
-      </property>
-     </widget>
-     <widget class="QDoubleSpinBox" name="t14">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>447</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="maximum">
-       <double>999999999.000000000000000</double>
-      </property>
-      <property name="value">
-       <double>0.000000000000000</double>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_68">
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>475</y>
-        <width>72</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 127)</string>
-      </property>
-      <property name="text">
-       <string>汇款金额：</string>
-      </property>
-     </widget>
-     <widget class="QDoubleSpinBox" name="t15">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>470</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="maximum">
-       <double>999999999.000000000000000</double>
-      </property>
-      <property name="value">
-       <double>0.000000000000000</double>
-      </property>
-     </widget>
-     <widget class="Line" name="line">
-      <property name="geometry">
-       <rect>
-        <x>36</x>
-        <y>397</y>
-        <width>118</width>
-        <height>3</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_84">
-      <property name="geometry">
-       <rect>
-        <x>12</x>
-        <y>497</y>
-        <width>72</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 127)</string>
-      </property>
-      <property name="text">
-       <string>库存成本：</string>
-      </property>
-     </widget>
-     <widget class="QDoubleSpinBox" name="t16">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>492</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="maximum">
-       <double>999999999.000000000000000</double>
-      </property>
-      <property name="value">
-       <double>0.000000000000000</double>
-      </property>
-     </widget>
-    </widget>
-   </item>
-   <item row="1" column="3">
-    <widget class="QGroupBox" name="groupBox_3">
      <property name="title">
       <string>出口预算：</string>
      </property>
@@ -2479,8 +1668,8 @@
      <widget class="QPushButton" name="computefinalInformation">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>454</y>
+        <x>260</x>
+        <y>460</y>
         <width>75</width>
         <height>31</height>
        </rect>
@@ -3020,9 +2209,9 @@
      <widget class="QLabel" name="f16">
       <property name="geometry">
        <rect>
-        <x>9</x>
-        <y>486</y>
-        <width>421</width>
+        <x>16</x>
+        <y>498</y>
+        <width>321</width>
         <height>16</height>
        </rect>
       </property>
@@ -3030,14 +2219,14 @@
        <string notr="true">color: rgb(255, 0, 0)</string>
       </property>
       <property name="text">
-       <string/>
+       <string>~~~~~~</string>
       </property>
      </widget>
      <widget class="QLabel" name="f17">
       <property name="geometry">
        <rect>
-        <x>15</x>
-        <y>504</y>
+        <x>16</x>
+        <y>516</y>
         <width>331</width>
         <height>16</height>
        </rect>
@@ -3046,7 +2235,7 @@
        <string notr="true">color: rgb(255, 0, 0)</string>
       </property>
       <property name="text">
-       <string/>
+       <string>#####</string>
       </property>
      </widget>
      <widget class="QDoubleSpinBox" name="f0">
@@ -3167,11 +2356,831 @@
        <string>核销费用：</string>
       </property>
      </widget>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QGroupBox" name="groupBox_4">
+     <property name="maximumSize">
+      <size>
+       <width>190</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="title">
+      <string>拓展填写信息</string>
+     </property>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>62</y>
+        <width>72</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 255)</string>
+      </property>
+      <property name="text">
+       <string>报检次数：</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="t1">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>58</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>999999999</number>
+      </property>
+      <property name="value">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>85</y>
+        <width>72</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 255)</string>
+      </property>
+      <property name="text">
+       <string>报关次数：</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="t2">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>81</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>999999999</number>
+      </property>
+      <property name="value">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>109</y>
+        <width>72</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 255)</string>
+      </property>
+      <property name="text">
+       <string>出口国汇率：</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="t3">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>105</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="decimals">
+       <number>5</number>
+      </property>
+      <property name="maximum">
+       <double>999999999.000000000000000</double>
+      </property>
+      <property name="value">
+       <double>7.976900000000000</double>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>128</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label_31">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>5</y>
+         <width>84</width>
+         <height>12</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 255)</string>
+       </property>
+       <property name="text">
+        <string>海运方式选择：</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="t4_0">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>47</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>拼箱</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="t4_1">
+       <property name="geometry">
+        <rect>
+         <x>58</x>
+         <y>20</y>
+         <width>47</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>20箱</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="t4_2">
+       <property name="geometry">
+        <rect>
+         <x>109</x>
+         <y>20</y>
+         <width>47</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>40箱</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QDoubleSpinBox" name="t6">
+      <property name="geometry">
+       <rect>
+        <x>86</x>
+        <y>196</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <double>999999999.000000000000000</double>
+      </property>
+      <property name="value">
+       <double>0.960000000000000</double>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_33">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>201</y>
+        <width>60</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 255)</string>
+      </property>
+      <property name="text">
+       <string>保险费率：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_34">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>200</y>
+        <width>6</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>%</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_35">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>176</y>
+        <width>72</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 255)</string>
+      </property>
+      <property name="text">
+       <string>保险加成率：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_36">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>175</y>
+        <width>6</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>%</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="t5">
+      <property name="geometry">
+       <rect>
+        <x>86</x>
+        <y>171</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <double>999999999.000000000000000</double>
+      </property>
+      <property name="value">
+       <double>10.000000000000000</double>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>15</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label_37">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>5</y>
+         <width>84</width>
+         <height>12</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 255)</string>
+       </property>
+       <property name="text">
+        <string>成交方式：</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="t0_0">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>47</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>FOB</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="t0_1">
+       <property name="geometry">
+        <rect>
+         <x>58</x>
+         <y>20</y>
+         <width>47</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>CFR</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="t0_2">
+       <property name="geometry">
+        <rect>
+         <x>109</x>
+         <y>20</y>
+         <width>47</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>CIF</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QFrame" name="frame_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>219</y>
+        <width>161</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label_51">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>5</y>
+         <width>108</width>
+         <height>12</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 255)</string>
+       </property>
+       <property name="text">
+        <string>银行结算方式选择：</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="t6_0">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>47</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>T/T</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="t6_1">
+       <property name="geometry">
+        <rect>
+         <x>103</x>
+         <y>20</y>
+         <width>47</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>L/C</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="t6_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>47</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>D/P</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="t6_3">
+       <property name="geometry">
+        <rect>
+         <x>103</x>
+         <y>39</y>
+         <width>47</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>D/A</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="label_47">
+      <property name="geometry">
+       <rect>
+        <x>8</x>
+        <y>281</y>
+        <width>78</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 255)</string>
+      </property>
+      <property name="text">
+       <string>L/C通知次数：</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="t8">
+      <property name="geometry">
+       <rect>
+        <x>105</x>
+        <y>300</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>999999999</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_48">
+      <property name="geometry">
+       <rect>
+        <x>8</x>
+        <y>304</y>
+        <width>102</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 255)</string>
+      </property>
+      <property name="text">
+       <string>L/C修改通知次数：</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="t7">
+      <property name="geometry">
+       <rect>
+        <x>105</x>
+        <y>277</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>999999999</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_49">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>330</y>
+        <width>60</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 255)</string>
+      </property>
+      <property name="text">
+       <string>证书个数：</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="t9">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>326</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>999999999</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="t10">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>373</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>999999999</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_50">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>377</y>
+        <width>60</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 255)</string>
+      </property>
+      <property name="text">
+       <string>邮寄次数：</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="t11">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>396</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>999999999</number>
+      </property>
+      <property name="value">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_64">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>400</y>
+        <width>60</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 255)</string>
+      </property>
+      <property name="text">
+       <string>核销次数：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_65">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>428</y>
+        <width>60</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>广告次数：</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="t12">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>424</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>999999999</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_66">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>451</y>
+        <width>60</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>信息次数：</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="t13">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>447</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>999999999</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_67">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>475</y>
+        <width>72</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>贷款金额：</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="t14">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>470</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <double>999999999.000000000000000</double>
+      </property>
+      <property name="value">
+       <double>0.000000000000000</double>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_68">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>498</y>
+        <width>72</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>汇款金额：</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="t15">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>493</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <double>999999999.000000000000000</double>
+      </property>
+      <property name="value">
+       <double>0.000000000000000</double>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>36</x>
+        <y>420</y>
+        <width>118</width>
+        <height>3</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_84">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>520</y>
+        <width>72</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>库存成本：</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="t16">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>515</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <double>999999999.000000000000000</double>
+      </property>
+      <property name="value">
+       <double>0.000000000000000</double>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_123">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>354</y>
+        <width>156</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 0, 0)</string>
+      </property>
+      <property name="text">
+       <string>邮寄次数在T/T模式下一般为1</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="1" column="3">
+    <widget class="QGroupBox" name="groupBox_8">
+     <property name="minimumSize">
+      <size>
+       <width>530</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="title">
+      <string>导出信息</string>
+     </property>
      <widget class="QGroupBox" name="groupBox_6">
       <property name="geometry">
        <rect>
-        <x>351</x>
-        <y>10</y>
+        <x>10</x>
+        <y>20</y>
         <width>501</width>
         <height>231</height>
        </rect>
@@ -3214,6 +3223,9 @@
          <height>12</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
+       </property>
        <property name="text">
         <string>企业法人（英）：</string>
        </property>
@@ -3227,6 +3239,9 @@
          <height>12</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
+       </property>
        <property name="text">
         <string>单位代码：</string>
        </property>
@@ -3239,6 +3254,9 @@
          <width>36</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
        </property>
        <property name="text">
         <string>网止：</string>
@@ -3265,6 +3283,9 @@
          <width>60</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
        </property>
        <property name="text">
         <string>海关代码：</string>
@@ -3305,6 +3326,9 @@
          <height>12</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
+       </property>
        <property name="text">
         <string>用户编号：</string>
        </property>
@@ -3331,6 +3355,9 @@
          <height>12</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
+       </property>
        <property name="text">
         <string>传真：</string>
        </property>
@@ -3343,6 +3370,9 @@
          <width>36</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
        </property>
        <property name="text">
         <string>邮编：</string>
@@ -3369,6 +3399,9 @@
          <width>36</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
        </property>
        <property name="text">
         <string>email:</string>
@@ -3422,6 +3455,9 @@
          <height>12</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
+       </property>
        <property name="text">
         <string>公司地址（英）：</string>
        </property>
@@ -3434,6 +3470,9 @@
          <width>96</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
        </property>
        <property name="text">
         <string>公式全称（英）：</string>
@@ -3460,6 +3499,9 @@
          <width>96</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
        </property>
        <property name="text">
         <string>公司地址（中）：</string>
@@ -3513,6 +3555,9 @@
          <height>12</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
+       </property>
        <property name="text">
         <string>企业法人（中）：</string>
        </property>
@@ -3525,6 +3570,9 @@
          <width>36</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
        </property>
        <property name="text">
         <string>电话：</string>
@@ -3565,6 +3613,9 @@
          <height>12</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 85, 0)</string>
+       </property>
        <property name="text">
         <string>账号：</string>
        </property>
@@ -3577,6 +3628,9 @@
          <width>96</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
        </property>
        <property name="text">
         <string>公式全称（中）：</string>
@@ -3591,6 +3645,9 @@
          <height>12</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
+       </property>
        <property name="text">
         <string>税务登记号：</string>
        </property>
@@ -3599,8 +3656,8 @@
      <widget class="QGroupBox" name="groupBox_7">
       <property name="geometry">
        <rect>
-        <x>350</x>
-        <y>240</y>
+        <x>10</x>
+        <y>250</y>
         <width>531</width>
         <height>281</height>
        </rect>
@@ -3616,6 +3673,9 @@
          <width>84</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
        </property>
        <property name="text">
         <string>出口公司名称：</string>
@@ -3656,6 +3716,9 @@
          <height>12</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
+       </property>
        <property name="text">
         <string>合同编号：</string>
        </property>
@@ -3665,7 +3728,7 @@
         <rect>
          <x>97</x>
          <y>76</y>
-         <width>61</width>
+         <width>71</width>
          <height>20</height>
         </rect>
        </property>
@@ -3682,6 +3745,9 @@
          <height>12</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
+       </property>
        <property name="text">
         <string>出口国家（中）：</string>
        </property>
@@ -3689,7 +3755,7 @@
       <widget class="QLabel" name="label_105">
        <property name="geometry">
         <rect>
-         <x>166</x>
+         <x>169</x>
          <y>79</y>
          <width>96</width>
          <height>12</height>
@@ -3702,9 +3768,9 @@
       <widget class="QLineEdit" name="e5">
        <property name="geometry">
         <rect>
-         <x>263</x>
+         <x>266</x>
          <y>75</y>
-         <width>61</width>
+         <width>81</width>
          <height>20</height>
         </rect>
        </property>
@@ -3720,6 +3786,9 @@
          <width>84</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
        </property>
        <property name="text">
         <string>出口公司地址：</string>
@@ -3747,6 +3816,9 @@
          <height>12</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
+       </property>
        <property name="text">
         <string>出发港口（中）：</string>
        </property>
@@ -3761,7 +3833,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Haikou</string>
+        <string>HAIKOU</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_108">
@@ -3787,7 +3859,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>海口</string>
+        <string>海口港</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_109">
@@ -3799,6 +3871,9 @@
          <height>12</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
+       </property>
        <property name="text">
         <string>到达港口（中）：</string>
        </property>
@@ -3806,21 +3881,21 @@
       <widget class="QLineEdit" name="e9">
        <property name="geometry">
         <rect>
-         <x>264</x>
-         <y>118</y>
-         <width>61</width>
+         <x>291</x>
+         <y>120</y>
+         <width>71</width>
          <height>20</height>
         </rect>
        </property>
        <property name="text">
-        <string>Milan</string>
+        <string>REYKJAVIK</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_110">
        <property name="geometry">
         <rect>
-         <x>167</x>
-         <y>122</y>
+         <x>194</x>
+         <y>124</y>
          <width>96</width>
          <height>12</height>
         </rect>
@@ -3834,12 +3909,12 @@
         <rect>
          <x>98</x>
          <y>119</y>
-         <width>61</width>
+         <width>91</width>
          <height>20</height>
         </rect>
        </property>
        <property name="text">
-        <string>米兰</string>
+        <string>雷克雅未克</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="e1">
@@ -3890,6 +3965,9 @@
          <height>12</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
+       </property>
        <property name="text">
         <string>银行编号：</string>
        </property>
@@ -3915,6 +3993,9 @@
          <width>96</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
        </property>
        <property name="text">
         <string>银行全称（中）：</string>
@@ -3942,6 +4023,9 @@
          <height>12</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
+       </property>
        <property name="text">
         <string>银行全称（英）：</string>
        </property>
@@ -3949,11 +4033,14 @@
       <widget class="QLabel" name="label_115">
        <property name="geometry">
         <rect>
-         <x>350</x>
-         <y>18</y>
+         <x>342</x>
+         <y>13</y>
          <width>60</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 85, 0);</string>
        </property>
        <property name="text">
         <string>发票号：</string>
@@ -3962,24 +4049,27 @@
       <widget class="QLineEdit" name="e20">
        <property name="geometry">
         <rect>
-         <x>410</x>
-         <y>12</y>
+         <x>402</x>
+         <y>7</y>
          <width>111</width>
          <height>20</height>
         </rect>
        </property>
        <property name="text">
-        <string>没有可不填-发票号</string>
+        <string>参见发票单据</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_116">
        <property name="geometry">
         <rect>
-         <x>351</x>
-         <y>41</y>
+         <x>343</x>
+         <y>36</y>
          <width>60</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 85, 0);</string>
        </property>
        <property name="text">
         <string>信用证号：</string>
@@ -3988,37 +4078,40 @@
       <widget class="QLineEdit" name="e21">
        <property name="geometry">
         <rect>
-         <x>411</x>
-         <y>35</y>
+         <x>403</x>
+         <y>30</y>
          <width>111</width>
          <height>20</height>
         </rect>
        </property>
        <property name="text">
-        <string>没有可不填-信用证号</string>
+        <string>参见信用证单据</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="e23">
        <property name="geometry">
         <rect>
-         <x>412</x>
-         <y>81</y>
+         <x>404</x>
+         <y>76</y>
          <width>111</width>
          <height>20</height>
         </rect>
        </property>
        <property name="text">
-        <string>没有可不填-航次</string>
+        <string>参见配舱通知</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_117">
        <property name="geometry">
         <rect>
-         <x>351</x>
-         <y>64</y>
+         <x>343</x>
+         <y>59</y>
          <width>60</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 85, 0);</string>
        </property>
        <property name="text">
         <string>船名：</string>
@@ -4027,24 +4120,27 @@
       <widget class="QLineEdit" name="e22">
        <property name="geometry">
         <rect>
-         <x>411</x>
-         <y>58</y>
+         <x>403</x>
+         <y>53</y>
          <width>111</width>
          <height>20</height>
         </rect>
        </property>
        <property name="text">
-        <string>没有可不填-船名</string>
+        <string>参见配舱通知</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_118">
        <property name="geometry">
         <rect>
-         <x>352</x>
-         <y>87</y>
+         <x>344</x>
+         <y>82</y>
          <width>60</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 85, 0);</string>
        </property>
        <property name="text">
         <string>航次：</string>
@@ -4054,7 +4150,7 @@
        <property name="geometry">
         <rect>
          <x>400</x>
-         <y>210</y>
+         <y>240</y>
          <width>111</width>
          <height>31</height>
         </rect>
@@ -4066,24 +4162,27 @@
       <widget class="QLineEdit" name="e24">
        <property name="geometry">
         <rect>
-         <x>412</x>
-         <y>102</y>
+         <x>404</x>
+         <y>97</y>
          <width>111</width>
          <height>20</height>
         </rect>
        </property>
        <property name="text">
-        <string>没有可不填-核销单号</string>
+        <string>参见核销单</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_119">
        <property name="geometry">
         <rect>
-         <x>352</x>
-         <y>108</y>
+         <x>344</x>
+         <y>103</y>
          <width>60</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 85, 0);</string>
        </property>
        <property name="text">
         <string>核销单号：</string>
@@ -4111,6 +4210,9 @@
          <height>12</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
+       </property>
        <property name="text">
         <string>进货工厂地址：</string>
        </property>
@@ -4123,6 +4225,9 @@
          <width>96</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 127);</string>
        </property>
        <property name="text">
         <string>进货工厂名字：</string>
@@ -4149,6 +4254,9 @@
          <width>132</width>
          <height>12</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 0, 0)</string>
        </property>
        <property name="text">
         <string>以下只在买卖合同使用：</string>

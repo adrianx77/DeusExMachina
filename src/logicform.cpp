@@ -4,12 +4,12 @@
 #include "productlist.h"
 #include "product.h"
 #include "pronounceNum.h"
-#include <math.h>
 #include <QMessageBox>
 #include <QFile>
 #include <QDir>
 #include <QDateTime>
 #include <QTextStream>
+#include <math.h>
 
 #define MAX(a, b) ((a)>(b)?(a):(b))
 #define MIN(a, b) ((a)<(b)?(a):(b))
@@ -23,7 +23,7 @@
 #define TOKEN_FUNC_REG(name)    m_tokenFuns.insert(#name, &LogicForm::get_##name)
 
 
-#define TOKEN_PRODUCT_BEG(name) QString LogicForm::get_product##name(const Product* p) const               \
+#define TOKEN_PRODUCT_BEG(name) QString LogicForm::get_product##name(int idx, const Product* p) const               \
                                 {
 
 #define TOKEN_PRODUCT_END           return QString::fromWCharArray(L"无法提取产品信息");  \
@@ -87,9 +87,6 @@ void LogicForm::refreshProductList ()
     ui->totalVolume->setValue(m_productList->getTotalVolume());
     ui->totalPakNumber->setValue(m_productList->getTotalPakNumber());
     ui->totalProductNumber->setValue(m_productList->getTotalProductNumber());
-    PronounceNum p;
-    ui->totalPriceOutEn->setText(p.numToString(m_productList->getTotalPriceOut()).c_str());
-    ui->totalPakNumberEn->setText(p.numToString(m_productList->getTotalPakNumber()).c_str());
 }
 
 float LogicForm::getCostCIF () const
@@ -519,29 +516,40 @@ void LogicForm::on_computefinalInformation_clicked()
 void LogicForm::registerFileList ()
 {
     m_processList.push_back(QString::fromWCharArray(L"合同.html"));
-    m_processProductList.push_back(QString::fromWCharArray(L""));
+    m_processProductList.push_back(QString::fromWCharArray(L"合同商品明细表.html"));
+
     m_processList.push_back(QString::fromWCharArray(L"出口预算表.html"));
     m_processProductList.push_back(QString::fromWCharArray(L""));
+
     m_processList.push_back(QString::fromWCharArray(L"货物出运委托书.html"));
-    m_processProductList.push_back(QString::fromWCharArray(L""));
+    m_processProductList.push_back(QString::fromWCharArray(L"货物出运委托书商品明细表.html"));
+
     m_processList.push_back(QString::fromWCharArray(L"出境货物报检单.html"));
-    m_processProductList.push_back(QString::fromWCharArray(L""));
+    m_processProductList.push_back(QString::fromWCharArray(L"出境货物报检单商品明细表.html"));
+
     m_processList.push_back(QString::fromWCharArray(L"商业发票.html"));
-    m_processProductList.push_back(QString::fromWCharArray(L""));
+    m_processProductList.push_back(QString::fromWCharArray(L"商业发票商品明细表.html"));
+
     m_processList.push_back(QString::fromWCharArray(L"装箱单.html"));
-    m_processProductList.push_back(QString::fromWCharArray(L""));
+    m_processProductList.push_back(QString::fromWCharArray(L"装箱单商品明细表.html"));
+
     m_processList.push_back(QString::fromWCharArray(L"货物运输保险投保单.html"));
     m_processProductList.push_back(QString::fromWCharArray(L""));
+
     m_processList.push_back(QString::fromWCharArray(L"出口收汇核销单.html"));
-    m_processProductList.push_back(QString::fromWCharArray(L""));
+    m_processProductList.push_back(QString::fromWCharArray(L"出口收汇核销单商品明细表.html"));
+
     m_processList.push_back(QString::fromWCharArray(L"出口报关单.html"));
-    m_processProductList.push_back(QString::fromWCharArray(L""));
+    m_processProductList.push_back(QString::fromWCharArray(L"出口报关单商品明细表.html"));
+
     m_processList.push_back(QString::fromWCharArray(L"装船通知.html"));
     m_processProductList.push_back(QString::fromWCharArray(L""));
+
     m_processList.push_back(QString::fromWCharArray(L"出口收汇核销单送审登记表.html"));
     m_processProductList.push_back(QString::fromWCharArray(L""));
+
     m_processList.push_back(QString::fromWCharArray(L"买卖合同.html"));
-    m_processProductList.push_back(QString::fromWCharArray(L"商品明细表.html"));
+    m_processProductList.push_back(QString::fromWCharArray(L"买卖合同商品明细表.html"));
 }
 
 void LogicForm::registerTokenFunc ()
@@ -618,6 +626,8 @@ void LogicForm::registerTokenFunc ()
 
     TOKEN_FUNC_REG(TEMPLATE_WaiBi_Baoxianfei);
     TOKEN_FUNC_REG(TEMPLATE_WaiBi_Haiyunfei);
+    TOKEN_FUNC_REG(TEMPLATE_WaiBi_YouJiaGe_Baoxianfei);
+    TOKEN_FUNC_REG(TEMPLATE_WaiBi_YouJiaGe_Haiyunfei);
     TOKEN_FUNC_REG(TEMPLATE_ShipContainer);
 
     TOKEN_FUNC_REG(TEMPLATE_FactoryCompanyName);
@@ -637,10 +647,27 @@ void LogicForm::registerTokenFunc ()
     TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductDescEn);
     TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductDescZh);
     TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductQuantity);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductPakNo);
     TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductPC);
     TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductCarton);
     TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductPriceIn);
     TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductTotalPriceIn);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductPriceOut);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductTotalPriceOut);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_SellCurrency);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_ShippingMark);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductMaoWeight);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductJinWeight);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductTotalMaoWeight);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductTotalJinWeight);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductHSCode);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductMadeIn);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductVolume);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductTotalVolume);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductType);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_ProductIndex);
+    TOKEN_PRODUCT_REG(TEAMPLATE_P_ImportContryZh);
+
 }
 
 bool LogicForm::copyDir (const QString& fromDir, const QString& toDir)
@@ -733,7 +760,7 @@ void LogicForm::doReplaceProductTemplateFile (const QString& file, int productId
     while (itBeg != itEnd) {
         const QString& k = itBeg.key();
         LogicFormProductFunc v = itBeg.value();
-        const QString& result = (this->*v)(p);
+        const QString& result = (this->*v)(productIdx, p);
         text.replace(k, result);
         ++itBeg;
     }
@@ -1072,6 +1099,14 @@ TOKEN_FUNC_BEG(TEMPLATE_WaiBi_Haiyunfei)
 return QString::number(getRealShipCost()/UI_VALUE(t3), 'f', 2);
 TOKEN_FUNC_END
 
+TOKEN_FUNC_BEG(TEMPLATE_WaiBi_YouJiaGe_Baoxianfei)
+return QString::number(getWaibiInsurance(), 'f', 2);
+TOKEN_FUNC_END
+
+TOKEN_FUNC_BEG(TEMPLATE_WaiBi_YouJiaGe_Haiyunfei)
+return QString::number(getShipCost()/UI_VALUE(t3), 'f', 2);
+TOKEN_FUNC_END
+
 TOKEN_FUNC_BEG(TEMPLATE_ShipContainer)
 if(UI_CHECKED(t4_0))
     return QString::fromWCharArray(L"参考-配舱通知");
@@ -1142,6 +1177,10 @@ TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductQuantity)
 return QString::number(p->getNumber());
 TOKEN_PRODUCT_END
 
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductPakNo)
+return QString::number(p->getPakNumber());
+TOKEN_PRODUCT_END
+
 TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductPC)
 return p->pc();
 TOKEN_PRODUCT_END
@@ -1156,4 +1195,72 @@ TOKEN_PRODUCT_END
 
 TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductTotalPriceIn)
 return QString::number(p->getTotalPriceIn(), 'f', 2);
+TOKEN_PRODUCT_END
+
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductPriceOut)
+return QString::number(p->getPriceOut(), 'f', 2);
+TOKEN_PRODUCT_END
+
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductTotalPriceOut)
+return QString::number(p->getTotalPriceOut(), 'f', 2);
+TOKEN_PRODUCT_END
+
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_SellCurrency)
+return UI_TEXT(e1);
+TOKEN_PRODUCT_END
+
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_ShippingMark)
+QString result;
+result += p->nameEn();
+result += '\n';
+result += UI_TEXT(e5);
+result += '\n';
+result += "C/NO.1-" + QString::number(p->getPakNumber());
+result += '\n';
+result += "MADE IN CHINA";
+return result;
+TOKEN_PRODUCT_END
+
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductMaoWeight)
+return QString::number(p->getMWeight(), 'f', 2);
+TOKEN_PRODUCT_END
+
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductJinWeight)
+return QString::number(p->getJWeight(), 'f', 2);
+TOKEN_PRODUCT_END
+
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductTotalMaoWeight)
+return QString::number(p->getTotalMWeight(), 'f', 2);
+TOKEN_PRODUCT_END
+
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductTotalJinWeight)
+return QString::number(p->getTotalJWeight(), 'f', 2);
+TOKEN_PRODUCT_END
+
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductHSCode)
+return p->haiguan();
+TOKEN_PRODUCT_END
+
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductMadeIn)
+return p->birth();
+TOKEN_PRODUCT_END
+
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductVolume)
+return QString::number(p->getVolume(), 'f', 2);
+TOKEN_PRODUCT_END
+
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductTotalVolume)
+return QString::number(p->getTotalVolume(), 'f', 2);
+TOKEN_PRODUCT_END
+
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductType)
+return p->type();
+TOKEN_PRODUCT_END
+
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_ProductIndex)
+return QString::number(idx + 1);
+TOKEN_PRODUCT_END
+
+TOKEN_PRODUCT_BEG(TEAMPLATE_P_ImportContryZh)
+return UI_TEXT(e4);
 TOKEN_PRODUCT_END

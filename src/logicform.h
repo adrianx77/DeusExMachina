@@ -15,8 +15,8 @@ typedef QString (LogicForm::*LogicFormTokenFunc)(int processIdx) const;
 #define DEF_TOKEN_FUNC(name)    QString get_##name(int processIdx) const
 
 class Product;
-typedef QString (LogicForm::*LogicFormProductFunc)(const Product* p) const;
-#define DEF_PRODUCT_FUNC(name)    QString get_product##name(const Product* p) const
+typedef QString (LogicForm::*LogicFormProductFunc)(int idx, const Product* p) const;
+#define DEF_PRODUCT_FUNC(name)    QString get_product##name(int idx, const Product* p) const
 
 class ProductList;
 class LogicForm : public QWidget
@@ -167,6 +167,8 @@ private:
 
     DEF_TOKEN_FUNC(TEMPLATE_WaiBi_Baoxianfei);
     DEF_TOKEN_FUNC(TEMPLATE_WaiBi_Haiyunfei);
+    DEF_TOKEN_FUNC(TEMPLATE_WaiBi_YouJiaGe_Baoxianfei);
+    DEF_TOKEN_FUNC(TEMPLATE_WaiBi_YouJiaGe_Haiyunfei);
     DEF_TOKEN_FUNC(TEMPLATE_ShipContainer);
 
     DEF_TOKEN_FUNC(TEMPLATE_FactoryCompanyName);
@@ -187,10 +189,26 @@ private:
     DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductDescEn);
     DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductDescZh);
     DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductQuantity);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductPakNo);
     DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductPC);
     DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductCarton);
     DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductPriceIn);
     DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductTotalPriceIn);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductPriceOut);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductTotalPriceOut);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_SellCurrency);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_ShippingMark);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductMaoWeight);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductJinWeight);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductTotalMaoWeight);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductTotalJinWeight);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductHSCode);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductMadeIn);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductVolume);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductTotalVolume);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductType);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_ProductIndex);
+    DEF_PRODUCT_FUNC(TEAMPLATE_P_ImportContryZh);
 
     QMap<QString, LogicFormProductFunc>   m_productFuns;
 };

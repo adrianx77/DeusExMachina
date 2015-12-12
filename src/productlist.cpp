@@ -106,7 +106,7 @@ float ProductList::getTotalTTax () const
     float total = 0.0f;
     for (int i = 0; i < m_productList.length(); ++i) {
         Product* p = m_productList[i];
-        total += p->getTotalPriceIn() * (p->tTax() + p->xTax()) / 100.0f / (1.0f + p->zTax());
+        total += p->getTotalPriceIn() * (p->tTax()/100.0f + p->xTax()/100.0f) / (1.0f + p->zTax()/100.0f);
     }
     return total;
 }
