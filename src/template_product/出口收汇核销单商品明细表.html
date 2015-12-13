@@ -1,0 +1,123 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://219.224.135.40/SIMTrade/doc/CM29.aspx -->
+<HTML><HEAD><TITLE>商品明细表</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type><xml id=theXMLisland></xml><!--<ROOT><M29><M2901></M2901><M2902></M2902><M2903></M2903><M2904></M2904><M2905></M2905></M29></ROOT>--><xml id=xmlSrc><ROOT><M29><M2901></M2901><M2902></M2902><M2903></M2903><M2904></M2904><M2905></M2905></M29></ROOT></xml>
+<META name=GENERATOR content="MSHTML 9.00.8112.16723">
+<META name=CODE_LANGUAGE content=C#>
+<META content=no-cache http-equiv=pragma>
+<META content=no-cache,must-revalidate http-equiv=Cache-Control>
+<META name=vs_defaultClientScript content=JavaScript>
+<META name=vs_targetSchema 
+content=http://schemas.microsoft.com/intellisense/ie5><LINK rel=stylesheet 
+href="出口收汇核销单商品明细表_files/Doc.css">
+<SCRIPT language=javascript src="出口收汇核销单商品明细表_files/utils.js"></SCRIPT>
+
+<SCRIPT language=javascript>	
+			var k=window.dialogArguments;				
+			function LoadForm()			
+			{
+				window.resizeTo(430,200);
+				var tmp1=document.all["flag2"].value;
+				var tmp2=parseInt(tmp1);
+				if (k.sourceChild.xml!="")
+				{
+					theXMLisland.loadXML(k.sourceChild.xml);
+					var objNodes = theXMLisland.selectNodes("//ROOT/M29");
+					var i = objNodes.length;
+					if (i == 0)
+					{
+						theXMLisland.loadXML(xmlSrc.xml);
+						tmp2=1;
+					}			
+				}
+				else
+				{
+					theXMLisland.loadXML(xmlSrc.xml);
+					tmp2=1;
+				}
+				if (tmp2!=NaN)
+				{
+					if (tmp2>0)
+					{
+						theXMLisland.recordset.AbsolutePosition=tmp2;
+					}
+					else if (tmp2==-1)
+					{
+						theXMLisland.recordset.AddNew();
+					}
+				}
+				if (document.all["flag"].value=="0")
+				{
+					document.all["M2902"].readOnly=false;
+				}
+				theXMLisland.recordset.fields("M2901").value = document.all["M2901"].value;
+			}
+			function save(arg)
+			{	
+				if (arg==0)
+				{
+					result=doClientSubmit("POST", "TestChildForm.aspx?map=M29&pfld=01&pid="+document.all["M2901"].value+"&cfld=02&cid="+document.all["M2902"].value, false,theXMLisland.xml,"text");
+					if ((result!="OK")&&(result!=""))
+					{
+						alert(result);
+						return false;
+					}
+				}
+				k.sourceChild.loadXML(theXMLisland.xml);
+				if ((k.trBody != undefined)&&(k.trBody.length == undefined))
+				{
+					if (k.trBody.style.display == "none")
+					{
+						k.trBody.style.display="inline";
+					}
+				}
+				window.close();
+			}
+		</SCRIPT>
+</HEAD>
+<BODY style="MARGIN-TOP: 10px; MARGIN-BOTTOM: 0px" onload=LoadForm() 
+MS_POSITIONING="GridLayout">
+<FORM id=Form1 method=post name=Form1 action=CM29.aspx?a1=&amp;a2=>
+<DIV><INPUT id=__VIEWSTATE name=__VIEWSTATE 
+value=/wEPDwUJLTIzNTUyOTE0ZGSFFJYzEFC/76mE9V6s23nWvNIPvA== type=hidden> 
+</DIV><INPUT name=flag value=0 type=hidden><INPUT name=flag2 value=-1 
+type=hidden> <INPUT id=M2901 name=M2901 type=hidden> 
+<TABLE style="BORDER-COLLAPSE: collapse" border=0 cellSpacing=0 
+borderColor=#000000 cellPadding=0 width=400 align=center>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE style="BORDER-COLLAPSE: collapse" border=1 cellSpacing=0 
+      borderColor=#000000 cellPadding=0 width="100%" align=center>
+        <TBODY>
+        <TR>
+          <TD width="20%" align=center>货物序列号:</TD>
+          <TD><INPUT value="TEAMPLATE_P_ProductIndex"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M2902 dataSrc=#theXMLisland dataFld=M2902 
+            ondrop="javascript:return false;" 
+            onkeypress=javascript:InputFI(this.value,0); onpaste="return false;" 
+            name=M2902 readOnly maxLength=20></TD></TR>
+        <TR>
+          <TD height=20 vAlign=top width="20%" align=center>货物名称:</TD>
+          <TD height=20 vAlign=top width="80%"><TEXTAREA style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 100%; BORDER-TOP-STYLE: none; HEIGHT: 40px; BORDER-RIGHT-STYLE: none" id=M2904 dataSrc=#theXMLisland dataFld=M2904 rows=3 name=M2904>
+TEAMPLATE_P_ProductType		  
+		  </TEXTAREA> 
+          </TD></TR>
+        <TR>
+          <TD height=20 vAlign=top width="20%" align=center>数量:</TD>
+          <TD height=20 width="80%"><INPUT value="TEAMPLATE_P_ProductQuantityTEAMPLATE_P_ProductPC"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none" 
+            id=M2905 dataSrc=#theXMLisland dataFld=M2905 name=M2905 
+          maxLength=80></TD></TR>
+        <TR>
+          <TD colSpan=2><SPAN style="COLOR: red" 
+        id=lblMsg></SPAN></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class=Htd_noall vAlign=top colSpan=4 align=center><A 
+      style="FONT-SIZE: 10pt" id=btnSave 
+      onclick="javascript:save(document.all['flag'].value)" 
+      href="http://219.224.135.40/SIMTrade/doc/CM29.aspx?a1=&amp;a2=#">[保存]</A> 
+      <A style="FONT-SIZE: 10pt" id=btnClose onclick=window.parent.close(); 
+      href="http://219.224.135.40/SIMTrade/doc/CM29.aspx?a1=&amp;a2=#">[退出]</A> 
+    </TD></TR></TBODY></TABLE></FORM></BODY></HTML>

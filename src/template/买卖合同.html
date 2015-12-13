@@ -1,0 +1,595 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0073)http://219.224.135.40/SIMTrade/doc/M12.aspx -->
+<HTML><HEAD><TITLE>买卖合同</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 9.00.8112.16723">
+<META name=CODE_LANGUAGE content=C#>
+<META content=no-cache http-equiv=pragma>
+<META content=no-cache,must-revalidate http-equiv=Cache-Control>
+<META name=vs_defaultClientScript content=JavaScript>
+<META name=vs_targetSchema 
+content=http://schemas.microsoft.com/intellisense/ie5><LINK rel=stylesheet 
+href="买卖合同_files/doc.css">
+<SCRIPT language=javascript src="买卖合同_files/utils.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+    function LoadPage()
+    {
+		var flag="1";
+		if ((flag=="0")||(flag=="2")||(flag=="4"))
+		{
+			LetTextReadOnly();
+			LetTextareaReadOnly();
+		}
+		if (flag!="0")
+		{
+			switch (flag)
+			{
+				case "1"://B-->R
+				{
+					document.all["txtM1227"].readOnly = true;
+					document.all["txtM1228"].readOnly = true;
+					document.all["txtM1229"].readOnly = true;
+					document.all["txtM1230"].readOnly = true;
+					document.all["txtM1231"].readOnly = true;
+					document.all["txtM1232"].readOnly = true;
+					document.all["txtM1233"].readOnly = true;
+					document.all["txtM1234"].readOnly = true;
+					break;
+				}
+				case "2"://AB-R
+				{
+					document.all["txtM1235"].readOnly = false;
+					document.all["txtM1236"].readOnly = false;
+					document.all["txtM1237"].readOnly = false;
+					document.all["txtM1238"].readOnly = false;
+					document.all["txtM1239"].readOnly = false;
+					document.all["txtM1240"].readOnly = false;
+					document.all["txtM1241"].readOnly = false;
+					document.all["txtM1242"].readOnly = false;
+					break;
+				}
+				case "3"://C-->R
+				{
+					document.all["txtM1235"].readOnly = true;
+					document.all["txtM1236"].readOnly = true;
+					document.all["txtM1237"].readOnly = true;
+					document.all["txtM1238"].readOnly = true;
+					document.all["txtM1239"].readOnly = true;
+					document.all["txtM1240"].readOnly = true;
+					document.all["txtM1241"].readOnly = true;
+					document.all["txtM1242"].readOnly = true;
+					break;
+				}
+				case "4"://AC-R
+				{
+					document.all["txtM1227"].readOnly = false;
+					document.all["txtM1228"].readOnly = false;
+					document.all["txtM1229"].readOnly = false;
+					document.all["txtM1230"].readOnly = false;
+					document.all["txtM1231"].readOnly = false;
+					document.all["txtM1232"].readOnly = false;
+					document.all["txtM1233"].readOnly = false;
+					document.all["txtM1234"].readOnly = false;
+					break;
+				}
+			}
+		}
+		if (sourceChild.xml=="")
+		{
+			trBody.style.display="none";
+		}
+    }
+    function docheck(arg)
+    {
+		document.all["flag3"].value=arg;
+    }
+    function save()
+    {	
+		if (M12Form.flag.value!="0")
+		{
+			AppendNodes("//ROOT","//ROOT/M13");
+			var xmlResult=doClientSubmit("POST","PostForm.aspx?tb=M12&uid="+document.all["flag4"].value,false,source.xml,"text");
+			RemoveNodes("//ROOT","//ROOT/M13");
+			
+			var xmlServerResponse = new ActiveXObject("MSXML2.DOMDocument");
+			xmlServerResponse.loadXML(xmlResult);
+			
+			var strUrl="../Common/ErrMsg.aspx";
+			var strID=xmlServerResponse.selectSingleNode("//Message/errID").text;						
+			var strMsg=xmlServerResponse.selectSingleNode("//Message/errMsg").text;
+			
+			ShowMessage("Manager",strUrl,strID,strMsg,"Close","Close");
+		}
+    }
+    function DetailOperate(args1,args2)
+    {			
+		if ((M12Form.flag.value!="0")&&(M12Form.flag.value!="2")&&(M12Form.flag.value!="4"))
+		{
+			var str="";
+			var tmpA=document.all["flag3"].value;
+			if (args1==0)
+			{
+				str="CM13.aspx?a1="+args2+"&a2=";
+			}
+			else
+			{
+				
+				if (tmpA!="")
+				{
+					document.all["flag3"].value = "";
+					switch (args1)
+					{
+						case 1:
+							{										
+								tmpA-=1;
+								var a;
+								if (document.all['s'].length != undefined)
+								{
+									a = document.all['s'][tmpA].innerText;
+								}
+								else
+								{
+									a = document.all['s'].innerText;
+								}
+								tmpA+=1;					
+								str="CM13.aspx?a1="+args2+"&a2="+a+"&a3="+tmpA;
+								break;
+							}
+						case 2:
+						{
+							sourceChild.recordset.AbsolutePosition=tmpA;
+							if (tmpA>0)
+							{
+								str = "";
+								sourceChild.recordset.Delete();
+							}
+							break;
+						}
+					}
+				}
+				else
+				{
+					alert("请选择记录进行操作！");
+					return false;
+				}
+			}
+			if (str!= "")	PopDialog(str,window,'430px','225px');
+		}
+		else
+		{
+			return false;
+		}
+    }
+    
+    	function printDoc()
+		{
+			AppendNodes("//ROOT","//ROOT/M13");	
+			//WindowOpen("PrintDoc.aspx?t=M12&c=M13","printWindow","800px","600px");		
+			open("PrintDoc.aspx?t=M12&c=M13","M12","height=600px,width=800px,center=yes,toolbar=no,menubar=yes,scrollbars=yes,location=no,resizable=yes,status=yes");		
+		}
+	</SCRIPT>
+</HEAD>
+<BODY style="margins: 0px" onload=LoadPage() MS_POSITIONING="GridLayout">
+<FORM id=M12Form method=post name=M12Form 
+action=M12.aspx?did=ZX0JX&amp;Uid=mb14084691&amp;R=1>
+<DIV><INPUT id=__VIEWSTATE name=__VIEWSTATE 
+value=/wEPDwUKMTYwMzY5OTQwNmRkIxOmWiUANj79kY5q0T6te22kg3Y= type=hidden> 
+</DIV><INPUT name=flag value=1 type=hidden> <INPUT name=flag2 value=ZX0JX 
+type=hidden> <INPUT name=flag3 type=hidden> <INPUT name=flag4 value=mb14084691 
+type=hidden> <!--<div id="target">正在加载……</div>--><xml id=source src="Xml/Document.aspx?a1=M12&amp;a2=ZX0JX"></xml><xml id=sourceChild src="Xml/Document.aspx?a1=M13&amp;a2=ZX0JX"></xml>
+<TABLE id=table1 border=0 cellSpacing=0 cellPadding=0 width=740 align=center>
+  <TBODY>
+  <TR>
+    <TD class=td_title width="100%" align=center><A 
+      href="http://219.224.135.40/SIMTrade/help/Doc/M12help.htm" 
+      target=_blank><SPAN class=text_title>买卖合同</SPAN></A></TD></TR>
+  <TR>
+    <TD>
+      <TABLE id=table212 border=0 cellSpacing=0 cellPadding=0 width=740>
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE id=table2 border=0 cellSpacing=0 cellPadding=0 width=420>
+              <TBODY>
+              <TR>
+                <TD width=50>卖方：</TD>
+                <TD width=370 align=left><INPUT style="WIDTH: 360px" value="TEMPLATE_FactoryCompanyName"
+                  dataSrc=#source class=TANL dataFld=M1207 name=txtM1207 
+                  maxLength=80> </TD></TR>
+              <TR>
+                <TD width=50>买方：</TD>
+                <TD width=370 align=left><INPUT style="WIDTH: 360px" value="TEMPLATE_CompanyNameZh"
+                  dataSrc=#source class=TANL dataFld=M1208 name=txtM1208 
+                  maxLength=80></TD></TR></TBODY></TABLE></TD>
+          <TD>
+            <TABLE id=table21212 border=0 cellSpacing=0 cellPadding=0 
+              width=320><TBODY>
+              <TR>
+                <TD vAlign=bottom width=120 align=right>合同编号：</TD>
+                <TD width=200><INPUT style="WIDTH: 190px" dataSrc=#source 
+                  class=TANL dataFld=M1201 name=txtM1201 readOnly 
+                maxLength=40></TD></TR>
+              <TR>
+                <TD vAlign=bottom width=120 align=right>签订时间：</TD>
+                <TD width=200><INPUT style="WIDTH: 190px" dataSrc=#source value="TEMPLATE_Date"
+                  class=TANL dataFld=M1209 name=txtM1209 maxLength=40></TD></TR>
+              <TR>
+                <TD vAlign=bottom width=120 align=right>签订地点：</TD>
+                <TD width=200><INPUT style="WIDTH: 190px" dataSrc=#source value="TEMPLATE_ShipPortZh"
+                  class=TANL dataFld=M1210 name=txtM1210 
+              maxLength=40></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD>
+      <TABLE id=table3 border=0 cellSpacing=0 cellPadding=0 width="100%">
+        <TBODY>
+        <TR>
+		PRODUCT_HERF_LINK
+          <TD style="HEIGHT: 30px">一、产品名称、品种规格、数量、金额、供货时间：</TD></TR>
+        <TR>
+          <TD vAlign=top align=left>
+            <TABLE id=table4 border=0 cellSpacing=0 cellPadding=0 width=740>
+              <TBODY>
+              <TR>
+                <TD class=Htd_lbr>
+                  <TABLE id=table6 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top width=740 colSpan=2 align=left>
+                        <TABLE id=table28 border=0 cellSpacing=0 cellPadding=0 
+                        width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD width=740 colSpan=2 align=left>
+                              <TABLE id=table29 border=0 cellSpacing=0 
+                              cellPadding=0 width=740>
+                                <TBODY>
+                                <TR>
+                                <TD vAlign=top width=640 align=left>
+                                <TABLE id=table30 dataSrc=#sourceChild border=0 
+                                cellSpacing=0 cellPadding=0 width="100%">
+                                <THEAD>
+                                <TR>
+                                <TD style="HEIGHT: 40px" class=Htd_topborders 
+                                width=30 align=center>选择</TD>
+                                <TD style="HEIGHT: 40px" class=Htd_lefttop 
+                                width=70 align=center>产品编号</TD>
+                                <TD style="HEIGHT: 40px" class=Htd_lefttop 
+                                width=200 align=center>品名规格</TD>
+                                <TD style="HEIGHT: 40px" class=Htd_lefttop 
+                                width=80 align=center>计量单位</TD>
+                                <TD style="HEIGHT: 40px" class=Htd_lefttop 
+                                width=80 align=center>数量</TD>
+                                <TD style="HEIGHT: 40px" class=Htd_lefttop 
+                                width=80 align=center>单价(元)</TD>
+                                <TD style="HEIGHT: 40px" class=Htd_lefttop 
+                                width=100 align=center>总金额(元)</TD></TR></THEAD>
+                                <TBODY>
+                                <TR style="DISPLAY: inline" id=trBody>
+                                <TD class=Htd_topborders width=30><SPAN 
+                                id=spRad></SPAN><INPUT 
+                                onclick=javascript:docheck(this.recordNumber); 
+                                name=rad type=radio></TD>
+                                <TD class=Htd_lefttop width=70><SPAN 
+                                style="FONT-SIZE: 12px" id=s 
+                                dataFld=M1303></SPAN>&nbsp;</TD>
+                                <TD class=Htd_lefttop width=200><SPAN 
+                                style="FONT-SIZE: 12px" id=s1 
+                                dataFld=M1304></SPAN>&nbsp;</TD>
+                                <TD class=Htd_lefttop width=80><SPAN 
+                                style="FONT-SIZE: 12px" id=s2 
+                                dataFld=M1305></SPAN>&nbsp;</TD>
+                                <TD class=Htd_lefttop width=80 align=right><SPAN 
+                                style="FONT-SIZE: 12px" id=s3 
+                                dataFld=M1306></SPAN>&nbsp;</TD>
+                                <TD class=Htd_lefttop width=80 align=right><SPAN 
+                                style="FONT-SIZE: 12px" id=s4 
+                                dataFld=M1307></SPAN>&nbsp;</TD>
+                                <TD class=Htd_lefttop width=100 
+                                align=right><SPAN style="FONT-SIZE: 12px" id=s5 
+                                dataFld=M1308></SPAN>&nbsp;</TD></TR></TBODY>
+                                <TFOOT>
+                                <TR>
+                                <TD style="HEIGHT: 80px" class=Htd_topborders 
+                                width=30>&nbsp;</TD>
+                                <TD style="HEIGHT: 80px" class=Htd_lefttop 
+                                width=70>&nbsp;</TD>
+                                <TD style="HEIGHT: 80px" class=Htd_lefttop 
+                                width=200>&nbsp;</TD>
+                                <TD style="HEIGHT: 80px" class=Htd_lefttop 
+                                width=80>&nbsp;</TD>
+                                <TD style="HEIGHT: 80px" class=Htd_lefttop 
+                                width=80>&nbsp;</TD>
+                                <TD style="HEIGHT: 80px" class=Htd_lefttop 
+                                width=80>&nbsp;</TD>
+                                <TD style="HEIGHT: 80px" class=Htd_lefttop 
+                                width=100>&nbsp;</TD></TR>
+                                <TR>
+                                <TD class=Htd_topborders width=300 colSpan=3 
+                                align=right>合计：</TD>
+                                <TD class=Htd_lefttop width=80><INPUT value="TEMPLATE_TotalQuantityType"
+                                style="WIDTH: 80px" dataSrc=#source class=TL 
+                                dataFld=M1211 name=txtM1211 maxLength=20></TD>
+                                <TD class=Htd_lefttop width=80><INPUT value="TEMPLATE_TotalQuantityOfProduct"
+                                style="WIDTH: 80px; IME-MODE: disabled" 
+                                dataSrc=#source class=TAR dataFld=M1212 
+                                ondrop="javascript:return false;" 
+                                onkeypress=javascript:InputFI(this.value,0); 
+                                onpaste="return false;" name=txtM1212 
+                                maxLength=10></TD>
+                                <TD class=Htd_lefttop width=80>&nbsp;<!--<input type="text" class="TAR" name="txtM1213" maxlength="10" style="width:80px" datasrc="#source" datafld="M1213" style="IME-MODE:disabled"  ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;">--></TD>
+                                <TD class=Htd_lefttop width=100><INPUT value="TEMPLATE_TotalBuy"
+                                style="WIDTH: 100px; IME-MODE: disabled" 
+                                dataSrc=#source class=TAR dataFld=M1214 
+                                ondrop="javascript:return false;" 
+                                onkeypress=javascript:InputFI(this.value,1); 
+                                onpaste="return false;" name=txtM1214 
+                                maxLength=10></TD></TR>
+                                <TR>
+                                <TD class=Htd_bottomtop width=640 colSpan=7 
+                                align=right><A 
+                                onclick="javascript:DetailOperate(0,document.all['flag2'].value)" 
+                                href="http://219.224.135.40/SIMTrade/doc/M12.aspx?did=ZX0JX&amp;Uid=mb14084691&amp;R=1#"><FONT 
+                                style="LETTER-SPACING: 6pt; FONT-SIZE: 10pt">[添加]</FONT></A> 
+                                <A 
+                                onclick="javascript:DetailOperate(1,document.all['flag2'].value)" 
+                                href="http://219.224.135.40/SIMTrade/doc/M12.aspx?did=ZX0JX&amp;Uid=mb14084691&amp;R=1#"><FONT 
+                                style="LETTER-SPACING: 6pt; FONT-SIZE: 10pt">[修改]</FONT></A> 
+                                <A 
+                                onclick="javascript:DetailOperate(2,document.all['flag2'].value)" 
+                                href="http://219.224.135.40/SIMTrade/doc/M12.aspx?did=ZX0JX&amp;Uid=mb14084691&amp;R=1#"><FONT 
+                                style="LETTER-SPACING: 6pt; FONT-SIZE: 10pt">[刪除]</FONT></A> 
+                                </TD></TR></TFOOT></TABLE></TD>
+                                <TD class=Htd_ltb vAlign=top width=100 
+                                align=left>
+                                <TABLE id=table31 border=0 cellSpacing=0 
+                                cellPadding=3 width=100>
+                                <TBODY>
+                                <TR>
+                                <TD style="HEIGHT: 40px" class=Htd_bottomborders 
+                                align=center>交(提)货时<BR>间及数量 </TD></TR>
+                                <TR>
+                                <TD vAlign=top align=left><TEXTAREA style="WIDTH: 100%; HEIGHT: 60px" dataSrc=#source class=TCL dataFld=M1216 name=txtM1216></TEXTAREA> 
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD class=Htd_rightborders width=130 
+                              align=center>合计人民币(大写)</TD>
+                            <TD width=610><INPUT style="WIDTH: 610px" value="TEMPLATE_TotalSayBuy"
+                              dataSrc=#source class=TL dataFld=M1217 
+                              name=txtM1217 
+                    maxLength=200></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=Htd_lbr>
+                  <TABLE id=table7 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="HEIGHT: 35px" class=Htd_rightborders width=50 
+                      align=right>备注：</TD>
+                      <TD style="HEIGHT: 35px" width=690><TEXTAREA dataSrc=#source class=TCL dataFld=M1218 name=txtM1218></TEXTAREA> 
+                      </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD style="HEIGHT: 30px" 
+        vAlign=bottom>二、质量要求技术标准、卖方对质量负责的条件和期限：</TD></TR>
+        <TR>
+          <TD style="HEIGHT: 40px"><TEXTAREA dataSrc=#source class=TCL dataFld=M1219 name=txtM1219>
+		  符合ISO9002质量体系认证，如因品质问题引起的一切损失及索赔由供方承担，质量异议以本合同有效期为限。
+		  </TEXTAREA></TD></TR>
+        <TR>
+          <TD>三、交(提)货地点、方式：</TD></TR>
+        <TR>
+          <TD style="HEIGHT: 40px"><TEXTAREA dataSrc=#source class=TCL dataFld=M1220 name=txtM1220>
+		  工厂交货。
+		  </TEXTAREA></TD></TR>
+        <TR>
+          <TD>四、交 (提) 货地点及运输方式及费用负担：</TD></TR>
+        <TR>
+          <TD style="HEIGHT: 40px"><TEXTAREA dataSrc=#source class=TCL dataFld=M1221 name=txtM1221>
+		  集装箱门到门交货，费用由需方承担。
+		  </TEXTAREA></TD></TR>
+        <TR>
+          <TD>五、包装标准、包装物的供应与回收和费用负担：</TD></TR>
+        <TR>
+          <TD style="HEIGHT: 40px"><TEXTAREA dataSrc=#source class=TCL dataFld=M1222 name=txtM1222>
+		  纸箱包装符合出口标准，商标由需方无偿提供。
+		  </TEXTAREA></TD></TR>
+        <TR>
+          <TD>六、验收标准、方法及提出异议期限：</TD></TR>
+        <TR>
+          <TD style="HEIGHT: 40px"><TEXTAREA dataSrc=#source class=TCL dataFld=M1223 name=txtM1223>
+		  需方代表按出口优级品质及外包装，同时供方提供商检放行单或商检换证凭单。
+		  </TEXTAREA></TD></TR>
+        <TR>
+          <TD>七、结算方式及期限：</TD></TR>
+        <TR>
+          <TD style="HEIGHT: 40px"><TEXTAREA dataSrc=#source class=TCL dataFld=M1224 name=txtM1224>
+		  需方凭供方提供的增值税发票在供方工厂交货后七个工作日内付款。如果供方未将有关票证备齐，需方扣除17%税款支付给供方，等有关票证齐全后结清余款。
+		  </TEXTAREA></TD></TR>
+        <TR>
+          <TD>八、违约责任：</TD></TR>
+        <TR>
+          <TD style="HEIGHT: 40px"><TEXTAREA dataSrc=#source class=TCL dataFld=M1225 name=txtM1225>
+		  违约方支付合同金额的15%违约金。
+		  </TEXTAREA></TD></TR>
+        <TR>
+          <TD>九、解决合同纠纷的方式：</TD></TR>
+        <TR>
+          <TD style="HEIGHT: 40px"><TEXTAREA dataSrc=#source class=TCL dataFld=M1226 name=txtM1226>
+		  按《中华人民共和国经济合同法》
+		  </TEXTAREA></TD></TR>
+        <TR>
+          <TD style="HEIGHT: 30px">十、本合同一式两份，双方各执一份，效力相同。未尽事宜由双方另行友好协商。</TD></TR>
+        <TR>
+          <TD>
+            <TABLE id=table8 border=0 cellSpacing=0 cellPadding=0 
+              width="100%"><TBODY>
+              <TR>
+                <TD class=Htd_lefttop width=370 align=center>卖　　　方</TD>
+                <TD class=Htd_ltr width=370 align=center>买　　　方</TD></TR>
+              <TR>
+                <TD class=Htd_leftborders width=370>
+                  <TABLE id=table9 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=80>单位名称：</TD>
+                      <TD width=290 align=left><INPUT style="WIDTH: 290px"
+                        dataSrc=#source class=TL dataFld=M1227 name=txtM1227 
+                        maxLength=80></TD></TR></TBODY></TABLE></TD>
+                <TD class=Htd_leftright width=370>
+                  <TABLE id=table17 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=80>单位名称：</TD>
+                      <TD width=290 align=left><INPUT value="TEMPLATE_CompanyNameZh"
+                        style="WIDTH: 287px; HEIGHT: 20px" dataSrc=#source 
+                        class=TL dataFld=M1235 name=txtM1235 
+                    maxLength=80></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=Htd_leftborders width=370>
+                  <TABLE id=table10 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=80>单位地址：</TD>
+                      <TD width=290 align=left><INPUT style="WIDTH: 290px" 
+                        dataSrc=#source class=TL dataFld=M1228 name=txtM1228 
+                        maxLength=2000></TD></TR></TBODY></TABLE></TD>
+                <TD class=Htd_leftright width=370>
+                  <TABLE id=table18 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=80>单位地址：</TD>
+                      <TD width=290 align=left><INPUT value="TEMPLATE_CompanyAddressZh"
+                        style="WIDTH: 288px; HEIGHT: 20px" dataSrc=#source 
+                        class=TL dataFld=M1236 name=txtM1236 
+                    maxLength=2000></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=Htd_leftborders width=370>
+                  <TABLE id=table11 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=140>法人代表或委托人：</TD>
+                      <TD width=230 align=left><INPUT style="WIDTH: 230px" 
+                        dataSrc=#source class=TL dataFld=M1229 name=txtM1229 
+                        maxLength=40></TD></TR></TBODY></TABLE></TD>
+                <TD class=Htd_leftright width=370>
+                  <TABLE id=table19 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=140>法人代表或委托人：</TD>
+                      <TD width=230 align=left><INPUT value="TEMPLATE_MyNameZn"
+                        style="WIDTH: 228px; HEIGHT: 20px" dataSrc=#source 
+                        class=TL dataFld=M1237 name=txtM1237 
+                    maxLength=40></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=Htd_leftborders width=370>
+                  <TABLE id=table12 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=55>电话：</TD>
+                      <TD width=315 align=left><INPUT style="WIDTH: 315px" 
+                        dataSrc=#source class=TL dataFld=M1230 name=txtM1230 
+                        maxLength=40></TD></TR></TBODY></TABLE></TD>
+                <TD class=Htd_leftright width=370>
+                  <TABLE id=table20 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=55>电话：</TD>
+                      <TD width=315 align=left><INPUT value="TEMPLATE_MyPhoneNo"
+                        style="WIDTH: 313px; HEIGHT: 20px" dataSrc=#source 
+                        class=TL dataFld=M1238 name=txtM1238 
+                    maxLength=40></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=Htd_leftborders width=370>
+                  <TABLE id=table13 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=90>税务登记号：</TD>
+                      <TD width=280 align=left><INPUT style="WIDTH: 280px" 
+                        dataSrc=#source class=TL dataFld=M1231 name=txtM1231 
+                        maxLength=40></TD></TR></TBODY></TABLE></TD>
+                <TD class=Htd_leftright width=370>
+                  <TABLE id=table21 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=90>税务登记号：</TD>
+                      <TD width=280 align=left><INPUT value="TEMPLATE_MyTaxNo"
+                        style="WIDTH: 277px; HEIGHT: 20px" dataSrc=#source 
+                        class=TL dataFld=M1239 name=txtM1239 
+                    maxLength=40></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=Htd_leftborders width=370>
+                  <TABLE id=table14 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=75>开户银行：</TD>
+                      <TD width=295 align=left><INPUT style="WIDTH: 290px" 
+                        dataSrc=#source class=TL dataFld=M1232 name=txtM1232 
+                        maxLength=80></TD></TR></TBODY></TABLE></TD>
+                <TD class=Htd_leftright width=370>
+                  <TABLE id=table22 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=75>开户银行：</TD>
+                      <TD width=295 align=left><INPUT value="TEMPLATE_BankNameZh"
+                        style="WIDTH: 289px; HEIGHT: 20px" dataSrc=#source 
+                        class=TL dataFld=M1240 name=txtM1240 
+                    maxLength=80></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=Htd_leftborders width=370>
+                  <TABLE id=table15 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=55>帐号：</TD>
+                      <TD width=315 align=left><INPUT style="WIDTH: 315px" 
+                        dataSrc=#source class=TL dataFld=M1233 name=txtM1233 
+                        maxLength=40></TD></TR></TBODY></TABLE></TD>
+                <TD class=Htd_leftright width=370>
+                  <TABLE id=table23 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=55>帐号：</TD>
+                      <TD width=315 align=left><INPUT value="TEMPLATE_MyBankNo"
+                        style="WIDTH: 310px; HEIGHT: 20px" dataSrc=#source 
+                        class=TL dataFld=M1241 name=txtM1241 
+                    maxLength=40></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=Htd_leftbottom width=370>
+                  <TABLE id=table16 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=75>邮政编码：</TD>
+                      <TD width=295 align=left><INPUT style="WIDTH: 295px" 
+                        dataSrc=#source class=TL dataFld=M1234 name=txtM1234 
+                        maxLength=20></TD></TR></TBODY></TABLE></TD>
+                <TD class=Htd_lbr width=370>
+                  <TABLE id=table24 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD style="PADDING-LEFT: 2px" width=75>邮政编码：</TD>
+                      <TD width=295 align=left><INPUT value="TEMPLATE_MyPostNo"
+                        style="WIDTH: 292px; HEIGHT: 20px" dataSrc=#source 
+                        class=TL dataFld=M1242 name=txtM1242 
+                    maxLength=20></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+  <TR class=noprint>
+    <TD align=center><A style="FONT-SIZE: 10pt" 
+      href="javascript:printDoc()">[打印预览]</A><A style="FONT-SIZE: 10pt" 
+      id=btnSave href="javascript:save()">[保存]</A><A style="FONT-SIZE: 10pt" 
+      id=btnClose 
+href="javascript:window.parent.close();">[退出]</A></TD></TR></TBODY></TABLE></FORM></BODY></HTML>

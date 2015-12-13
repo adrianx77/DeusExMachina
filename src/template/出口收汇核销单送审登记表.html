@@ -1,0 +1,375 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0078)http://219.224.135.40/SIMTrade/doc/M37.aspx -->
+<HTML><HEAD><TITLE>出口收汇核销单送审登记表</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 9.00.8112.16723">
+<META name=CODE_LANGUAGE content=C#>
+<META content=no-cache http-equiv=pragma>
+<META content=no-cache,must-revalidate http-equiv=Cache-Control>
+<META name=vs_defaultClientScript content=JavaScript>
+<META name=vs_targetSchema 
+content=http://schemas.microsoft.com/intellisense/ie5><LINK rel=stylesheet 
+href="出口收汇核销单送审登记表_files/doc.css">
+<STYLE type=text/css>.text-title {
+	LINE-HEIGHT: 26px; LETTER-SPACING: 4px; FONT-FAMILY: "华文楷体"; HEIGHT: 26px; FONT-SIZE: 26px; FONT-WEIGHT: bold
+}
+.text-14px {
+	LINE-HEIGHT: 17px; FONT-FAMILY: "宋体"; HEIGHT: 17px; FONT-SIZE: 14px
+}
+.text-11px {
+	LINE-HEIGHT: 15px; FONT-FAMILY: "宋体"; HEIGHT: 15px; FONT-SIZE: 11px
+}
+.text-18px {
+	LINE-HEIGHT: 20px; FONT-FAMILY: "宋体"; HEIGHT: 20px; FONT-SIZE: 18px
+}
+</STYLE>
+
+<SCRIPT language=javascript src="出口收汇核销单送审登记表_files/utils.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+	function LoadPage()
+	{
+		var flag="1";			
+		if (flag=="0")
+		{
+			LetTextReadOnly();
+			LetTextareaReadOnly();
+		}
+	}
+	function save()
+	{	
+		if (M37Form.flag.value!="0")
+		{
+			var xmlResult=doClientSubmit("POST","PostForm.aspx?tb=M37&uid="+document.all["flag4"].value,false,source.xml,"text");
+			
+			var xmlServerResponse = new ActiveXObject("MSXML2.DOMDocument");
+			xmlServerResponse.loadXML(xmlResult);
+			
+			var strUrl="../Common/ErrMsg.aspx";
+			var strID=xmlServerResponse.selectSingleNode("//Message/errID").text;						
+			var strMsg=xmlServerResponse.selectSingleNode("//Message/errMsg").text;
+			
+			ShowMessage("Manager",strUrl,strID,strMsg,"Close","Close");
+		}
+	}	
+		function printDoc()
+		{
+			//WindowOpen("PrintDoc.aspx?t=M37","printWindow","800px","600px");			
+			open("PrintDoc.aspx?t=M37","M37","height=600px,width=800px,center=yes,toolbar=no,menubar=yes,scrollbars=yes,location=no,resizable=yes,status=yes");	
+		}		
+	</SCRIPT>
+</HEAD>
+<BODY style="marings: 0px" onload=LoadPage() MS_POSITIONING="GridLayout">
+<FORM id=M37Form method=post name=M37Form 
+action=M37.aspx?did=STECE000479&amp;Uid=mb14084691&amp;R=1>
+<DIV><INPUT id=__VIEWSTATE name=__VIEWSTATE 
+value=/wEPDwUJLTkxNTA4NDgxZGSIe1hFjni2U/znFXpP5P357CnGNQ== type=hidden> 
+</DIV><INPUT name=flag value=1 type=hidden> <INPUT name=flag2 value=STECE000479 
+type=hidden> <INPUT name=flag3 type=hidden> <INPUT name=flag4 value=mb14084691 
+type=hidden> <!--<div id="target">正在加载……</div>--><xml id=source src="Xml/Document.aspx?a1=M37&amp;a2=STECE000479"></xml>
+<TABLE id=table1 border=0 cellSpacing=0 cellPadding=0 width=770 align=center>
+  <TBODY>
+  <TR>
+    <TD width=770 colSpan=2>
+      <TABLE id=table8 border=0 cellSpacing=0 cellPadding=0 width=770 
+      height="100%">
+        <TBODY>
+        <TR>
+          <TD width=770 align=center><A 
+            href="http://219.224.135.40/SIMTrade/help/Doc/M37help.htm" 
+            target=_blank><SPAN style="LETTER-SPACING: 20px" 
+            class=text-title>出口收汇核销单送审登记表</SPAN></A> </TD></TR>
+        <TR>
+          <TD width=740>
+            <TABLE id=table9 border=0 cellSpacing=0 cellPadding=0 width=770 
+            height="100%">
+              <TBODY>
+              <TR>
+                <TD style="PADDING-LEFT: 10px" width=80><SPAN 
+                  class=text-14px>出口单位：</SPAN> </TD>
+                <TD style="PADDING-BOTTOM: 2px" width=420><INPUT value="TEMPLATE_CompanyNameZh"
+                  style="WIDTH: 430px; HEIGHT: 17px" dataSrc=#source class=TAL 
+                  dataFld=M3707 name=txtM3707 maxLength=200></TD>
+                <TD width=80 align=right><SPAN class=text-14px>送审日期：</SPAN> 
+</TD>
+                <TD style="PADDING-BOTTOM: 6px" width=50><INPUT value="TEMPLATE_Date"
+                  style="WIDTH: 50px; IME-MODE: disabled; HEIGHT: 17px" 
+                  dataSrc=#source class=TAC dataFld=M3708 
+                  ondrop="javascript:return false;" 
+                  onkeypress=javascript:InputFI(this.value,0); 
+                  onpaste="return false;" name=txtM3708 maxLength=4> </TD>
+                </TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class=Htd_ltb width=770>
+      <TABLE id=table10 border=0 cellSpacing=0 cellPadding=0 width=770 
+      height="100%">
+        <TBODY>
+        <TR>
+          <TD style="HEIGHT: 40px" rowSpan=2 width=80 align=center><SPAN 
+            class=text-14px>核销单编号</SPAN> </TD>
+          <TD style="HEIGHT: 40px" class=Htd_leftborders rowSpan=2 width=65 
+          align=center><SPAN class=text-14px>发票编号</SPAN> </TD>
+          <TD style="HEIGHT: 40px" class=Htd_leftborders rowSpan=2 width=60 
+          align=center><SPAN class=text-14px>商品大类</SPAN> </TD>
+          <TD style="HEIGHT: 40px" class=Htd_leftborders rowSpan=2 width=65 
+          align=center><SPAN class=text-14px>国　别<BR>地　区</SPAN> </TD>
+          <TD style="HEIGHT: 40px" class=Htd_leftborders rowSpan=2 width=55 
+          align=center><SPAN class=text-14px>贸　易<BR>方　式</SPAN> </TD>
+          <TD style="HEIGHT: 40px" class=Htd_leftborders rowSpan=2 width=55 
+          align=center><SPAN class=text-14px>结　算<BR>方　式</SPAN> </TD>
+          <TD style="HEIGHT: 40px" class=Htd_leftborders rowSpan=2 width=70 
+          align=center><SPAN class=text-14px>报关日期</SPAN> </TD>
+          <TD class=Htd_leftborders width=200 colSpan=3 align=center><SPAN 
+            style="LETTER-SPACING: 60px" class=text-14px>货款</SPAN> </TD>
+          <TD style="HEIGHT: 40px" class=Htd_leftborders rowSpan=2 width=90 
+          align=center><SPAN class=text-14px>收汇核销金额</SPAN> </TD></TR>
+        <TR>
+          <TD class=Htd_lefttop width=40 align=center><SPAN 
+            class=text-14px>币别</SPAN></TD>
+          <TD class=Htd_lefttop width=80 align=center><SPAN 
+            class=text-14px>报关金额</SPAN></TD>
+          <TD class=Htd_lefttop width=80 align=center><SPAN 
+            class=text-14px>FOB金额</SPAN></TD></TR>
+        <TR>
+          <TD class=Htd_topborders width=80><INPUT value="TEMPLATE_HexiaodanNo"
+            style="WIDTH: 80px; HEIGHT: 17px" dataSrc=#source class=TAL 
+            dataFld=M3711 name=txtM3711 maxLength=40> </TD>
+          <TD class=Htd_lefttop width=65><INPUT value="TEMPLATE_InvoiceNo"
+            style="WIDTH: 65px; HEIGHT: 17px" dataSrc=#source class=TAL 
+            dataFld=M3712 name=txtM3712 maxLength=40> </TD>
+          <TD class=Htd_lefttop width=60><INPUT value="TEMPLATE_ProductBigType"
+            style="WIDTH: 60px; HEIGHT: 17px" dataSrc=#source class=TAL 
+            dataFld=M3713 name=txtM3713 maxLength=40> </TD>
+          <TD class=Htd_lefttop width=65><INPUT value="TEMPLATE_ImportContryEn"
+            style="WIDTH: 65px; HEIGHT: 17px" dataSrc=#source class=TAL 
+            dataFld=M3714 name=txtM3714 maxLength=40> </TD>
+          <TD class=Htd_lefttop width=55><INPUT value="一般贸易"
+            style="WIDTH: 55px; HEIGHT: 17px" dataSrc=#source class=TAL 
+            dataFld=M3715 name=txtM3715 maxLength=40> </TD>
+          <TD class=Htd_lefttop width=55><INPUT value="TEMPLATE_Payment"
+            style="WIDTH: 55px; HEIGHT: 17px" dataSrc=#source class=TAL 
+            dataFld=M3716 name=txtM3716 maxLength=40> </TD>
+          <TD class=Htd_lefttop width=70><INPUT value="TEMPLATE_Date"
+            style="WIDTH: 70px; HEIGHT: 17px" dataSrc=#source class=TAL 
+            dataFld=M3717 name=txtM3717 maxLength=20> </TD>
+          <TD class=Htd_lefttop width=40><INPUT value="TEMPLATE_SellCurrency"
+            style="WIDTH: 40px; HEIGHT: 17px" dataSrc=#source class=TAL 
+            dataFld=M3718 name=txtM3718 maxLength=40> </TD>
+          <TD class=Htd_lefttop width=80><INPUT value="TEMPLATE_TotalSell"
+            style="WIDTH: 80px; IME-MODE: disabled; HEIGHT: 17px" 
+            dataSrc=#source class=TAL dataFld=M3719 
+            ondrop="javascript:return false;" 
+            onkeypress=javascript:InputFI(this.value,1); onpaste="return false;" 
+            name=txtM3719 maxLength=20> </TD>
+          <TD class=Htd_lefttop width=80><INPUT value="TEMPLATE_TotalFOBSell"
+            style="WIDTH: 80px; IME-MODE: disabled; HEIGHT: 17px" 
+            dataSrc=#source class=TAL dataFld=M3720 
+            ondrop="javascript:return false;" 
+            onkeypress=javascript:InputFI(this.value,1); onpaste="return false;" 
+            name=txtM3720 maxLength=20> </TD>
+          <TD class=Htd_lefttop width=120>[<INPUT value="TEMPLATE_SellCurrency"
+            style="WIDTH: 30px; HEIGHT: 17px" dataSrc=#source class=TAL 
+            dataFld=M3721 name=txtM3721 maxLength=20>] [<INPUT value="TEMPLATE_TotalSell"
+            style="WIDTH: 60px; IME-MODE: disabled; HEIGHT: 17px" 
+            dataSrc=#source class=TAL dataFld=M3724 
+            ondrop="javascript:return false;" 
+            onkeypress=javascript:InputFI(this.value,1); onpaste="return false;" 
+            name=txtM3724 maxLength=20>] </TD></TR>
+        <TR>
+          <TD class=Htd_topborders width=80>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=60>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=70>　</TD>
+          <TD class=Htd_lefttop width=40>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=90>　</TD></TR>
+        <TR>
+          <TD class=Htd_topborders width=80>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=60>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=70>　</TD>
+          <TD class=Htd_lefttop width=40>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=90>　</TD></TR>
+        <TR>
+          <TD class=Htd_topborders width=80>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=60>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=70>　</TD>
+          <TD class=Htd_lefttop width=40>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=90>　</TD></TR>
+        <TR>
+          <TD class=Htd_topborders width=80>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=60>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=70>　</TD>
+          <TD class=Htd_lefttop width=40>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=90>　</TD></TR>
+        <TR>
+          <TD class=Htd_topborders width=80>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=60>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=70>　</TD>
+          <TD class=Htd_lefttop width=40>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=90>　</TD></TR>
+        <TR>
+          <TD class=Htd_topborders width=80>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=60>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=70>　</TD>
+          <TD class=Htd_lefttop width=40>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=90>　</TD></TR>
+        <TR>
+          <TD class=Htd_topborders width=80>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=60>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=70>　</TD>
+          <TD class=Htd_lefttop width=40>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=90>　</TD></TR>
+        <TR>
+          <TD class=Htd_topborders width=80>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=60>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=70>　</TD>
+          <TD class=Htd_lefttop width=40>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=90>　</TD></TR>
+        <TR>
+          <TD class=Htd_topborders width=80>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=60>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=70>　</TD>
+          <TD class=Htd_lefttop width=40>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=90>　</TD></TR>
+        <TR>
+          <TD class=Htd_topborders width=80>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=60>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=70>　</TD>
+          <TD class=Htd_lefttop width=40>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=90>　</TD></TR>
+        <TR>
+          <TD class=Htd_topborders width=80>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=60>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=70>　</TD>
+          <TD class=Htd_lefttop width=40>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=90>　</TD></TR>
+        <TR>
+          <TD class=Htd_topborders width=80>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=60>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=70>　</TD>
+          <TD class=Htd_lefttop width=40>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=90>　</TD></TR>
+        <TR>
+          <TD class=Htd_topborders width=80>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=60>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=70>　</TD>
+          <TD class=Htd_lefttop width=40>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=90>　</TD></TR>
+        <TR>
+          <TD class=Htd_topborders width=80>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=60>　</TD>
+          <TD class=Htd_lefttop width=65>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=55>　</TD>
+          <TD class=Htd_lefttop width=70>　</TD>
+          <TD class=Htd_lefttop width=40>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=80>　</TD>
+          <TD class=Htd_lefttop width=90>　</TD></TR></TBODY></TABLE></TD>
+    <TD class=Htd_allborders vAlign=top width=30 align=left>
+      <TABLE id=table12 border=0 cellSpacing=0 cellPadding=0 width=30 
+      height="100%">
+        <TBODY>
+        <TR>
+          <TD vAlign=bottom align=center><SPAN style="LINE-HEIGHT: 25px" 
+            class=text-14px>第<BR>一<BR>联</SPAN></TD></TR>
+        <TR>
+          <TD align=center><SPAN style="LINE-HEIGHT: 25px" 
+            class=text-14px>外<BR>汇<BR>局<BR>留<BR>存</SPAN></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD vAlign=top width=770 colSpan=2 align=left>
+      <TABLE id=table11 border=0 cellSpacing=0 cellPadding=0 width=770>
+        <TBODY>
+        <TR>
+          <TD width=310>　</TD>
+          <TD width=120 align=right><SPAN class=text-14px>出口单位填表人：</SPAN> </TD>
+          <TD style="PADDING-BOTTOM: 3px" width=120 align=left><INPUT value="TEMPLATE_MyNameZn"
+            style="WIDTH: 120px; HEIGHT: 17px" dataSrc=#source class=TAL 
+            dataFld=M3722 name=txtM3722 maxLength=40> </TD>
+          <TD width=100 align=right><SPAN class=text-14px>外汇局审核人：</SPAN> </TD>
+          <TD style="PADDING-BOTTOM: 3px" width=120 align=left><INPUT 
+            style="WIDTH: 120px; HEIGHT: 17px" dataSrc=#source class=TAL 
+            dataFld=M3723 name=txtM3723 maxLength=40> </TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD width=770 colSpan=2 align=center><A style="FONT-SIZE: 10pt" 
+      href="javascript:printDoc()">[打印预览]</A> <A style="FONT-SIZE: 10pt" 
+      id=btnSave href="javascript:save()">[保存]</A> <A style="FONT-SIZE: 10pt" 
+      id=btnClose href="javascript:window.parent.close();">[退出]</A> 
+  </TD></TR></TBODY></TABLE></FORM></BODY></HTML>

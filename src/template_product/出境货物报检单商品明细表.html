@@ -1,0 +1,171 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://219.224.135.40/SIMTrade/doc/CM18.aspx -->
+<HTML><HEAD><TITLE>商品明细表</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type><xml id=theXMLisland></xml><!--<ROOT><M18><M1801></M1801><M1802></M1802><M1803></M1803><M1804></M1804><M1805></M1805><M1806></M1806><M1807></M1807><M1808></M1808><M1809></M1809><M1810></M1810><M1811></M1811><M1812></M1812></M18></ROOT>--><xml id=xmlSrc><ROOT><M18><M1801></M1801><M1802></M1802><M1803></M1803><M1804></M1804><M1805></M1805><M1806></M1806><M1807></M1807><M1808></M1808><M1809></M1809><M1810></M1810><M1811></M1811><M1812></M1812></M18></ROOT></xml>
+<META name=GENERATOR content="MSHTML 9.00.8112.16723">
+<META name=CODE_LANGUAGE content=C#>
+<META content=no-cache http-equiv=pragma>
+<META content=no-cache,must-revalidate http-equiv=Cache-Control>
+<META name=vs_defaultClientScript content=JavaScript>
+<META name=vs_targetSchema 
+content=http://schemas.microsoft.com/intellisense/ie5><LINK rel=stylesheet 
+href="出境货物报检单商品明细表_files/Doc.css">
+<SCRIPT language=javascript src="出境货物报检单商品明细表_files/utils.js"></SCRIPT>
+
+<SCRIPT language=javascript>	
+		var k=window.dialogArguments;				
+		function LoadForm()			
+		{
+			window.resizeTo(430,260);
+			var tmp1=document.all["flag2"].value;
+			var tmp2=parseInt(tmp1);
+			if (k.sourceChild.xml!="")
+			{
+				theXMLisland.loadXML(k.sourceChild.xml);
+				var objNodes = theXMLisland.selectNodes("//ROOT/M18");
+				var i = objNodes.length;
+				if (i == 0)
+				{
+					theXMLisland.loadXML(xmlSrc.xml);
+					tmp2=1;
+				}
+			}
+			else
+			{
+				theXMLisland.loadXML(xmlSrc.xml);
+				tmp2=1;
+			}
+			if (tmp2!=NaN)
+			{
+				if (tmp2>0)
+				{
+					theXMLisland.recordset.AbsolutePosition=tmp2;
+				}
+				else if (tmp2==-1)
+				{
+					theXMLisland.recordset.AddNew();
+				}
+			}
+			if (document.all["flag"].value=="0")
+			{
+				document.all["M1803"].readOnly=false;
+			}
+			theXMLisland.recordset.fields("M1801").value = document.all["M1801"].value;
+		}
+		function save(arg)
+		{	
+			if (arg==0)
+			{
+				result=doClientSubmit("POST", "TestChildForm.aspx?map=M18&pfld=01&pid="+document.all["M1801"].value+"&cfld=03&cid="+document.all["M1803"].value, false,theXMLisland.xml,"text");
+				if ((result!="OK")&&(result!=""))
+				{
+					alert(result);
+					return false;
+				}
+			}
+			k.sourceChild.loadXML(theXMLisland.xml);
+			if ((k.trBody != undefined)&&(k.trBody.length == undefined))
+			{
+				if (k.trBody.style.display == "none")
+				{
+					k.trBody.style.display="inline";
+				}
+			}
+			window.close();
+		}
+	</SCRIPT>
+</HEAD>
+<BODY style="MARGIN-TOP: 10px; MARGIN-BOTTOM: 0px" onload=LoadForm() 
+MS_POSITIONING="GridLayout">
+<FORM id=Form1 method=post name=Form1 action=CM18.aspx?a1=&amp;a2=>
+<DIV><INPUT id=__VIEWSTATE name=__VIEWSTATE 
+value=/wEPDwUJLTIzNTUyOTE0ZGQOiB+XJYhm43YgZPKiBuS60H4dRQ== type=hidden> 
+</DIV><INPUT name=flag value=0 type=hidden><INPUT name=flag2 value=-1 
+type=hidden> <INPUT id=M1801 name=M1801 type=hidden> 
+<TABLE style="BORDER-COLLAPSE: collapse" border=0 cellSpacing=0 
+borderColor=#000000 cellPadding=0 width=400 align=center>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE style="BORDER-COLLAPSE: collapse" border=1 cellSpacing=0 
+      borderColor=#000000 cellPadding=0 width="100%" align=center>
+        <TBODY>
+        <TR>
+          <TD width="20%" align=center>产品编号：</TD>
+          <TD colSpan=3><INPUT value="TEAMPLATE_P_ProductId"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M1803 dataSrc=#theXMLisland dataFld=M1803 name=M1803 readOnly 
+            maxLength=20> </TD></TR>
+        <TR>
+          <TD height=40 vAlign=top width="20%" align=center>货物名称：</TD>
+          <TD height=40 vAlign=top width="80%" colSpan=3><TEXTAREA style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 100%; BORDER-TOP-STYLE: none; HEIGHT: 40px; BORDER-RIGHT-STYLE: none" id=M1804 dataSrc=#theXMLisland dataFld=M1804 rows=3 name=M1804>
+TEAMPLATE_P_ProductNameZh/TEAMPLATE_P_ProductNameEn		  
+		  </TEXTAREA> 
+          </TD></TR>
+        <TR>
+          <TD width="20%" align=center>H.S.编码：</TD>
+          <TD width="80%" colSpan=3><INPUT value="TEAMPLATE_P_ProductHSCode"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M1805 dataSrc=#theXMLisland dataFld=M1805 name=M1805 
+            maxLength=80> </TD></TR>
+        <TR>
+          <TD width="20%" align=center><SPAN 
+            style="LETTER-SPACING: 20px">产地</SPAN>：</TD>
+          <TD width="80%" colSpan=3><INPUT value="TEAMPLATE_P_ProductMadeIn"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none" 
+            id=M1806 dataSrc=#theXMLisland dataFld=M1806 name=M1806 
+            maxLength=40> </TD></TR>
+        <TR>
+          <TD width="20%" align=center>数/<SPAN 
+            style="LETTER-SPACING: 3px">重量</SPAN>：</TD>
+          <TD width="25%"><INPUT value="TEAMPLATE_P_ProductQuantity"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M1807 dataSrc=#theXMLisland dataFld=M1807 
+            ondrop="javascript:return false;" 
+            onkeypress=javascript:InputFI(this.value,1); onpaste="return false;" 
+            name=M1807 maxLength=20> </TD>
+          <TD width="30%" align=center><SPAN 
+            style="LETTER-SPACING: 3px">计量单位</SPAN>：</TD>
+          <TD width="25%"><INPUT value="TEAMPLATE_P_ProductPC"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none" 
+            id=M1808 dataSrc=#theXMLisland dataFld=M1808 name=M1808 
+            maxLength=40> </TD></TR>
+        <TR>
+          <TD width="20%" align=center><SPAN 
+            style="LETTER-SPACING: 20px">数量</SPAN>：</TD>
+          <TD width="25%"><INPUT value="TEAMPLATE_P_ProductPakNo"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M1811 dataSrc=#theXMLisland dataFld=M1811 
+            ondrop="javascript:return false;" 
+            onkeypress=javascript:InputFI(this.value,1); onpaste="return false;" 
+            name=M1811 maxLength=20> </TD>
+          <TD width="30%" align=center><SPAN 
+            style="LETTER-SPACING: 3px">包装单位</SPAN>：</TD>
+          <TD width="25%"><INPUT value="TEAMPLATE_P_ProductCarton"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none" 
+            id=M1812 dataSrc=#theXMLisland dataFld=M1812 name=M1812 
+            maxLength=40> </TD></TR>
+        <TR>
+          <TD width="20%" align=center>货币单位：</TD>
+          <TD width="25%"><INPUT value="TEAMPLATE_P_SellCurrency"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none" 
+            id=M1809 dataSrc=#theXMLisland dataFld=M1809 name=M1809 
+            maxLength=20> </TD>
+          <TD width="30%" align=center>总金额(元)：</TD>
+          <TD width="25%"><INPUT value="TEAMPLATE_P_ProductTotalPriceOut"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M1810 dataSrc=#theXMLisland dataFld=M1810 
+            ondrop="javascript:return false;" 
+            onkeypress=javascript:InputFI(this.value,1); onpaste="return false;" 
+            name=M1810 maxLength=40> </TD></TR>
+        <TR>
+          <TD colSpan=4><SPAN style="COLOR: red" 
+        id=lblMsg></SPAN></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class=Htd_noall vAlign=top colSpan=4 align=center><A 
+      style="FONT-SIZE: 10pt" id=btnSave 
+      onclick="javascript:save(document.all['flag'].value)" 
+      href="http://219.224.135.40/SIMTrade/doc/CM18.aspx?a1=&amp;a2=#">[保存]</A> 
+      <A style="FONT-SIZE: 10pt" id=btnClose onclick=window.parent.close(); 
+      href="http://219.224.135.40/SIMTrade/doc/CM18.aspx?a1=&amp;a2=#">[退出]</A> 
+    </TD></TR></TBODY></TABLE></FORM></BODY></HTML>

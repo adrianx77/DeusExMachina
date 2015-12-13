@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+    <title>货物运输保险投保单</title>
+    <meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+    <meta name="CODE_LANGUAGE" content="C#"><meta http-equiv="pragma" content="no-cache"><meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta name="vs_defaultClientScript" content="JavaScript">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="货物运输保险投保单_files/doc.css" rel="stylesheet">
+    <script src="货物运输保险投保单_files/utils.js" language="javascript"></script>
+	<script language="javascript">
+        function LoadPage()
+        {
+			var flag="0";			
+			if (flag=="0")
+			{
+				LetTextReadOnly();
+				LetTextareaReadOnly();
+			}
+        }
+        function save()
+        {	
+			if (M25Form.flag.value!="0")
+			{
+				var xmlResult=doClientSubmit("POST","PostForm.aspx?tb=M25&uid="+document.all["flag4"].value,false,source.xml,"text");
+				
+				var xmlServerResponse = new ActiveXObject("MSXML2.DOMDocument");
+				xmlServerResponse.loadXML(xmlResult);
+				
+				var strUrl="../Common/ErrMsg.aspx";
+				var strID=xmlServerResponse.selectSingleNode("//Message/errID").text;						
+				var strMsg=xmlServerResponse.selectSingleNode("//Message/errMsg").text;
+				
+				ShowMessage("Manager",strUrl,strID,strMsg,"Close","Close");
+			}
+        }
+		function printDoc()
+		{
+			//WindowOpen("PrintDoc.aspx?t=M25","printWindow","800px","600px");		
+			open("PrintDoc.aspx?t=M25","M25","height=600px,width=800px,center=yes,toolbar=no,menubar=yes,scrollbars=yes,location=no,resizable=yes,status=yes");		
+		}
+	</script>
+	<style type="text/css">
+		td{ height:30px}
+	</style>
+  </head>
+  <body ms_positioning="GridLayout" style="margins:0px" onload="javascript:LoadPage()">	
+    <form name="M25Form" method="post" action="M25.aspx?did=STINS000546&amp;Uid=mb14084691&amp;R=0" id="M25Form">
+<div>
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJLTkxNTA4NDgxZGQoQF1epn3hAO0/Hriuk0I3E3ES6A==" type="hidden">
+</div>
+
+    	<input name="flag" value="0" type="hidden"> 
+		<input name="flag2" value="STINS000546" type="hidden">
+		<input name="flag3" value="" type="hidden">
+		<input name="flag4" value="mb14084691" type="hidden">
+		<!--<div id="target">正在加载……</div>-->
+		<xml id="source" src="Xml/Document.aspx?a1=M25&amp;a2=STINS000546"></xml>
+		<table id="table1" align="center" border="0" cellpadding="0" cellspacing="0" width="740">
+			<tbody><tr>
+				<td class="td_title" align="center">
+					<a href="http://219.224.135.40/SIMTrade/help/Doc/M25help.htm" target="_blank"><span class="text_title">货物运输保险投保单</span></a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<table id="table2" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tbody><tr>
+						<td width="60">投保人：</td>
+						<td align="left" valign="bottom" width="400"><input value="TEMPLATE_CompanyNameZh" class="TAL" style="width:390px;height:24px" name="txtM2507" datasrc="#source" datafld="M2507" maxlength="80" type="text"></td>
+						<td width="80">投保日期：</td>
+						<td width="200"><input value="TEMPLATE_Date" class="TAL" style="width:190px;height:24px" name="txtM2508" datasrc="#source" datafld="M2508" maxlength="20" type="text"></td>
+					</tr>
+				</tbody></table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<table id="table3" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tbody><tr>
+						<td class="Htd_lefttop" align="center" width="120">发票号码</td>
+						<td class="Htd_lefttop" width="340"><input value="TEMPLATE_InvoiceNo" class="TAL" style="width:330px;height:17px" name="txtM2509" datasrc="#source" datafld="M2509" maxlength="20" type="text"></td>
+						<td class="Htd_ltr" align="center" width="280">投保条款和险别</td>
+					</tr>
+					<tr>
+						<td class="Htd_lefttop" rowspan="4" align="center" width="120">
+						被保险人</td>
+						<td class="Htd_lefttop" style="height: 20px" width="340">客户抬头</td>
+						<td class="Htd_ltr" rowspan="13" align="left" valign="top" width="280">
+						<table id="table5" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td style="height: 15px" width="15">　</td>
+								<td style="height: 15px" width="250">　</td>
+								<td style="height: 15px" width="15">　</td>
+							</tr>
+							<tr>
+								<td width="15">　</td>
+								<td style="height: 440px" align="left" valign="top" width="250">
+								<table id="table6" border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody><tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input value="√" class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2523" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text">)<input name="txtM2523h" datasrc="#source" datafld="M2523" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										PICC CLAUSE</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2524" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text">)<input name="txtM2524h" datasrc="#source" datafld="M2524" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										ICC CLAUSE</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input value="√" class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2525" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text">)<input name="txtM2525h" datasrc="#source" datafld="M2525" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										ALL RISKS</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2526" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text">)<input name="txtM2526h" datasrc="#source" datafld="M2526" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										W.P.A./W.A.</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2527" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text">)<input name="txtM2527h" datasrc="#source" datafld="M2527" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										F.P.A</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input value="√" class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2528" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text">)<input name="txtM2528h" datasrc="#source" datafld="M2528" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										WAR RISKS</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input value="√" class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2529" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text">)<input name="txtM2529h" datasrc="#source" datafld="M2529" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										S.R.C.C</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input value="√" class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2530" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text">)<input name="txtM2530h" datasrc="#source" datafld="M2530" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										STRIKE</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2531" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text">)<input name="txtM2531h" datasrc="#source" datafld="M2531" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										ICC CLAUSE A</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2532" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text">)<input name="txtM2532h" datasrc="#source" datafld="M2532" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										ICC CLAUSE B</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2533" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text">)<input name="txtM2533h" datasrc="#source" datafld="M2533" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										ICC CLAUSE C</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2534" maxlength="1" readonly="readonly" type="text">)<input name="txtM2534h" datasrc="#source" datafld="M2534" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										AIR TPT ALL RISKS</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2535" maxlength="1" readonly="readonly" type="text">)<input name="txtM2535h" datasrc="#source" datafld="M2535" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										AIR TPT RISKS</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2536" maxlength="1" readonly="readonly" type="text">)<input name="txtM2536h" datasrc="#source" datafld="M2536" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										O/L TPT ALL RISKS</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2537" maxlength="1" readonly="readonly" type="text">)<input name="txtM2537h" datasrc="#source" datafld="M2537" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										O/L TPT RISKS</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2538" maxlength="1" type="text">)<input name="txtM2538h" datasrc="#source" datafld="M2538" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										TRANSHIPMENT RISKS</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2539" maxlength="1" readonly="readonly" type="text">)<input name="txtM2539h" datasrc="#source" datafld="M2539" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										W TO W</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2540" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text">)<input name="txtM2540h" datasrc="#source" datafld="M2540" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										T.P.N.D.</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2541" maxlength="1" type="text">)<input name="txtM2541h" datasrc="#source" datafld="M2541" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										F.R.E.C.</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2542" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text">)<input name="txtM2542h" datasrc="#source" datafld="M2542" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										R.F.W.D.</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2543" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text">)<input name="txtM2543h" datasrc="#source" datafld="M2543" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										RISKS OF BREAKAGE</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="center" width="50">
+										(<input class="TAC" style="width:20px;height:17px;cursor:hand;" name="txtM2544" maxlength="1" type="text">)<input name="txtM2544h" datasrc="#source" datafld="M2544" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+										<td style="height: 20px; padding-left: 2px" align="left" width="200">
+										I.O.P.</td>
+									</tr>
+								</tbody></table>
+								</td>
+								<td width="15">　</td>
+							</tr>
+							<tr>
+								<td style="height: 15px" width="15">　</td>
+								<td style="height: 15px" width="250">　</td>
+								<td style="height: 15px" width="15">　</td>
+							</tr>
+						</tbody></table>
+						</td>
+					</tr>
+					<tr>
+						<td class="Htd_leftborders" style="height: 40px" align="left" valign="top" width="340">
+							<textarea name="txtM2510" class="TCL" rows="2" datasrc="#source" datafld="M2510" style="height:44;width:340">
+TEMPLATE_CompanyNameZh							
+							</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td class="Htd_lefttop" style="height: 20px" width="340">过户</td>
+					</tr>
+					<tr>
+						<td class="Htd_leftborders" style="height: 40px" align="left" valign="top" width="340">
+							<textarea name="txtM2511" class="TCL" rows="2" datasrc="#source" datafld="M2511" style="height:44;width:340">
+TEMPLATE_ImportCompanyName							
+							</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td class="Htd_lefttop" align="center" width="120">保险金额</td>
+						<td class="Htd_lefttop" width="340">[<input value="TEMPLATE_SellCurrency" class="TAL" style="width:90px;height:17px" name="txtM2512" datasrc="#source" datafld="M2512" maxlength="40" type="text">][<input value="TEMPLATE_WaiBi_YouJiaGe_Baoxianjine" class="TAL" style="width:230px;height:17px" name="txtM2513" datasrc="#source" datafld="M2513" maxlength="20" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" type="text">]</td>
+					</tr>
+					<tr>
+						<td class="Htd_lefttop" align="center" width="120">&nbsp;<span style="letter-spacing:6px">启运港</span></td>
+						<td class="Htd_lefttop" width="340"><input value="TEMPLATE_ShipPortEn" class="TAL" style="width:330px;height:17px" name="txtM2514" datasrc="#source" datafld="M2514" maxlength="40" type="text"></td>
+					</tr>
+					<tr>
+						<td class="Htd_lefttop" align="center" width="120">&nbsp;<span style="letter-spacing:6px">目的港</span></td>
+						<td class="Htd_lefttop" width="340"><input value="TEMPLATE_DestPortEn" class="TAL" style="width:330px;height:17px" name="txtM2515" datasrc="#source" datafld="M2515" maxlength="40" type="text"></td>
+					</tr>
+					<tr>
+						<td class="Htd_lefttop" align="center" width="120">&nbsp;<span style="letter-spacing:6px">转内陆</span></td>
+						<td class="Htd_lefttop" width="340"><input class="TAL" style="width:330px;height:17px" name="txtM2516" datasrc="#source" datafld="M2516" maxlength="80" type="text"></td>
+					</tr>
+					<tr>
+						<td class="Htd_lefttop" align="center" width="120">开航日期</td>
+						<td class="Htd_lefttop" width="340"><input value="TEMPLATE_Date" class="TAL" style="width:330px;height:17px" name="txtM2517" datasrc="#source" datafld="M2517" maxlength="20" type="text"></td>
+					</tr>
+					<tr>
+						<td class="Htd_lefttop" align="center" width="120">船名航次</td>
+						<td class="Htd_lefttop" width="340"><input value="TEMPLATE_TheShipName/TEMPLATE_TheShipWorkNo" class="TAL" style="width:330px;height:17px" name="txtM2518" datasrc="#source" datafld="M2518" maxlength="40" type="text"></td>
+					</tr>
+					<tr>
+						<td class="Htd_lefttop" align="center" width="120">赔款地点</td>
+						<td class="Htd_lefttop" width="340"><input value="TEMPLATE_DestPortEn" class="TAL" style="width:330px;height:17px" name="txtM2519" datasrc="#source" datafld="M2519" maxlength="80" type="text"></td>
+					</tr>
+					<tr>
+						<td class="Htd_lefttop" align="center" width="120">赔付币别</td>
+						<td class="Htd_lefttop" width="340"><input value="TEMPLATE_SellCurrency" class="TAL" style="width:330px;height:17px" name="txtM2520" datasrc="#source" datafld="M2520" maxlength="40" type="text"></td>
+					</tr>
+					<tr>
+						<td class="Htd_lefttop" align="center" width="120">保单份数</td>
+						<td class="Htd_lefttop" width="340"><input value="5" class="TAL" style="width:330px;height:17px" name="txtM2521" datasrc="#source" datafld="M2521" maxlength="40" type="text"></td>
+					</tr>
+					<tr>
+						<td class="Htd_lefttop" style="height: 120px" align="center" width="120">
+							&nbsp;<span style="letter-spacing:6px">其它特</span><br>&nbsp;<span style="letter-spacing:6px">别条款</span>
+						</td>
+						<td class="Htd_ltr" colspan="2" style="height: 120px" align="left" valign="top" width="620">
+							<textarea name="txtM2522" class="TCL" rows="2" datasrc="#source" datafld="M2522" style="height:120;width:620"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="Htd_ltr" align="center" width="740">
+						<span style="letter-spacing:10px">以下由保险公司填写</span></td>
+					</tr>
+					<tr>
+						<td colspan="3" class="Htd_allborders" style="height: 20px" width="740">
+						<table id="table4" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td style="height: 20px" align="center" width="120">保单号码</td>
+								<td class="Htd_leftborders" style="height: 20px" width="300"><input class="TAL" style="width:290px;height:17px" name="txtM2545" datasrc="#source" datafld="M2545" readonly="readonly" type="text"></td>
+								<td class="Htd_leftborders" style="height: 20px" align="center" width="120">
+								签单日期</td>
+								<td class="Htd_leftborders" style="height: 20px" width="200"><input class="TAL" style="width:190px;height:17px" name="txtM2546" datasrc="#source" datafld="M2546" readonly="readonly" type="text"></td>
+							</tr>
+						</tbody></table>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3" align="center" width="740">
+							<a style="FONT-SIZE: 10pt" href="javascript:printDoc()">[打印预览]</a>
+							<a id="btnSave" style="FONT-SIZE: 10pt" href="javascript:save()">[保存]</a>
+							<a id="btnClose" style="FONT-SIZE: 10pt" href="javascript:window.parent.close();">[退出]</a>
+						</td>
+					</tr>
+				</tbody></table>
+				</td>
+			</tr>
+		</tbody></table>
+     </form>	
+  
+
+</body></html>

@@ -237,7 +237,7 @@ float LogicForm::getInsuranceCFR () const
 {
     float c = m_productList->getTotalPriceOut() * ui->t3->value();
     float a = (1.0f + ui->t5->value() / 100.0f);
-    float b = ui->t5->value() / 100.0f;
+    float b = ui->t6->value() / 100.0f;
     return c * a / (1 - a * b) * b;
 }
 
@@ -246,7 +246,7 @@ float LogicForm::getInsuranceFOB () const
     float c = m_productList->getTotalPriceOut() * ui->t3->value();
     float s = getShipCost();
     float a = (1.0f + ui->t5->value() / 100.0f);
-    float b = ui->t5->value() / 100.0f;
+    float b = ui->t6->value() / 100.0f;
     return (c + s) * a / (1 - a * b) * b;
 }
 
@@ -628,6 +628,7 @@ void LogicForm::registerTokenFunc ()
     TOKEN_FUNC_REG(TEMPLATE_WaiBi_Haiyunfei);
     TOKEN_FUNC_REG(TEMPLATE_WaiBi_YouJiaGe_Baoxianfei);
     TOKEN_FUNC_REG(TEMPLATE_WaiBi_YouJiaGe_Haiyunfei);
+    TOKEN_FUNC_REG(TEMPLATE_WaiBi_YouJiaGe_Baoxianjine);
     TOKEN_FUNC_REG(TEMPLATE_ShipContainer);
 
     TOKEN_FUNC_REG(TEMPLATE_FactoryCompanyName);
@@ -1105,6 +1106,10 @@ TOKEN_FUNC_END
 
 TOKEN_FUNC_BEG(TEMPLATE_WaiBi_YouJiaGe_Haiyunfei)
 return QString::number(getShipCost()/UI_VALUE(t3), 'f', 2);
+TOKEN_FUNC_END
+
+TOKEN_FUNC_BEG(TEMPLATE_WaiBi_YouJiaGe_Baoxianjine)
+return QString::number(getWaibiInsurance() / UI_VALUE(t6) * 100.0f, 'f', 2);
 TOKEN_FUNC_END
 
 TOKEN_FUNC_BEG(TEMPLATE_ShipContainer)

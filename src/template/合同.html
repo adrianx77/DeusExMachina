@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>合同</title>
+		<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+		<meta name="CODE_LANGUAGE" content="C#"><meta http-equiv="pragma" content="no-cache"><meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+		<meta name="vs_defaultClientScript" content="JavaScript">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+		<link href="合同_files/Doc.css" rel="stylesheet">
+		<script src="合同_files/utils.js" language="javascript"></script>
+		<script language="javascript">
+        function LoadPage()
+        {
+			var flag="0";
+			var kk=document.all["sam"].value;
+			CheckOption(kk);//为下拉框进行赋值
+			
+			if ((flag=="0")||(flag=="2")||(flag=="4"))
+			{
+				LetTextReadOnly();
+				LetTextareaReadOnly();
+				document.all["sel"].disabled=true;
+			}
+			if (flag!="0")
+			{
+				switch (flag)
+				{
+					case "1"://B-->R
+					{
+						document.all["txtM0730"].readOnly = true;
+						document.all["txtM0731"].readOnly = true;
+						break;
+					}
+					case "2"://AB-R
+					{
+						document.all["txtM0732"].readOnly = false;
+						document.all["txtM0733"].readOnly = false;
+						break;
+					}
+					case "3"://C-->R
+					{
+						document.all["txtM0732"].readOnly = true;
+						document.all["txtM0733"].readOnly = true;
+						break;
+					}
+					case "4"://AC-R
+					{
+						document.all["txtM0730"].readOnly = false;
+						document.all["txtM0731"].readOnly = false;
+						break;
+					}
+				}
+			}
+
+			if (sourceChild.xml=="")
+			{
+				trBody.style.display="none";
+			}
+        }
+        function docheck(arg)
+        {
+			document.all["flag3"].value=arg;
+        }
+        function save()
+        {	
+			if (M07Form.flag.value!="0")
+			{
+				AppendNodes("//ROOT","//ROOT/M08");
+				var xmlResult=doClientSubmit("POST","PostForm.aspx?tb=M07&uid="+document.all["flag4"].value,false,source.xml,"text");
+				RemoveNodes("//ROOT","//ROOT/M08");
+				
+				var xmlServerResponse = new ActiveXObject("MSXML2.DOMDocument");
+				xmlServerResponse.loadXML(xmlResult);
+				
+				var strUrl="../Common/ErrMsg.aspx";
+				var strID=xmlServerResponse.selectSingleNode("//Message/errID").text;						
+				var strMsg=xmlServerResponse.selectSingleNode("//Message/errMsg").text;
+				
+				ShowMessage("Manager",strUrl,strID,strMsg,"Close","Close");
+			}
+        }
+        function DetailOperate(args1,args2)
+        {			
+			if ((M07Form.flag.value!="0")&&(M07Form.flag.value!="2")&&(M07Form.flag.value!="4"))
+			{
+				var str="";
+				var tmpA=document.all["flag3"].value;
+				if (args1==0)
+				{
+					str="CM08.aspx?a1="+args2+"&a2=";
+				}
+				else
+				{
+					
+					if (tmpA!="")
+					{
+						document.all["flag3"].value = "";
+						switch (args1)
+						{
+							case 1:
+								{										
+									tmpA-=1;
+									var a;
+									if (document.all['s'].length != undefined)
+									{
+										a = document.all['s'][tmpA].innerText;
+									}
+									else
+									{
+										a = document.all['s'].innerText;
+									}
+									tmpA+=1;					
+									str="CM08.aspx?a1="+args2+"&a2="+a+"&a3="+tmpA;
+									break;
+								}
+							case 2:
+							{
+								sourceChild.recordset.AbsolutePosition=tmpA;
+								if (tmpA>0)
+								{
+									sourceChild.recordset.Delete();
+								}
+								break;
+							}
+						}
+					}
+					else
+					{
+						alert("请选择记录进行操作！");
+						return false;
+					}
+				}
+				if (str!= "")	PopDialog(str,window,'430px','225px');
+			}
+			else
+			{
+				return false;
+			}
+        }
+         /*function PrintDoc()
+        {
+			var tmpSel=document.all["sel"].value;
+			document.all["sel"].style.display="none";
+			spSel.innerText=tmpSel;
+			spSel.style.width="120px";
+			doprint();
+			print();
+			spSel.innerText="";
+			spSel.style.width="0px";
+			document.all["sel"].style.display="inline";
+        }
+       function doprint() 
+        {
+			var h = factory.printing.header;
+			var f = factory.printing.footer;
+			document.all("printbtn").style.visibility = 'hidden';
+			factory.printing.header = "";
+			factory.printing.footer = "";
+			factory.DoPrint(false);
+			factory.printing.header = h;
+			factory.printing.footer = f;
+		}*/
+		
+		function printDoc()
+		{
+			AppendNodes("//ROOT","//ROOT/M08");	
+			open("PrintDoc.aspx?t=M07&c=M08","M07","height=600px,width=800px,center=yes,toolbar=no,menubar=yes,scrollbars=yes,location=no,resizable=yes,status=yes");	
+			//WindowOpen("PrintDoc.aspx?t=M07&c=M08","printWindow","800px","600px");			
+		}
+		</script>
+	</head>
+	<body ms_positioning="GridLayout" onload="LoadPage()">
+		<form name="M07Form" method="post" action="M07.aspx?did=ZX0HY&amp;Uid=mb14084691&amp;R=0" id="M07Form">
+<div>
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMTQ4MzQwNDAwZGRtbS6OM1usVEWOI7fHN4MG/XVs3g==" type="hidden">
+</div>
+
+			<input name="flag" value="0" type="hidden"> 
+			<input name="flag2" value="ZX0HY" type="hidden">
+			<input name="flag3" value="" type="hidden">
+			<input name="flag4" value="mb14084691" type="hidden">
+			<!--<div id="target">正在加载……</div>-->
+			<xml id="source" src="Xml/Document.aspx?a1=M07&amp;a2=ZX0HY"></xml>
+			<xml id="sourceChild" src="Xml/Document.aspx?a1=M08&amp;a2=ZX0HY"></xml>
+			<!--<XML id="style" src="Xslt/M07.xslt"></XML>-->
+			<table class="Htd_allborders" id="table1" align="center" border="0" cellpadding="0" cellspacing="0" width="760">
+				<tbody><tr>
+					<td valign="top">
+						<table id="table2" datasrc="#source" datafld="M07" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr style="display:none"><input name="hid" type="hidden"> 
+							<input name="sam" datasrc="#source" datafld="M0720" type="hidden">
+							</tr>
+							<tr>
+								<td style="HEIGHT: 45px;" colspan="4" valign="bottom" width="760"><input value="TEMPLATE_CompanyNameEn" class="TANC" id="txtM0707" style="FONT-WEIGHT: bold; FONT-SIZE: 20px; WIDTH: 772px;line-height:25px" name="txtM0707" datasrc="#source" datafld="M0707"></td>
+							</tr>
+							<tr>
+								<td style="HEIGHT: 35px" colspan="4" height="35" valign="bottom" width="760"><input value="TEMPLATE_CompanyAddressEn" class="TANC" id="txtM0708" style="FONT-SIZE: 14px; WIDTH: 772px" name="txtM0708" datasrc="#source" datafld="M0708"></td>
+							</tr>
+							<tr>
+								<td style="PADDING-BOTTOM: 10px; HEIGHT: 50px" colspan="4" align="center" valign="bottom" width="760"><font class="Text-24blackarial"><a href="http://219.224.135.40/SIMTrade/help/Doc/M07help.htm" target="_blank"><span datasrc="#source" datafld="M0734"></span></a></font>
+								</td>
+							</tr>
+							<tr>
+								<td class="Htd_rtb" style="PADDING-LEFT: 4px" rowspan="3" height="20" valign="top" width="60"><b><font size="2">Messrs:</font></b></td>
+								<td class="Htd_bottomtop" rowspan="3" width="480"><textarea class="TL" id="txtM0709" style="WIDTH: 480px" name="txtM0709" datasrc="#source" datafld="M0709">
+TEMPLATE_ImportCompanyName
+TEMPLATE_ImportCompanyAddress
+								</textarea></td>
+								<td class="Htd_ltr" align="right" height="20" width="60"><b>No.</b></td>
+								<td class="Htd_topborders" height="20" width="160"><input value="TEMPLATE_ContractNo" class="TAL" id="M0701" style="WIDTH: 160px" name="M0701" datafld="M0701" datasrc="#source" readonly="true"></td>
+							</tr>
+							<tr>
+								<td class="Htd_ltr" align="right" height="10" width="60"><b>Date:</b></td>
+								<td class="Htd_topborders" height="10" width="160"><input value="TEMPLATE_Date" class="TAL" id="txtM0711" style="WIDTH: 160px" name="txtM0711" datafld="M0711" datasrc="#source"></td>
+							</tr>
+							<tr>
+								<td class="Htd_ltb" align="right" height="10" width="60">&nbsp;</td>
+								<td class="Htd_bottomtop" height="10" width="160">&nbsp;</td>
+							</tr>
+							<tr>
+								<td class="Htd_bottomborders" style="PADDING-TOP: 10px" colspan="4" height="60" valign="bottom">Dear Sirs,<br>
+									<span style="PADDING-LEFT: 36px; LINE-HEIGHT: 35px" datasrc="#source" datafld="M0710"></span></td>
+							</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<table id="table5" datasrc="#sourceChild" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<thead>
+							<tr>
+								<th class="Htd_rightbottom" align="center" width="40"><b>Choice</b></th>
+								<th class="Htd_rightbottom" align="center" width="110"><b>Product No.</b></th>
+								<th class="Htd_rightbottom" align="center" width="280"><b>Description</b></th>
+								<th class="Htd_rightbottom" align="center" width="70"><b>Quantity </b>
+								</th>
+								<th class="Htd_rightbottom" align="center" width="60"><b>Unit </b>
+								</th>
+								<th class="Htd_rightbottom" align="center" width="100"><b>Unit Price</b></th>
+								<th class="Htd_bottomborders" align="center" width="100"><b>Amount</b></th>
+							</tr>
+							PRODUCT_HERF_LINK
+							<tr>
+								<th class="Htd_bottomborders" colspan="5" width="560">　</th>
+								<th class="Htd_bottomborders" valign="top" width="100">
+									<table datasrc="#source" datafld="M07" border="0" cellpadding="0" cellspacing="0" width="100%">
+										<tbody><tr>
+											<td style="font-size:16px">
+												[<input value="TEMPLATE_DeliveryType" class="TAL" id="txtM0712" style="WIDTH: 25px;height:18px" name="txtM0712" datafld="M0712" datasrc="#source">] 
+												[<input value="TEMPLATE_DeliveryPortEn" class="TAL" id="txtM0713" style="WIDTH: 53px;height:18px" name="txtM0713" datafld="M0713" datasrc="#source">]
+											</td>
+										</tr>
+									</tbody></table>
+								</th>
+								<th class="Htd_bottomborders" width="100">　</th>
+							</tr>
+							</thead>
+							<tbody id="trBody" style="display:inline">
+							<tr>
+								<td class="Htd_rightbottom" align="center" width="49"><span id="spRad"></span><input name="rad" onclick="javascript:docheck(this.recordNumber);" type="radio">
+								</td>
+								<td class="Htd_rightbottom" width="108"><span id="s" datafld="M0803"></span>&nbsp;
+								</td>
+								<td class="Htd_rightbottom" width="280"><span id="s1" datafld="M0804"></span>&nbsp;
+								</td>
+								<td class="Htd_rightbottom" width="70"><span id="s2" datafld="M0805"></span>&nbsp;
+								</td>
+								<td class="Htd_rightbottom" width="60"><span id="s3" datafld="M0806"></span>&nbsp;
+								</td>
+								<td class="Htd_rightbottom" align="right" width="100"><span id="s4" datafld="M0807"></span><span id="s5" datafld="M0808"></span>&nbsp;
+								</td>
+								<td class="Htd_bottomborders" align="right" width="100"><span id="s6" datafld="M0807"></span><span id="s7" datafld="M0809"></span>&nbsp;
+								</td>
+							</tr>
+							</tbody>
+							<tfoot>
+							<tr>
+								<td class="Htd_rightbottom" style="HEIGHT: 80px" width="40">　</td>
+								<td class="Htd_rightbottom" style="HEIGHT: 80px" width="110">　</td>
+								<td class="Htd_rightbottom" style="HEIGHT: 80px" width="280">　</td>
+								<td class="Htd_rightbottom" style="HEIGHT: 80px" width="70">　</td>
+								<td class="Htd_rightbottom" style="HEIGHT: 80px" width="60">　</td>
+								<td class="Htd_rightbottom" style="HEIGHT: 80px" width="100">　</td>
+								<td class="Htd_bottomborders" style="HEIGHT: 80px" width="100">　</td>
+							</tr>
+							<tr class="noprint">
+								<td class="Htd_bottomborders" colspan="7" align="right" width="760">
+									<a onclick="javascript:DetailOperate(0,document.all['flag2'].value)" href="#"><font style="FONT-SIZE: 10pt; LETTER-SPACING: 6pt">[添加]</font></a>
+									<a onclick="javascript:DetailOperate(1,document.all['flag2'].value)" href="#"><font style="FONT-SIZE: 10pt; LETTER-SPACING: 6pt">[修改]</font></a>
+									<a onclick="javascript:DetailOperate(2,document.all['flag2'].value)" href="#"><font style="FONT-SIZE: 10pt; LETTER-SPACING: 6pt">[刪除]</font></a>
+								</td>
+							</tr>
+							<tr>
+								<td class="Htd_rightbottom" colspan="3" align="right" width="430"><b>Total:</b></td>
+								<td class="Htd_rightbottom" width="70"><input value="TEMPLATE_TotalQuantityOfProduct" class="TAL" id="txtM0714" style="WIDTH: 70px" name="txtM0714" datasrc="#source" datafld="M0714" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;"></td>
+								<td class="Htd_rightbottom" width="60"><input value="TEMPLATE_TotalQuantityType" class="TAL" id="txtM0715" style="WIDTH: 60px" name="txtM0715" datasrc="#source" datafld="M0715"></td>
+								<td class="Htd_rightbottom" width="100">　</td>
+								<td class="Htd_bottomborders" style="font-size:16px" width="100">[<input value="TEMPLATE_SellCurrency" class="TAL" id="txtM0717" style="WIDTH: 28px;height:18px" name="txtM0717" datasrc="#source" datafld="M0717">] 
+									[<input value="TEMPLATE_TotalSell" class="TAL" id="txtM0718" style="WIDTH: 50px;height:18px" name="txtM0718" datasrc="#source" datafld="M0718" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;">]
+								</td>
+							</tr>
+							<tr>
+								<td class="Htd_rightbottom" colspan="2" width="150">&nbsp;<b>Say Total:</b></td>
+								<td class="Htd_bottomborders" colspan="5" width="610"><input value="TEMPLATE_TotalSaySell" class="TAL" id="txtM0719" style="WIDTH: 600px" name="txtM0719" datasrc="#source" datafld="M0719"></td>
+							</tr>
+							</tfoot>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<table id="table3" border="0" cellpadding="3" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td class="Htd_rightbottom" align="left" height="20" valign="top" width="140"><b>Payment:</b></td>
+								<td class="Htd_bottomborders" width="620">
+								<span id="spSel"></span>
+								<select style="WIDTH: 120px" name="sel" datasrc="#source" datafld="M0720">
+										<option value="" selected="selected">TEMPLATE_Payment</option>
+										<option value="L/C">L/C</option>
+										<option value="D/A">D/A</option>
+										<option value="D/P">D/P</option>
+										<option value="T/T">T/T</option>
+									</select>
+									<span style="font-size:16px">[</span><input value="Some payment information" class="TAL" id="txtM0735" style="WIDTH: 488px;height:18px" name="txtM0735" datasrc="#source" datafld="M0735"><span style="font-size:16px">]</span></td>
+							</tr>
+							<tr>
+								<td class="Htd_rightbottom" style="HEIGHT: 40px" align="left" height="20" valign="top" width="140"><b>Packing:</b></td>
+								<td class="Htd_bottomborders" style="HEIGHT: 40px" width="620"><textarea name="txtM0721" id="txtM0721" class="TL" style="WIDTH: 620px" datasrc="#source" datafld="M0721">
+TEMPLATE_QuantityPerCarton
+Each of the carton should be indicated with Item No.,Name of the Table,G.W.,and C/No</textarea></td>
+							</tr>
+							<tr>
+								<td class="Htd_rightbottom" align="left" height="20" valign="top" width="140"><b>Port 
+										of Shipment:</b></td>
+								<td class="Htd_bottomborders" width="620"><input value="TEMPLATE_ShipPortEn" class="TAL" id="txtM0722" style="WIDTH: 620px" name="txtM0722" datasrc="#source" datafld="M0722"></td>
+							</tr>
+							<tr>
+								<td class="Htd_rightbottom" align="left" height="20" valign="top" width="140"><b>Port 
+										of Destination:</b></td>
+								<td class="Htd_bottomborders" width="620"><input value="TEMPLATE_DestPortEn" class="TAL" id="txtM0723" style="WIDTH: 620px" name="txtM0723" datasrc="#source" datafld="M0723"></td>
+							</tr>
+							<tr>
+								<td class="Htd_rightbottom" style="HEIGHT: 40px" align="left" height="20" valign="top" width="140"><b>Shipment:</b></td>
+								<td class="Htd_bottomborders" style="HEIGHT: 40px" align="left" valign="top" width="620">
+								<textarea name="txtM736" id="txtM0726" class="TL" style="WIDTH: 620px" datasrc="#source" datafld="M0724" rows="1">
+All of the goods will be shipped from TEMPLATE_ShipPortEn to TEMPLATE_DestPortEn before TEMPLATE_Date. Parital shipmnets and transhipment are not allowed.
+								</textarea></td>
+							</tr>
+							<tr>
+								<td class="Htd_rightbottom" style="HEIGHT: 80px" align="left" height="20" valign="top" width="140"><b>Shipping Mark:</b></td>
+								<td class="Htd_bottomborders" style="HEIGHT: 80px" width="620"><textarea name="txtM0725" id="txtM0725" class="TL" style="WIDTH: 620px" datasrc="#source" datafld="M0725">
+TEMPLATE_ShippingMark						
+								</textarea></td>
+							</tr>
+							<tr>
+								<td class="Htd_rightbottom" style="HEIGHT: 40px" align="left" height="20" valign="top" width="140"><b>Quality:</b></td>
+								<td class="Htd_bottomborders" style="HEIGHT: 40px" width="620"><textarea name="txtM0726" id="txtM0726" class="TL" style="WIDTH: 620px" datasrc="#source" datafld="M0726">
+As per sample submitted by seller.								
+								</textarea></td>
+							</tr>
+							<tr>
+								<td class="Htd_rightbottom" style="HEIGHT: 40px" align="left" height="20" valign="top" width="140"><b>Insurance:</b></td>
+								<td class="Htd_bottomborders" style="HEIGHT: 40px" width="620"><textarea name="txtM0727" id="txtM0727" class="TL" style="WIDTH: 620px" datasrc="#source" datafld="M0727">
+TEMPLATE_InsuranceDesc								
+								</textarea></td>
+							</tr>
+							<tr>
+								<td class="Htd_rightborders" style="HEIGHT: 40px" align="left" height="20" valign="top" width="140"><b>Remarks:</b></td>
+								<td style="HEIGHT: 40px" width="620"><textarea name="txtM0729" id="txtM0729" class="TL" style="WIDTH: 620px" datasrc="#source" datafld="M0729">
+The Buyers are requested to sign and return one copy of this Sales Confirmation immediately after receipt of the same.								
+								</textarea></td>
+							</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				<tr style="height:100">
+					<td style="height:100" valign="top">
+						<table id="table4" style="height:100" border="0" cellpadding="3" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td class="Htd_righttop" style="PADDING-BOTTOM: 5px; HEIGHT: 40px" align="center" valign="bottom" width="380"><font class="Text-20blackarial">BUYERS</font></td>
+								<td class="Htd_topborders" style="PADDING-BOTTOM: 5px; HEIGHT: 40px" align="center" valign="bottom" width="380"><font class="Text-20blackarial">SELLERS</font></td>
+							</tr>
+							<tr>
+								<td class="Htd_righttop" style="height:23px" valign="bottom" width="380"><input name="txtM0730" id="txtM0730" class="TANC" style="FONT-WEIGHT: bold; FONT-SIZE: 15px; WIDTH: 380px;height:18px" datasrc="#source" datafld="M0730"></td>
+								<td class="Htd_topborders" style="height:23px" valign="bottom" width="380"><input value="TEMPLATE_CompanyNameEn" class="TANC" name="txtM0732" id="txtM0732" style="FONT-WEIGHT: bold; FONT-SIZE: 15px; WIDTH: 380px;height:18px" datasrc="#source" datafld="M0732"></td>
+							</tr>
+							<tr>
+								<td class="Htd_rightborders" style="height:17px" valign="bottom" width="380"><input name="txtM0731" id="txtM0731" class="TANC" style="FONT-SIZE: 15px; WIDTH: 380px; FONT-STYLE: italic;line-height:17px" datasrc="#source" datafld="M0731"></td>
+								<td style="height:17px" valign="bottom" width="380"><input value="TEMPLATE_MyNameEn" class="TANC" id="txtM0733" style="FONT-SIZE: 15px; WIDTH: 380px; FONT-STYLE: italic;line-height:17px" name="txtM0733" datasrc="#source" datafld="M0733"></td>
+							</tr>
+							<tr>
+								<td class="Htd_rightborders" style="height:20px" align="center" valign="top" width="380">(Manager Signature)</td>
+								<td style="height:20px" align="center" valign="top" width="380">(Manager Signature)</td>
+							</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				<tr class="noprint">
+					<td class="Htd_topborders" align="center"><a style="FONT-SIZE: 10pt" href="javascript:printDoc()">[打印预览]</a><a id="btnSave" style="FONT-SIZE: 10pt" href="javascript:save()">[保存]</a><a id="btnClose" style="FONT-SIZE: 10pt" href="javascript:window.parent.close();">[退出]</a></td>
+				</tr>
+			</tbody></table>
+
+		</form>
+	
+
+</body></html>

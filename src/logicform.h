@@ -169,6 +169,7 @@ private:
     DEF_TOKEN_FUNC(TEMPLATE_WaiBi_Haiyunfei);
     DEF_TOKEN_FUNC(TEMPLATE_WaiBi_YouJiaGe_Baoxianfei);
     DEF_TOKEN_FUNC(TEMPLATE_WaiBi_YouJiaGe_Haiyunfei);
+    DEF_TOKEN_FUNC(TEMPLATE_WaiBi_YouJiaGe_Baoxianjine);
     DEF_TOKEN_FUNC(TEMPLATE_ShipContainer);
 
     DEF_TOKEN_FUNC(TEMPLATE_FactoryCompanyName);

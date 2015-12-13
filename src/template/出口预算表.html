@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>出口预算表</title>
+			<meta content="Microsoft Visual Studio .NET 7.1" name="GENERATOR">
+			<meta content="C#" name="CODE_LANGUAGE">
+			<meta content="JavaScript" name="vs_defaultClientScript">
+			<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
+			<link href="出口预算表_files/doc.css" rel="stylesheet">
+			<style type="text/css"> .text-title{font-size:22px;font-weight:bold;height:24px;line-height:24px;letter-spacing:5px}
+				.text-title-en{font-size:20px;font-weight:bold;height:28px;line-height:28px;font-family:"宋体"}
+				.text-14px{font-size:14px;font-weight:bold;height:15px;line-height:15px}
+		</style>
+		<script src="出口预算表_files/utils.js" language="javascript"></script>
+
+		<script language="javascript">
+				function LoadPage()
+				{
+					var flag="0";
+					if (flag=="0")
+					{
+						LetTextReadOnly();
+						LetTextareaReadOnly();
+					}
+				}
+				function save()
+				{	
+					if (M50AForm.flag.value!="0")
+					{
+						var xmlResult=doClientSubmit("POST","PostForm.aspx?tb=M50&uid="+document.all["flag4"].value,false,source.xml,"text");
+						var xmlServerResponse = new ActiveXObject("MSXML2.DOMDocument");
+						xmlServerResponse.loadXML(xmlResult);
+						var strUrl="../Common/ErrMsg.aspx";
+
+						var strID=xmlServerResponse.selectSingleNode("//Message/errID").text;
+						var strMsg=xmlServerResponse.selectSingleNode("//Message/errMsg").text;
+						ShowMessage("Manager",strUrl,strID,strMsg,"Close","Close");
+					}
+				}    
+				</script>
+		
+  </head>
+	<body style="margins: 0px" onload="javascript:LoadPage()" ms_positioning="GridLayout">
+	<form name="M50AForm" method="post" action="M50A.aspx?did=STEBG000696&amp;Uid=mb14084691&amp;R=0" id="M50AForm">
+<div>
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJLTkxNTA4NDgxZGSg4VOga5uogZqUbWAY82lxxd5m9w==" type="hidden">
+</div>
+
+			<input name="flag" value="0" type="hidden">
+			<input name="flag2" value="STEBG000696" type="hidden">
+			<input name="flag3" value="" type="hidden">
+			<input name="flag4" value="mb14084691" type="hidden">
+			<xml id="source" src="Xml/Document.aspx?a1=M50&amp;a2=STEBG000696"></xml>
+			<table id="table1" align="center" border="0" cellpadding="0" cellspacing="0" width="700">
+			<tbody><tr>
+				<td align="left" valign="top" width="700">
+					<table id="table2" border="0" cellpadding="0" cellspacing="0" width="700">
+			<tbody><tr>
+				<td colspan="3" style="FONT-WEIGHT: bold; HEIGHT: 80px" align="center" width="700"><p><a href="http://219.224.135.40/SIMTrade/help/Doc/M50Ahelp.htm" target="_blank"><span class="text-title">出口预算表</span></a></p></td>
+			</tr>
+			<tr>
+					<td align="left" height="30px" width="100"><p><span>合同号：</span></p></td>
+					<td align="left" height="30px" width="100"><input value="TEMPLATE_ContractNo" datafld="M5006" class="TAL" style="FONT-WEIGHT: bold; HEIGHT: 17px" datasrc="#source" readonly="readonly" maxlength="40" name="txtM5006" type="text"></td>
+					<td align="left" height="30px"></td>
+			</tr>
+			<tr>
+					<td align="left" height="30px" width="100"><p><span>预算表编号：</span></p></td>
+					<td align="left" height="30px" width="100"><input datafld="M5001" class="TAL" style="FONT-WEIGHT: bold; HEIGHT: 17px" datasrc="#source" readonly="readonly" maxlength="40" name="txtM5001" type="text"></td> 
+					<td align="right" height="30px"><p><span>（注：本预算表填入的位数全部为本位币）</span></p></td>
+				</tr>
+			</tbody></table>
+			</td>
+			</tr>
+				<tr>
+					<td align="left" valign="top" width="700">
+						<table id="table3" border="0" cellpadding="0" cellspacing="0" width="700">
+						<tbody><tr>
+							<td style="HEIGHT: 25px" align="left" valign="top" width="700">
+								<table id="table4" height="40" border="0" cellpadding="3" cellspacing="0" width="700">
+								<tbody><tr>
+									<td class="Htd_lefttop" align="center" width="220">项目</td>
+									<td class="Htd_lefttop" align="center" width="240">预算金额</td>
+									<td class="Htd_ltr" align="center" width="240">实际发生金额</td></tr>
+								<tr>
+									<td class="Htd_lefttop" width="220">&nbsp;&nbsp;&nbsp;合同金额</td>
+									<td class="Htd_lefttop" width="240"><input value="TEMPLATE_Hetongjine" datafld="M5007" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH:240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" maxlength="20" name="txtM5007" type="text"></td>
+									<td class="Htd_ltr" width="240"><input datafld="M50071" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" readonly="readonly" maxlength="20" name="txtM50071" type="text"></td></tr>
+								<tr>
+									<td class="Htd_lefttop" width="220">&nbsp;&nbsp;&nbsp;采购成本</td>
+									<td class="Htd_lefttop" width="240"><input value="TEMPLATE_Caigoucengben" datafld="M5008" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" maxlength="20" name="txtM5008" type="text"></td>
+									<td class="Htd_ltr" width="240"><input datafld="M50081" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" readonly="readonly" maxlength="20" name="txtM50081" type="text"></td></tr>
+								<tr>
+									<td class="Htd_lefttop" width="220">&nbsp;&nbsp;&nbsp;FOB总价</td>
+									<td class="Htd_lefttop" width="240"><input value="TEMPLATE_FOBZongjia" datafld="M5009" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" maxlength="20" name="txtM5009" type="text"></td>
+									<td class="Htd_ltr" width="240"><input datafld="M50091" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" readonly="readonly" maxlength="20" name="txtM50091" type="text"></td></tr>
+								<tr>
+									<td class="Htd_lefttop" width="220">&nbsp;&nbsp;&nbsp;内陆运费</td>
+									<td class="Htd_lefttop" width="240"><input value="TEMPLATE_Neiluyunfei" datafld="M5010" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" maxlength="20" name="txtM5010" type="text"></td>
+									<td class="Htd_ltr" width="240"><input datafld="M50101" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" readonly="readonly" maxlength="20" name="txtM50101" type="text"></td></tr>
+								<tr>
+									<td class="Htd_lefttop" width="220">&nbsp;&nbsp;&nbsp;报检费</td>
+									<td class="Htd_lefttop" width="240"><input value="TEMPLATE_Baojianfei" datafld="M5011" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" maxlength="20" name="txtM5011" type="text"></td>
+									<td class="Htd_ltr" width="240"><input datafld="M50111" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" readonly="readonly" maxlength="20" name="txtM50111" type="text"></td></tr>
+								<tr>
+									<td class="Htd_lefttop" width="220">&nbsp;&nbsp;&nbsp;报关费</td>
+									<td class="Htd_lefttop" width="240"><input value="TEMPLATE_Baoguanfei" datafld="M5012" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" maxlength="20" name="txtM5012" type="text"></td>
+									<td class="Htd_ltr" width="240"><input datafld="M50121" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" readonly="readonly" maxlength="20" name="txtM50121" type="text"></td></tr>
+								<tr>
+									<td class="Htd_lefttop" width="220">&nbsp;&nbsp;&nbsp;海运费</td>
+									<td class="Htd_lefttop" width="240"><input value="TEMPLATE_Haiyunfei" datafld="M5013" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" maxlength="20" name="txtM5013" type="text"></td>
+									<td class="Htd_ltr" width="240"><input datafld="M50131" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" readonly="readonly" maxlength="20" name="txtM50131" type="text"></td></tr>
+								<tr>
+									<td class="Htd_lefttop" width="220">&nbsp;&nbsp;&nbsp;保险费</td>
+									<td class="Htd_lefttop" width="240"><input value="TEMPLATE_Baoxianfei" datafld="M5014" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" maxlength="20" name="txtM5014" type="text"></td>
+									<td class="Htd_ltr" width="240"><input datafld="M50141" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" readonly="readonly" maxlength="20" name="txtM50141" type="text"></td></tr>
+								<tr>
+									<td class="Htd_lefttop" width="220">&nbsp;&nbsp;&nbsp;核销费</td>
+									<td class="Htd_lefttop" width="240"><input value="TEMPLATE_Hexiaofei" datafld="M5015" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" maxlength="20" name="txtM5015" type="text"></td>
+									<td class="Htd_ltr" width="240"><input datafld="M50151" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" readonly="readonly" maxlength="20" name="txtM50151" type="text"></td></tr>
+								<tr>
+									<td class="Htd_lefttop" width="220">&nbsp;&nbsp;&nbsp;银行费用</td>
+									<td class="Htd_lefttop" width="240"><input value="TEMPLATE_Yinhangfeiyong" datafld="M5016" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" maxlength="20" name="txtM5016" type="text"></td>
+									<td class="Htd_ltr" width="240"><input datafld="M50161" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" readonly="readonly" maxlength="20" name="txtM50161" type="text"></td></tr>
+								<tr>
+									<td class="Htd_lefttop" width="220">&nbsp;&nbsp;&nbsp;其他费用</td>
+									<td class="Htd_lefttop" width="240"><input value="TEMPLATE_Qitafeiyong" datafld="M5017" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" maxlength="20" name="txtM5017" type="text"></td>
+									<td class="Htd_ltr" width="240"><input datafld="M50171" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" readonly="readonly" maxlength="20" name="txtM50171" type="text"></td></tr>
+								<tr>
+									<td class="Htd_lefttop" width="220">&nbsp;&nbsp;&nbsp;退税收入</td>
+									<td class="Htd_lefttop" width="240"><input value="TEMPLATE_Tuisuishouru" datafld="M5018" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" maxlength="20" name="txtM5018" type="text"></td>
+									<td class="Htd_ltr" width="240"><input datafld="M50181" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" readonly="readonly" maxlength="20" name="txtM50181" type="text"></td></tr>
+								<tr>
+									<td class="Htd_ltb" width="220">&nbsp;&nbsp;&nbsp;利润</td>
+									<td class="Htd_ltb" width="240"><input value="TEMPLATE_Lirun" datafld="M5019" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" maxlength="20" name="txtM5019" type="text"></td>
+									<td class="Htd_allborders" width="240"><input datafld="M50191" class="TAR" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" style="IME-MODE: disabled; WIDTH: 240; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" datasrc="#source" readonly="readonly" maxlength="20" name="txtM50191" type="text"></td></tr></tbody></table></td>
+							<td style="HEIGHT: 40px" width="15"></td></tr></tbody></table></td></tr>
+					<tr>
+						<td align="center" width="100%"><a style="FONT-SIZE: 10pt">[打印]</a> <a id="btnSave" style="FONT-SIZE: 10pt" href="javascript:save()">[保存]</a> <a id="btnClose" style="FONT-SIZE: 10pt" href="javascript:window.parent.close();">[退出]</a> 
+					</td></tr>
+								</tbody></table></form>
+	
+
+</body></html>

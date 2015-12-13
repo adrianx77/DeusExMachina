@@ -1,0 +1,191 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0057)http://219.224.135.40/SIMTrade/doc/CM06.aspx -->
+<HTML><HEAD><TITLE>商品货物明细表</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type><xml id=theXMLisland></xml><xml id=xmlSrc><ROOT><M06><M0601></M0601><M0602></M0602><M0603></M0603><M0604></M0604><M0605></M0605><M0606></M0606><M0607></M0607><M0608></M0608><M0609></M0609><M0610></M0610><M0611></M0611><M0612></M0612><M0613></M0613></M06></ROOT></xml>
+<META name=GENERATOR content="MSHTML 9.00.8112.16723">
+<META name=CODE_LANGUAGE content=C#>
+<META content=no-cache http-equiv=pragma>
+<META content=no-cache,must-revalidate http-equiv=Cache-Control>
+<META name=vs_defaultClientScript content=JavaScript>
+<META name=vs_targetSchema 
+content=http://schemas.microsoft.com/intellisense/ie5><LINK rel=stylesheet 
+href="出口报关单商品明细表_files/Doc.css">
+<SCRIPT language=javascript src="出口报关单商品明细表_files/utils.js"></SCRIPT>
+
+<SCRIPT language=javascript>	
+		var k=window.dialogArguments;				
+		function LoadForm()			
+		{
+			window.resizeTo(430,260);
+			var tmp1=document.all["flag2"].value;
+			var tmp2=parseInt(tmp1);
+			if (k.sourceChild.xml!="")
+			{
+				theXMLisland.loadXML(k.sourceChild.xml);
+				var objNodes = theXMLisland.selectNodes("//ROOT/M06");
+				var i = objNodes.length;
+				if (i == 0)
+				{
+					theXMLisland.loadXML(xmlSrc.xml);
+					tmp2=1;
+				}
+			}
+			else
+			{
+				theXMLisland.loadXML(xmlSrc.xml);
+				tmp2=1;
+			}
+			if (tmp2!=NaN)
+			{
+				if (tmp2>0)
+				{
+					theXMLisland.recordset.AbsolutePosition=tmp2;
+				}
+				else if (tmp2==-1)
+				{
+					theXMLisland.recordset.AddNew();
+				}
+			}
+			if (document.all["flag"].value=="0")
+			{
+				document.all["M0602"].readOnly=false;
+			}
+			theXMLisland.recordset.fields("M0601").value = document.all["M0601"].value;
+		}
+		function save(arg)
+		{	
+			
+			if (arg==0)
+			{
+				result=doClientSubmit("POST", "TestChildForm.aspx?map=M06&pfld=01&pid="+document.all["M0601"].value+"&cfld=02&cid="+document.all["M0602"].value, false,theXMLisland.xml,"text");
+				if ((result!="OK")&&(result!=""))
+				{
+					alert(result);
+					return false;
+				}
+			}
+			k.sourceChild.loadXML(theXMLisland.xml);
+			if ((k.trBody != undefined)&&(k.trBody.length == undefined))
+			{
+				if (k.trBody.style.display == "none")
+				{
+					k.trBody.style.display="inline";
+				}
+			}
+			window.close();
+		}
+	</SCRIPT>
+</HEAD>
+<BODY style="MARGIN-TOP: 10px; MARGIN-BOTTOM: 0px" onload=LoadForm() 
+MS_POSITIONING="GridLayout">
+<FORM id=Form1 method=post name=Form1 action=CM06.aspx?a0=1&amp;a1=&amp;a2=>
+<DIV><INPUT id=__VIEWSTATE name=__VIEWSTATE 
+value=/wEPDwULLTEzNDIzNTY1ODgPZBYCZg9kFgJmDw8WAh4EVGV4dAUU55uu55qE5Zu9KOWcsOWMuinvvJpkZGTsCQSjfzJjE3huwZS38hRp2byOVg== 
+type=hidden> </DIV><INPUT name=flag value=0 type=hidden><INPUT name=flag2 
+value=-1 type=hidden> <INPUT id=M0601 name=M0601 type=hidden> 
+<TABLE style="BORDER-COLLAPSE: collapse" border=0 cellSpacing=0 
+borderColor=#000000 cellPadding=0 width=400 align=center>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE style="BORDER-COLLAPSE: collapse" border=1 cellSpacing=0 
+      borderColor=#000000 cellPadding=0 width="100%" align=center>
+        <TBODY>
+        <TR>
+          <TD width="30%" align=center><SPAN 
+            style="LETTER-SPACING: 4px">项次序号：</SPAN></TD>
+          <TD width="70%" colSpan=3><INPUT value="TEAMPLATE_P_ProductIndex"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M0602 dataSrc=#theXMLisland dataFld=M0602 
+            ondrop="javascript:return false;" 
+            onkeypress=javascript:InputFI(this.value,0); onpaste="return false;" 
+            name=M0602 readOnly maxLength=40></TD></TR>
+        <TR>
+          <TD width="30%" align=center><SPAN 
+            style="LETTER-SPACING: 4px">产品编号：</SPAN></TD>
+          <TD width="70%" colSpan=3><INPUT value="TEAMPLATE_P_ProductId"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M0603 dataSrc=#theXMLisland dataFld=M0603 name=M0603 
+            maxLength=40> </TD></TR>
+        <TR>
+          <TD width="30%" align=center><SPAN 
+            style="LETTER-SPACING: 4px">商品编号(H.S.编码)：</SPAN></TD>
+          <TD width="70%" colSpan=3><INPUT value="TEAMPLATE_P_ProductHSCode"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M0613 dataSrc=#theXMLisland dataFld=M0613 name=M0613 
+            maxLength=40> </TD></TR>
+        <TR>
+          <TD width="30%" align=center><SPAN 
+            style="LETTER-SPACING: 4px">商品名称：</SPAN></TD>
+          <TD width="70%" colSpan=3><INPUT value="TEAMPLATE_P_ProductNameZh"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none" 
+            id=M0604 dataSrc=#theXMLisland dataFld=M0604 name=M0604 maxLength=40 
+            size=2000></TD></TR>
+        <TR>
+          <TD height=40 vAlign=top width="30%" align=center><SPAN 
+            style="LETTER-SPACING: 4px">商品规格：</SPAN></TD>
+          <TD height=40 vAlign=top width="70%" colSpan=3><TEXTAREA style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 100%; BORDER-TOP-STYLE: none; HEIGHT: 40px; BORDER-RIGHT-STYLE: none" id=M0605 dataSrc=#theXMLisland dataFld=M0605 rows=3 name=M0605>
+TEAMPLATE_P_ProductDescZh		  
+		  </TEXTAREA> 
+          </TD></TR>
+        <TR>
+          <TD width="30%" align=center><SPAN 
+            style="LETTER-SPACING: 42px">数量</SPAN>：</TD>
+          <TD width="25%"><INPUT value="TEAMPLATE_P_ProductQuantity"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M0606 dataSrc=#theXMLisland dataFld=M0606 
+            ondrop="javascript:return false;" 
+            onkeypress=javascript:InputFI(this.value,1); onpaste="return false;" 
+            name=M0606 maxLength=20> </TD>
+          <TD width="20%" align=center>计量单位：</TD>
+          <TD width="25%"><INPUT value="TEAMPLATE_P_ProductPC"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none" 
+            id=M0607 dataSrc=#theXMLisland dataFld=M0607 name=M0607 
+            maxLength=40> </TD></TR>
+        <TR>
+          <TD width="30%" align=center><SPAN id=lblM0608>目的国(地区)：</SPAN></TD>
+          <TD width="25%"><INPUT value="TEAMPLATE_P_ImportContryZh"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none" 
+            id=M0608 dataSrc=#theXMLisland dataFld=M0608 name=M0608 
+          maxLength=40></TD>
+          <TD width="20%" align=center><SPAN 
+            style="LETTER-SPACING: 28px">征免</SPAN>：</TD>
+          <TD width="25%"><INPUT value="照章征税"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none" 
+            id=M0612 dataSrc=#theXMLisland dataFld=M0612 name=M0612 
+          maxLength=40></TD></TR>
+        <TR>
+          <TD rowSpan=2 width="30%" align=center><SPAN 
+            style="LETTER-SPACING: 42px">币制</SPAN>：</TD>
+          <TD rowSpan=2 width="25%"><INPUT value="TEAMPLATE_P_SellCurrency"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none" 
+            id=M0611 dataSrc=#theXMLisland dataFld=M0611 name=M0611 
+            maxLength=20> </TD>
+          <TD width="20%" align=center><SPAN 
+            style="LETTER-SPACING: 28px">单价</SPAN>：</TD>
+          <TD width="25%"><INPUT value="TEAMPLATE_P_ProductPriceOut"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M0609 dataSrc=#theXMLisland dataFld=M0609 
+            ondrop="javascript:return false;" 
+            onkeypress=javascript:InputFI(this.value,1); onpaste="return false;" 
+            name=M0609 maxLength=20></TD></TR>
+        <TR>
+          <TD width="20%" align=center><SPAN 
+            style="LETTER-SPACING: 5px">总金额：</SPAN></TD>
+          <TD width="25%"><INPUT value="TEAMPLATE_P_ProductTotalPriceOut"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M0610 dataSrc=#theXMLisland dataFld=M0610 
+            ondrop="javascript:return false;" 
+            onkeypress=javascript:InputFI(this.value,1); onpaste="return false;" 
+            name=M0610 maxLength=20> </TD></TR>
+        <TR>
+          <TD colSpan=4><SPAN style="COLOR: red" 
+        id=lblMsg></SPAN></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class=Htd_noall vAlign=top colSpan=4 align=center><A 
+      style="FONT-SIZE: 10pt" id=btnSave 
+      onclick="javascript:save(document.all['flag'].value)" 
+      href="http://219.224.135.40/SIMTrade/doc/CM06.aspx?a0=1&amp;a1=&amp;a2=#">[保存]</A> 
+      <A style="FONT-SIZE: 10pt" id=btnClose onclick=window.parent.close(); 
+      href="http://219.224.135.40/SIMTrade/doc/CM06.aspx?a0=1&amp;a1=&amp;a2=#">[退出]</A> 
+    </TD></TR></TBODY></TABLE></FORM></BODY></HTML>

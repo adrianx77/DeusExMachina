@@ -1,0 +1,805 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>出境货物报检单</title>
+    <meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+    <meta name="CODE_LANGUAGE" content="C#"><meta http-equiv="pragma" content="no-cache"><meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta name="vs_defaultClientScript" content="JavaScript">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+	<link href="出境货物报检单_files/doc.css" rel="stylesheet">
+	<style type="text/css">
+	.text-title{font-size:22px;font-weight:bold;height:24px;line-height:24px;letter-spacing:3px}
+	.text-title-en{font-size:20px;font-weight:bold;height:28px;line-height:28px;font-family:"宋体"}
+	.text-13px{font-size:13px;height:15px;line-height:15px}
+	.text-11px{font-size:11px;height:15px;line-height:15px}
+	.text-13px-kai{font-size:13px;height:15px;line-height:20px;font-family:"宋体"}
+	.txtCheckBox{width:12px;height:12px;border:#000000 1px solid;font-size:10px;font-weight:bold;cursor:hand;}
+	.TAL1{ text-align:left; border-style:none;cursor:text;border-bottom:#000000 1px solid;height:14px;font-size:11px;line-height:13px}
+	.TAR1{ text-align:right; border-style:none;cursor:text;border-bottom:#000000 1px solid;height:11px;font-size:11px;line-height:8px}
+	</style>
+	<script src="出境货物报检单_files/utils.js" language="javascript"></script>
+	<script language="javascript">
+    function LoadPage()
+    {
+    	var flag="0";
+		if (flag=="0")
+		{
+			LetTextReadOnly();
+			LetTextareaReadOnly();
+		}
+		if (sourceChild.xml=="")
+		{
+			trBody.style.display="none";
+		}
+    }
+    function docheck(arg)
+    {
+		document.all["flag3"].value=arg;
+    }
+    function save()
+    {	
+		if (M17AForm.flag.value!="0")
+		{
+			AppendNodes("//ROOT","//ROOT/M18");
+			var xmlResult=doClientSubmit("POST","PostForm.aspx?tb=M17&uid="+document.all["flag4"].value,false,source.xml,"text");
+			RemoveNodes("//ROOT","//ROOT/M18");
+			
+			var xmlServerResponse = new ActiveXObject("MSXML2.DOMDocument");
+			xmlServerResponse.loadXML(xmlResult);
+			
+			var strUrl="../Common/ErrMsg.aspx";
+			var strID=xmlServerResponse.selectSingleNode("//Message/errID").text;						
+			var strMsg=xmlServerResponse.selectSingleNode("//Message/errMsg").text;
+			
+			ShowMessage("Manager",strUrl,strID,strMsg,"Close","Close");
+		}
+    }
+    function DetailOperate(args1,args2)
+    {			
+		if (M17AForm.flag.value!="0")
+		{
+			var str="";
+			var tmpA=document.all["flag3"].value;
+			if (args1==0)
+			{
+				str="CM18.aspx?a1="+args2+"&a2=";
+			}
+			else
+			{
+				
+				if (tmpA!="")
+				{
+					document.all["flag3"].value = "";
+					switch (args1)
+					{
+						case 1:
+							{										
+								tmpA-=1;
+								var a;
+								if (document.all['s'].length != undefined)
+								{
+									a = document.all['s'][tmpA].innerText;
+								}
+								else
+								{
+									a = document.all['s'].innerText;
+								}
+								tmpA+=1;					
+								str="CM18.aspx?a1="+args2+"&a2="+a+"&a3="+tmpA;
+								break;
+							}
+						case 2:
+						{
+							sourceChild.recordset.AbsolutePosition=tmpA;
+							if (tmpA>0)
+							{
+								str = "";
+								sourceChild.recordset.Delete();
+							}
+							break;
+						}
+					}
+				}
+				else
+				{
+					alert("请选择记录进行操作！");
+					return false;
+				}
+			}
+			if (str!= "")	PopDialog(str,window,'430px','285px');
+		}
+		else
+		{
+			return false;
+		}
+    }    
+    
+    	function printDoc()
+		{
+			AppendNodes("//ROOT","//ROOT/M18");	
+			//WindowOpen("PrintDoc.aspx?t=M17A&c=M18","printWindow","800px","600px");			
+			open("PrintDoc.aspx?t=M17A&c=M18","M17A","height=600px,width=800px,center=yes,toolbar=no,menubar=yes,scrollbars=yes,location=no,resizable=yes,status=yes");	
+		}
+	</script>  
+  </head>
+  <body ms_positioning="GridLayout" style="margins:0px" onload="LoadPage()">	
+     <form name="M17AForm" method="post" action="M17A.aspx?did=STEPC000500&amp;Uid=mb14084691&amp;R=0" id="M17AForm">
+<div>
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTYwMzY5OTQwNmRkMMFnhsn0TLsR0QE3q7DskdO7vKY=" type="hidden">
+</div>
+
+		<input name="flag" value="0" type="hidden"> 
+		<input name="flag2" value="STEPC000500" type="hidden">
+		<input name="flag3" value="" type="hidden">
+		<input name="flag4" value="mb14084691" type="hidden">
+		<!--<div id="target">正在加载……</div>-->
+		<xml id="source" src="Xml/Document.aspx?a1=M17&amp;a2=STEPC000500"></xml>
+		<xml id="sourceChild" src="Xml/Document.aspx?a1=M18&amp;a2=STEPC000500"></xml>
+		<table id="table1" align="center" border="0" cellpadding="0" cellspacing="0" width="740">
+			<tbody><tr>
+				<td>
+				<table id="table2" border="0" cellpadding="0" cellspacing="0" width="740">
+					<tbody><tr>
+						<td rowspan="2" style="height: 100px" align="center" width="100">
+						<table id="table3" height="91" border="0" cellpadding="0" cellspacing="0" width="97">
+							<tbody><tr>
+								<td><img src="出境货物报检单_files/image002.jpg" height="91" border="0" width="97"></td>
+							</tr>
+						</tbody></table>
+						</td>
+						<td style="height: 60px" align="center" width="640">
+									<span class="text-title">中华人民共和国出入境检验检疫</span></td>
+					</tr>
+					<tr>
+						<td style="height: 40px" align="center" width="640">
+									<a href="http://219.224.135.40/SIMTrade/help/Doc/M17Ahelp.htm" target="_blank"><span class="text-title-en">出境货物报检单</span></a></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						<table id="table4" border="0" cellpadding="3" cellspacing="0" width="740">
+							<tbody><tr>
+								<td width="150"><span class="text-13px">报检单位 (加盖公章)：</span></td>
+								<td width="385">
+									<input value="TEMPLATE_CompanyNameZh" class="TAL" style="WIDTH:360px;HEIGHT:17px" name="txtM1707" datasrc="#source" datafld="M1707" maxlength="80" type="text">
+								</td>
+								<td width="70"><span class="text-13px">*	编　　号</span></td>
+								<td width="140">
+									<input class="TANL" style="WIDTH:140px;HEIGHT:21px" name="txtM1701" datasrc="#source" datafld="M1701" maxlength="40" readonly="readonly" type="text"></td>
+							</tr>
+						</tbody></table>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						<table id="table5" border="0" cellpadding="3" cellspacing="0" width="740">
+							<tbody><tr>
+								<td width="140"><span class="text-13px">报检单位登记号：</span></td>
+								<td width="100">
+									<input value="TEMPLATE_MyHaiguanNo" class="TAL" style="WIDTH:90px" name="txtM1708" datasrc="#source" datafld="M1708" maxlength="40" type="text">
+								</td>
+								<td width="65"><span class="text-13px">联系人：</span></td>
+								<td width="105">
+									<input value="TEMPLATE_MyNameZn" class="TAL" style="WIDTH:90px" name="txtM1709" datasrc="#source" datafld="M1709" maxlength="40" type="text"></td>
+								<td width="50"><span class="text-13px">电话：</span></td>
+								<td width="85">
+									<input value="TEMPLATE_MyPhoneNo" class="TAL" style="WIDTH:85px;" name="txtM1710" datasrc="#source" datafld="M1710" maxlength="40" type="text"></td>
+								<td align="center" width="80"><span class="text-13px">报检日期：</span></td>
+								<td width="130">
+								<table id="table6" border="0" cellpadding="0" cellspacing="0" width="120">
+									<tbody><tr>
+										<td style="padding-bottom:6px" width="30">
+											<input value="TEMPLATE_Date" class="TAL" style="WIDTH:100px" name="txtM1711" maxlength="4" datasrc="#source" datafld="M1711" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text">
+										</td>
+										<td width="20"><span class="text-13px">年</span></td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+						</tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<table id="table7" border="0" cellpadding="0" cellspacing="0" width="740">
+					<tbody><tr>
+						<td class="Htd_ltr">
+						<table id="table8" border="0" cellpadding="3" cellspacing="0" width="740">
+							<tbody><tr>
+								<td rowspan="2" style="height: 60px" align="center" width="60"><span class="text-13px" style="letter-spacing:5px">发货人</span></td>
+								<td style="height: 30px" class="Htd_leftborders" width="60"><span class="text-13px">（中文）</span></td>
+								<td style="height: 30px" width="620">
+									<input value="TEMPLATE_CompanyNameZh" class="TAL" style="WIDTH:600px" name="txtM1714" datasrc="#source" datafld="M1714" maxlength="80" type="text">
+								</td>
+							</tr>
+							<tr>
+								<td style="height: 30px" class="Htd_lefttop" width="60"><span class="text-13px">（外文）</span></td>
+								<td style="height: 30px" class="Htd_topborders" width="620">
+									<input value="TEMPLATE_CompanyNameEn" class="TAL" style="WIDTH:600px" name="txtM1715" datasrc="#source" datafld="M1715" maxlength="200" type="text">
+								</td>
+							</tr>
+							<tr>
+								<td rowspan="2" style="height: 60px" class="Htd_topborders" align="center" width="60"><span class="text-13px" style="letter-spacing:5px">收货人</span></td>
+								<td style="height: 30px" class="Htd_lefttop" width="60"><span class="text-13px">（中文）</span></td>
+								<td style="height: 30px" class="Htd_topborders" width="620">
+									<input class="TAL" style="WIDTH:600px" name="txtM1716" datasrc="#source" datafld="M1716" maxlength="80" type="text">
+								</td>
+							</tr>
+							<tr>
+								<td style="height: 30px" class="Htd_lefttop" width="60"><span class="text-13px">（外文）</span></td>
+								<td style="height: 30px" class="Htd_topborders" width="620">
+									<input value="TEMPLATE_ImportCompanyName" class="TAL" style="WIDTH:600px" name="txtM1717" datasrc="#source" datafld="M1717" maxlength="200" type="text">
+								</td>
+							</tr>
+						</tbody></table>
+						</td>
+					</tr>
+					<tr>
+						<td class="Htd_ltr">
+						<table id="table9" datasrc="#sourceChild" border="0" cellpadding="3" cellspacing="0" width="740">
+							<thead>	
+								<tr>
+									<td align="center" width="40"><span class="text-13px">选择</span></td>
+									<td class="Htd_leftborders" align="center" width="200"><span class="text-13px">货物名称（中/外文）</span></td>
+									<td class="Htd_leftborders" align="center" width="110"><span class="text-13px">H.S.编码</span></td>
+									<td class="Htd_leftborders" align="center" width="85"><span class="text-13px">产地</span></td>
+									<td class="Htd_leftborders" align="center" width="85"><span class="text-13px">数/重量</span></td>
+									<td class="Htd_leftborders" align="center" width="85"><span class="text-13px">货物总值</span></td>
+									<td class="Htd_leftborders" align="center" width="95"><span class="text-13px">包装种类及数量</span></td>
+								</tr>
+							</thead>
+							PRODUCT_HERF_LINK
+							<tbody>
+								<tr id="trBody" style="display:inline">
+									<td class="Htd_topborders" width="40"><span id="spRad"></span><input name="rad" onclick="javascript:docheck(this.recordNumber);" type="radio"></td>
+									<td class="Htd_lefttop" width="200"><span id="s" datafld="M1803" style="font-size:12px"></span><span id="s0" datafld="M1804" style="font-size:12px"></span>&nbsp;</td>
+									<td class="Htd_lefttop" width="110"><span id="s1" datafld="M1805" style="font-size:12px"></span>&nbsp;</td>
+									<td class="Htd_lefttop" width="85"><span id="s2" datafld="M1806" style="font-size:12px"></span>&nbsp;</td>
+									<td class="Htd_lefttop" width="85"><span id="s3" datafld="M1807" style="font-size:12px"></span><span id="s4" datafld="M1808" style="font-size:12px"></span>&nbsp;</td>
+									<td class="Htd_lefttop" align="right" width="85"><span id="s5" datafld="M1809" style="font-size:12px"></span><span id="s6" datafld="M1810" style="font-size:12px"></span>&nbsp;</td>
+									<td class="Htd_lefttop" width="95"><span id="s7" datafld="M1811" style="font-size:12px"></span><span id="s8" datafld="M1812" style="font-size:12px"></span>&nbsp;</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td style="height: 80px" class="Htd_topborders" width="40">　</td>
+									<td style="height: 80px" class="Htd_lefttop" width="200">　</td>
+									<td style="height: 80px" class="Htd_lefttop" width="110">　</td>
+									<td style="height: 80px" class="Htd_lefttop" width="85">　</td>
+									<td style="height: 80px" class="Htd_lefttop" width="85">　</td>
+									<td style="height: 80px" class="Htd_lefttop" width="85">　</td>
+									<td style="height: 80px" class="Htd_lefttop" width="95">　</td>
+								</tr>
+								<tr>
+									<td colspan="7" class="Htd_topborders" align="right" width="740">
+										<a onclick="javascript:DetailOperate(0,document.all['flag2'].value)" href="#"><font style="FONT-SIZE: 10pt; LETTER-SPACING: 6pt">[添加]</font></a>
+										<a onclick="javascript:DetailOperate(1,document.all['flag2'].value)" href="#"><font style="FONT-SIZE: 10pt; LETTER-SPACING: 6pt">[修改]</font></a>
+										<a onclick="javascript:DetailOperate(2,document.all['flag2'].value)" href="#"><font style="FONT-SIZE: 10pt; LETTER-SPACING: 6pt">[刪除]</font></a>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td class="Htd_ltr">
+						<table id="table10" border="0" cellpadding="0" cellspacing="0" width="740">
+							<tbody><tr>
+								<td colspan="3" width="340">
+								<table id="table11" border="0" cellpadding="3" cellspacing="0" width="100%">
+									<tbody><tr>
+										<td valign="bottom" width="120"><span class="text-13px">运输工具名称号码</span></td>
+										<td class="Htd_leftborders" width="220">
+											<input value="TEMPLATE_TheShipName" class="TAL" style="WIDTH:210px;" name="txtM1718" datasrc="#source" datafld="M1718" maxlength="40" type="text">
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+								<td colspan="3" class="Htd_leftborders" width="400">
+								<table id="table12" border="0" cellpadding="3" cellspacing="0" width="400">
+									<tbody><tr>
+										<td align="center" valign="bottom" width="90"><span class="text-13px">贸易方式</span></td>
+										<td class="Htd_leftborders" width="100">
+											<input value="一般贸易" class="TAL" style="WIDTH:90px" name="txtM1719" datasrc="#source" datafld="M1719" maxlength="40" type="text">
+										</td>
+										<td class="Htd_leftborders" align="center" valign="bottom" width="120"><span class="text-13px">货物存放地点</span></td>
+										<td class="Htd_leftborders" width="90">
+											<input value="TEMPLATE_ShipPortEn CY" class="TAL" style="WIDTH:80px" name="txtM1720" datasrc="#source" datafld="M1720" maxlength="40" type="text">
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+							<tr>
+								<td class="Htd_topborders" align="center" width="90">
+								<span class="text-13px" style="letter-spacing:6px">合同号</span></td>
+								<td colspan="2" class="Htd_lefttop" style="padding-bottom;6px" width="250">
+									<input value="TEMPLATE_ContractNo" class="TAL" style="WIDTH:240px;" name="txtM1721" datasrc="#source" datafld="M1721" maxlength="40" type="text">
+								</td>
+								<td colspan="2" class="Htd_lefttop" width="250">
+								<table id="table14" border="0" cellpadding="3" cellspacing="0" width="250">
+									<tbody><tr>
+										<td align="center" valign="bottom" width="79"><span class="text-13px">信用证号</span></td>
+										<td class="Htd_leftborders" width="158">
+											<input value="TEMPLATE_CreditNo" class="TAL" style="WIDTH:140px" name="txtM1722" datasrc="#source" datafld="M1722" maxlength="40" type="text">
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+								<td class="Htd_lefttop" width="150">
+								<table id="table13" height="100%" border="0" cellpadding="3" cellspacing="0" width="150">
+									<tbody><tr>
+										<td align="center" valign="bottom" width="46"><span class="text-13px">用途</span></td>
+										<td class="Htd_leftborders" width="91">
+											<input class="TAL" style="WIDTH:70px" name="txtM1723" datasrc="#source" datafld="M1723" maxlength="40" type="text">
+    							　			</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+							<tr>
+								<td class="Htd_topborders" align="center" valign="bottom" width="90">
+								<span class="text-13px">发货日期</span></td>
+								<td class="Htd_lefttop" width="120">
+									<input value="TEMPLATE_Date" class="TAL" style="WIDTH:110px" name="txtM1724" datasrc="#source" datafld="M1724" maxlength="20" type="text">
+								</td>
+								<td class="Htd_lefttop" align="center" valign="bottom" width="130">
+								<span class="text-13px">输往国家(地区)</span></td>
+								<td class="Htd_lefttop" width="120">
+									<input value="TEMPLATE_ImportContryZh" class="TAL" style="WIDTH:110px" name="txtM1725" datasrc="#source" datafld="M1725" maxlength="40" type="text">
+								</td>
+								<td class="Htd_lefttop" align="center" valign="bottom" width="130">
+								<span class="text-13px">许可证／审批号</span></td>
+								<td class="Htd_lefttop" width="150">
+									<input class="TAL" style="WIDTH:140px" name="txtM1726" datasrc="#source" datafld="M1726" maxlength="40" type="text">
+								</td>
+							</tr>
+							<tr>
+								<td class="Htd_topborders" align="center" valign="bottom" width="90">
+								<span class="text-13px" style="letter-spacing:6px">启运地</span></td>
+								<td class="Htd_lefttop" align="left" valign="top" width="120">
+									<input value="TEMPLATE_ShipPortZh" class="TAL" style="WIDTH:110px" name="txtM1727" datasrc="#source" datafld="M1727" maxlength="40" type="text">
+								</td>
+								<td class="Htd_lefttop" align="center" valign="bottom" width="130">
+								<span class="text-13px" style="letter-spacing:11px">到达口岸</span></td>
+								<td class="Htd_lefttop" align="left" valign="top" width="120">
+									<input value="TEMPLATE_DestPortZh" class="TAL" style="WIDTH:110px" name="txtM1728" datasrc="#source" datafld="M1728" maxlength="40" type="text">
+								</td>
+								<td class="Htd_lefttop" align="center" valign="bottom" width="130">
+								<span class="text-13px">生产单位注册号</span></td>
+								<td class="Htd_lefttop" align="left" valign="top" width="150">
+									<input class="TAL" style="WIDTH:140px" name="txtM1729" datasrc="#source" datafld="M1729" maxlength="40" type="text">
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" class="Htd_topborders" align="center" valign="bottom" width="210">
+								<span class="text-13px" style="letter-spacing:3px">集装箱规格、数量及号码</span></td>
+								<td colspan="4" class="Htd_lefttop" align="left" valign="top" width="530">
+									<input class="TAL" style="WIDTH:520px" name="txtM1730" datasrc="#source" datafld="M1730" maxlength="2000" type="text">
+								</td>
+							</tr>
+							</tbody></table>
+						</td>
+					</tr>
+					<tr>
+						<td class="Htd_ltr">
+						<table id="table15" border="0" cellpadding="0" cellspacing="0" width="740">
+							<tbody><tr>
+								<td style="height: 45px" align="center" width="240">
+									<span class="text-13px" style="letter-spacing:3px">
+										合同、信用证订立的检验<br>
+										检疫条款或特殊要求
+									</span>
+								</td>
+								<td class="Htd_leftborders" style="height: 45px" align="center" width="240">
+								<span class="text-13px" style="letter-spacing:6px">标记及号码</span></td>
+								<td class="Htd_leftborders" style="height: 45px" align="center" width="260">
+								<span class="text-13px" style="letter-spacing:3px">随附单据（划“√”或补填）</span></td>
+							</tr>
+							<tr>
+								<td class="Htd_topborders" style="height: 120px" align="left" valign="top" width="240">
+									<textarea name="txtM1731" class="TCL" rows="2" datasrc="#source" datafld="M1731" style="WIDTH:232;HEIGHT:153" cols="20"></textarea>
+								</td>
+								<td class="Htd_lefttop" style="height: 120px" align="left" valign="top" width="240">
+									<textarea name="txtM1732" class="TCL" rows="2" datasrc="#source" datafld="M1732" style="WIDTH:225;HEIGHT:153" cols="20">TEMPLATE_ShippingMark</textarea>
+								</td>
+								<td class="Htd_lefttop" style="height: 120px" align="left" valign="top" width="260">
+								<table id="table16" border="0" cellpadding="3" cellspacing="0" width="260">
+									<tbody><tr>
+										<td width="130">
+										<table id="table17" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td align="center" width="20">
+													<input value="√" class="txtCheckBox" name="txtM1733" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1733h" datasrc="#source" datafld="M1733" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden">
+												</td>
+												<td valign="bottom" width="110"><span class="text-13px">合同</span></td>
+											</tr>
+										</tbody></table>
+										</td>
+										<td class="Htd_leftborders" width="130">
+										<table id="table23" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td align="center" width="20">
+													<input class="txtCheckBox" name="txtM1739" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1739h" datasrc="#source" datafld="M1739" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td width="110"><span class="text-13px">包装性能结果单</span></td>
+											</tr>
+										</tbody></table>
+										</td>
+									</tr>
+									<tr>
+										<td width="130">
+										<table id="table18" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td align="center" width="20">
+													<input value="√" class="txtCheckBox" name="txtM1734" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1734h" datasrc="#source" datafld="M1734" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td valign="bottom" width="110"><span class="text-13px">信用证</span></td>
+											</tr>
+										</tbody></table>
+										</td>
+										<td class="Htd_leftborders" width="130">
+										<table id="table24" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td align="center" width="20">
+													<input class="txtCheckBox" name="txtM1740" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1740h" datasrc="#source" datafld="M1740" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td width="110"><span class="text-13px">许可/审批文件</span></td>
+											</tr>
+										</tbody></table>
+										</td>
+									</tr>
+									<tr>
+										<td width="130">
+										<table id="table19" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td align="center" width="20">
+													<input value="√" class="txtCheckBox" name="txtM1735" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1735h" datasrc="#source" datafld="M1735" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td valign="bottom" width="110"><span class="text-13px">发票</span></td>
+											</tr>
+										</tbody></table>
+										</td>
+										<td class="Htd_leftborders" width="130">
+										<table id="table25" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td align="center" width="20">
+													<input class="txtCheckBox" name="txtM1741" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1741h" datasrc="#source" datafld="M1741" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td width="110">										
+													<input class="TANL" style="width:100px;height:17px" name="txtM1745" datasrc="#source" datafld="M1745" maxlength="20" type="text">
+												</td>
+											</tr>
+										</tbody></table>
+										</td>
+									</tr>
+									<tr>
+										<td width="130">
+										<table id="table20" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td align="center" width="20">
+													<input class="txtCheckBox" name="txtM1736" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1736h" datasrc="#source" datafld="M1736" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td valign="bottom" width="110"><span class="text-13px">换证凭单</span></td>
+											</tr>
+										</tbody></table>
+										</td>
+										<td class="Htd_leftborders" width="130">
+										<table id="table26" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td align="center" width="20">
+													<input class="txtCheckBox" name="txtM1742" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1742h" datasrc="#source" datafld="M1742" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td width="110">										
+													<input class="TANL" style="width:100px;height:17px" name="txtM1746" datasrc="#source" datafld="M1746" maxlength="20" type="text"></td>
+											</tr>
+										</tbody></table>
+										</td>
+									</tr>
+									<tr>
+										<td width="130">
+										<table id="table21" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td align="center" width="20">
+													<input value="√" class="txtCheckBox" name="txtM1737" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1737h" datasrc="#source" datafld="M1737" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td valign="bottom" width="110"><span class="text-13px">装箱单</span></td>
+											</tr>
+										</tbody></table>
+										</td>
+										<td class="Htd_leftborders" width="130">
+										<table id="table27" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td align="center" width="20">
+													<input class="txtCheckBox" name="txtM1743" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1743h" datasrc="#source" datafld="M1743" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td width="110">										
+													<input class="TANL" style="width:100px;height:17px" name="txtM1747" datasrc="#source" datafld="M1747" maxlength="20" type="text"></td>
+											</tr>
+										</tbody></table>
+										</td>
+									</tr>
+									<tr>
+										<td width="130">
+										<table id="table22" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td align="center" width="20">
+													<input class="txtCheckBox" name="txtM1738" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1738h" datasrc="#source" datafld="M1738" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td valign="bottom" width="110"><span class="text-13px">厂检单</span></td>
+											</tr>
+										</tbody></table>
+										</td>
+										<td class="Htd_leftborders" width="130">
+										<table id="table28" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td align="center" width="20">
+													<input class="txtCheckBox" name="txtM1744" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1744h" datasrc="#source" datafld="M1744" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td width="110">										
+													<input class="TANL" style="width:100px;height:17px" name="txtM1748" datasrc="#source" datafld="M1748" maxlength="20" type="text"></td>
+											</tr>
+										</tbody></table>
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+						</tbody></table>
+						</td>
+					</tr>
+					<tr>
+						<td class="Htd_ltr">
+						<table id="table29" border="0" cellpadding="0" cellspacing="0" width="740">
+							<tbody><tr>
+								<td style="height: 30px" align="center" width="500">
+								<span class="text-13px" style="letter-spacing:3px">需要证单名称（划“√”或补填）</span></td>
+								<td class="Htd_leftborders" style="height: 30px" align="center" width="240">
+								<span class="text-13px" style="letter-spacing:3px">*检验检疫费</span></td>
+							</tr>
+							<tr>
+								<td class="Htd_topborders" style="height: 120px" align="center" width="500">
+								<table id="table31" height="120" border="0" cellpadding="0" cellspacing="0" width="500">
+									<tbody><tr>
+										<td style="padding-top: 5px" valign="top">
+										<table id="table32" height="105" border="0" cellpadding="0" cellspacing="0" width="250">
+											<tbody><tr>
+												<td style="height: 15px" align="center" width="20">
+													<input class="txtCheckBox" name="txtM1749" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1749h" datasrc="#source" datafld="M1749" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td style="height: 15px" align="left" valign="top" width="140">
+													<span class="text-11px" style="letter-spacing:3px">品质证书</span></td>
+												<td style="height: 15px;" align="right" valign="top" width="30">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1763" maxlength="10" datasrc="#source" datafld="M1763" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">正</span></td>
+												<td style="height: 15px" align="right" valign="top" width="20">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1764" maxlength="10" datasrc="#source" datafld="M1764" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">副</span></td>
+											</tr>
+											<tr>
+												<td style="height: 15px" align="center" width="20">
+													<input class="txtCheckBox" name="txtM1750" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1750h" datasrc="#source" datafld="M1750" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td style="height: 15px" align="left" valign="top" width="140">
+													<span class="text-11px" style="letter-spacing:3px">重量证书</span></td>
+												<td style="height: 15px" align="right" valign="top" width="30">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1765" maxlength="10" datasrc="#source" datafld="M1765" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">正</span></td>
+												<td style="height: 15px" align="right" valign="top" width="20">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1766" maxlength="10" datasrc="#source" datafld="M1766" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">副</span></td>
+											</tr>
+											<tr>
+												<td style="height: 15px" align="center" width="20">
+													<input class="txtCheckBox" name="txtM1751" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1751h" datasrc="#source" datafld="M1751" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td style="height: 15px" align="left" valign="top" width="140">
+													<span class="text-11px" style="letter-spacing:3px">数量证书</span></td>
+												<td style="height: 15px" align="right" valign="top" width="30">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1767" maxlength="10" datasrc="#source" datafld="M1767" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">正</span></td>
+												<td style="height: 15px" align="right" valign="top" width="20">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1768" maxlength="10" datasrc="#source" datafld="M1768" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">副</span></td>
+											</tr>
+											<tr>
+												<td style="height: 15px" align="center" width="20">
+													<input class="txtCheckBox" name="txtM1752" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1752h" datasrc="#source" datafld="M1752" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td style="height: 15px" align="left" valign="top" width="140">
+													<span class="text-11px" style="letter-spacing:3px">兽医卫生证书</span></td>
+												<td style="height: 15px" align="right" valign="top" width="30">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1769" maxlength="10" datasrc="#source" datafld="M1769" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">正</span></td>
+												<td style="height: 15px" align="right" valign="top" width="20">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1770" maxlength="10" datasrc="#source" datafld="M1770" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">副</span></td>
+											</tr>
+											<tr>
+												<td style="height: 15px" align="center" width="20">
+													<input class="txtCheckBox" name="txtM1753" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1753h" datasrc="#source" datafld="M1753" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td style="height: 15px" align="left" valign="top" width="140">
+													<span class="text-11px" style="letter-spacing:3px">健康证书</span></td>
+												<td style="height: 15px" align="right" valign="top" width="30">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1799" maxlength="10" datasrc="#source" datafld="M1799" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">正</span></td>
+												<td style="height: 15px" align="right" valign="top" width="20">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1771" maxlength="10" datasrc="#source" datafld="M1771" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">副</span></td>
+											</tr>
+											<tr>
+												<td style="height: 15px" align="center" width="20">
+													<input class="txtCheckBox" name="txtM1754" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1754h" datasrc="#source" datafld="M1754" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td style="height: 15px" align="left" valign="top" width="140">
+													<span class="text-11px" style="letter-spacing:3px">卫生证书</span></td>
+												<td style="height: 15px" align="right" valign="top" width="30">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1772" maxlength="10" datasrc="#source" datafld="M1772" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">正</span></td>
+												<td style="height: 15px" align="right" valign="top" width="20">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1773" maxlength="10" datasrc="#source" datafld="M1773" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">副</span></td>
+											</tr>
+											<tr>
+												<td style="height: 15px" align="center" width="20">
+													<input class="txtCheckBox" name="txtM1755" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1755h" datasrc="#source" datafld="M1755" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td style="height: 15px" align="left" valign="top" width="140">
+													<span class="text-11px" style="letter-spacing:3px">动物卫生证书</span></td>
+												<td style="height: 15px" align="right" valign="top" width="30">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1774" maxlength="10" datasrc="#source" datafld="M1774" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">正</span></td>
+												<td style="height: 15px" align="right" valign="top" width="20">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1775" maxlength="10" datasrc="#source" datafld="M1775" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">副</span></td>
+											</tr>
+										</tbody></table>
+										</td>
+										<td class="Htd_leftborders" style="padding-top: 4px" valign="top" width="250">
+										<table id="table33" height="105" border="0" cellpadding="0" cellspacing="0" width="250">
+											<tbody><tr>
+												<td style="height: 15px" align="center" width="20">
+													<input class="txtCheckBox" name="txtM1756" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1756h" datasrc="#source" datafld="M1756" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td style="height: 15px" align="left" valign="top" width="140">
+													<span class="text-11px" style="letter-spacing:3px">植物检疫证书</span></td>
+												<td style="height: 15px" align="right" valign="top" width="30">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1776" maxlength="10" datasrc="#source" datafld="M1776" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">正</span></td>
+												<td style="height: 15px" align="right" valign="top" width="20">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1777" maxlength="10" datasrc="#source" datafld="M1777" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">副</span></td>
+											</tr>
+											<tr>
+												<td style="height: 15px" align="center" width="20">
+													<input class="txtCheckBox" name="txtM1757" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1757h" datasrc="#source" datafld="M1757" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td style="height: 15px" align="left" valign="top" width="140">
+													<span class="text-11px" style="letter-spacing:3px">熏蒸/消毒证书</span></td>
+												<td style="height: 15px" align="right" valign="top" width="30">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1778" maxlength="10" datasrc="#source" datafld="M1778" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">正</span></td>
+												<td style="height: 15px" align="right" valign="top" width="20">
+													<input class="TAR1" style="WIDTH:18px;" name="txtM1779" maxlength="10" datasrc="#source" datafld="M1779" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+												<td style="height: 15px" align="center" valign="top" width="20"><span class="text-11px">副</span></td>
+											</tr>
+											<tr>
+												<td style="height: 15px" align="center" width="20">
+													<input class="txtCheckBox" name="txtM1758" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1758h" datasrc="#source" datafld="M1758" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td style="height: 15px" align="left" valign="top" width="140">
+													<span class="text-11px" style="letter-spacing:3px">出境货物换证凭单</span></td>
+												<td style="height: 15px" colspan="4" align="left" valign="top" width="90">　</td>
+											</tr>
+											<tr>
+												<td style="height: 15px" align="center" width="20">
+													<input value="√" class="txtCheckBox" name="txtM1759" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1759h" datasrc="#source" datafld="M1759" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td style="height: 15px" align="left" valign="top" width="140">
+													<span class="text-11px" style="letter-spacing:3px">通关单</span></td>
+												<td style="height: 15px" colspan="4" align="left" valign="top" width="90">　</td>
+											</tr>
+											<tr>
+												<td style="height: 15px" align="center" width="20">
+													<input class="txtCheckBox" name="txtM1760" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1760h" datasrc="#source" datafld="M1760" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td style="height: 15px" align="left" valign="top" width="140">
+													<input class="TAL1" style="width:100px;height:14px" name="txtM1789" datasrc="#source" datafld="M1789" maxlength="40" type="text"></td>
+												<td style="height: 15px" colspan="4" align="left" valign="top" width="90">　</td>
+											</tr>
+											<tr>
+												<td style="height: 15px" align="center" width="20">
+													<input class="txtCheckBox" name="txtM1761" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1761h" datasrc="#source" datafld="M1761" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td style="height: 15px" align="left" valign="top" width="140">
+													<input class="TAL1" style="width:100px;height:14px" name="txtM1790" datasrc="#source" datafld="M1790" maxlength="20" type="text"></td>
+												<td style="height: 15px" colspan="4" align="left" valign="top" width="90">　</td>
+											</tr>
+											<tr>
+												<td style="height: 15px" align="center" width="20">
+													<input class="txtCheckBox" name="txtM1762" maxlength="1" readonly="readonly" onclick="javascript:CheckIt(this,0)" type="text"><input name="txtM1762h" datasrc="#source" datafld="M1762" onpropertychange="javascript:LoadCheckBox(this,0)" type="hidden"></td>
+												<td style="height: 15px" align="left" valign="top" width="140">
+													<input class="TAL1" style="width:100px;height:14px" name="txtM1791" datasrc="#source" datafld="M1791" maxlength="40" type="text"></td>
+												<td style="height: 15px" colspan="4" align="left" valign="top" width="90">　</td>
+											</tr>
+										</tbody></table>
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+								<td class="Htd_lefttop" style="height: 105px" align="left" valign="top" width="240">
+								<table id="table30" border="0" cellpadding="3" cellspacing="0" width="240">
+									<tbody><tr>
+										<td style="height: 40px" align="center" width="95">
+											<span class="text-13px" style="letter-spacing:5px">
+												总金额</span><br>
+											<span class="text-13px">
+												（人民币元）
+											</span>
+										</td>
+										<td style="height: 40px" class="Htd_leftborders" width="155">
+											<input class="TAL" style="WIDTH:90px;HEIGHT:17px" name="txtM1780" datasrc="#source" datafld="M1780" maxlength="20" readonly="readonly" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" type="text">
+										</td>
+									</tr>
+									<tr>
+										<td style="height: 40px" class="Htd_topborders" align="center" width="95"><span class="text-13px" style="letter-spacing:5px">计费人</span></td>
+										<td style="height: 40px" class="Htd_lefttop" width="155">
+											<input class="TAL" style="WIDTH:90px;HEIGHT:17px" name="txtM1781" datasrc="#source" datafld="M1781" maxlength="40" readonly="readonly" type="text">
+										</td>
+									</tr>
+									<tr>
+										<td style="height: 40px" class="Htd_topborders" align="center" width="95"><span class="text-13px" style="letter-spacing:5px">收费人</span></td>
+										<td style="height: 40px" class="Htd_lefttop" width="155">
+											<input class="TAL" style="WIDTH:90px;HEIGHT:17px" name="txtM1782" datasrc="#source" datafld="M1782" maxlength="40" readonly="readonly" type="text">
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+							</tbody></table>
+						</td>
+					</tr>
+					<tr>
+						<td class="Htd_allborders">
+						<table id="table34" border="0" cellpadding="3" cellspacing="0" width="740">
+							<tbody><tr>
+								<td rowspan="2" style="padding-top: 5px; height:70px" colspan="3" align="left" valign="top" width="465">
+									<span class="text-13px">报检人郑重声明：</span><br>
+									<span class="text-13px-kai">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.本人被授权报检。<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.上列填写内容正确属实，货物无伪造或冒用他人的厂名、<br>
+										标志、认证标志，并承担货物质量责任。<br>
+									</span>
+								</td>
+								<td colspan="2" class="Htd_leftborders" style="height: 30px" align="center" width="275">
+								<span class="text-13px" style="letter-spacing:11px">领取证单</span></td>
+							</tr>
+							<tr>
+								<td class="Htd_lefttop" style="height: 40px" align="center" width="90"><span class="text-13px" style="letter-spacing:5px">日期</span></td>
+								<td class="Htd_lefttop" style="height: 40px;padding-bottom:8px" width="185">
+									<input class="TAL" style="WIDTH:90px;height:17px" name="txtM1784" datasrc="#source" datafld="M1784" maxlength="20" type="text">
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-top: 5px; " align="left" valign="top" width="200">
+							　		</td>
+								<td style="padding-top: 5px; " align="left" width="45">
+									<span class="text-13px">签名：</span></td>
+								<td style="padding-bottom: 8px; " align="left" width="220">
+									<input value="TEMPLATE_MyNameZn" class="TANL" style="width:100px;height:17px;font-size:15px" name="txtM1783" datasrc="#source" datafld="M1783" maxlength="40" type="text">
+								</td>
+								<td class="Htd_lefttop" style="height: 40px" align="center" width="90"><span class="text-13px" style="letter-spacing:5px">签名</span></td>
+								<td class="Htd_lefttop" style="height: 40px;padding-bottom:8px" width="185">
+									<input class="TAL" style="WIDTH:90px;height:17px" name="txtM1785" datasrc="#source" datafld="M1785" maxlength="40" type="text">
+								</td>
+							</tr>
+						</tbody></table>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+						<table id="table35" border="0" cellpadding="0" cellspacing="0" width="740">
+							<tbody><tr>
+								<td rowspan="2" align="left" valign="top" width="270"><span class="text-13px">注：有“ * ”号栏由出入境检验检疫机关填写</span></td>
+								<td align="right" width="470"><span class="text-13px">◆国家出入境检验检疫局制</span></td>
+							</tr>
+							<tr>
+								<td align="right" width="470"><span class="text-13px">[1-2 (2000.1.1)]</span></td>
+							</tr>
+						</tbody></table>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" width="100%">
+							<a style="FONT-SIZE: 10pt" href="javascript:printDoc()">[打印预览]</a>
+							<a id="btnSave" style="FONT-SIZE: 10pt" href="javascript:save()">[保存]</a>
+							<a id="btnClose" style="FONT-SIZE: 10pt" href="javascript:window.parent.close();">[退出]</a>
+						</td>					
+					</tr>
+				</tbody></table>
+				</td>
+			</tr>
+		</tbody></table>
+     </form>	
+  
+
+</body></html>

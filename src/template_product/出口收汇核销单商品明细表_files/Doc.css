@@ -1,0 +1,265 @@
+
+@media Print    
+{
+#navbar {
+	DISPLAY: none
+}
+#header {
+	DISPLAY: none
+}
+#footer {
+	DISPLAY: none
+}
+.noprint {
+	DISPLAY: none
+}
+#ee {
+	DISPLAY: none
+}
+#title {
+	DISPLAY: none
+}
+BODY {
+	BACKGROUND-COLOR: #ffffff
+}
+    }
+A:link {
+	TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+A:visited {
+	COLOR: blue; TEXT-DECORATION: underline
+}
+A:hover {
+	COLOR: #4455aa; TEXT-DECORATION: underline
+}
+BODY {
+	SCROLLBAR-ARROW-COLOR: #006699; SCROLLBAR-FACE-COLOR: #dee3e7; BACKGROUND-COLOR: #ffffff; SCROLLBAR-DARKSHADOW-COLOR: #98aab1; FONT-FAMILY: 宋体; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; COLOR: #000000; SCROLLBAR-SHADOW-COLOR: #dee3e7; FONT-SIZE: 12px; SCROLLBAR-TRACK-COLOR: #efefef; SCROLLBAR-3DLIGHT-COLOR: #d1d7dc
+}
+TD {
+	BORDER-BOTTOM-COLOR: #000000; LINE-HEIGHT: 16px; BORDER-TOP-COLOR: #000000; FONT-FAMILY: arial,宋体; HEIGHT: 20px; BORDER-RIGHT-COLOR: #000000; FONT-SIZE: 14px; BORDER-LEFT-COLOR: #000000
+}
+TH {
+	BORDER-BOTTOM-COLOR: #000000; LINE-HEIGHT: 16px; BORDER-TOP-COLOR: #000000; FONT-FAMILY: arial,宋体; HEIGHT: 20px; BORDER-RIGHT-COLOR: #000000; FONT-SIZE: 14px; BORDER-LEFT-COLOR: #000000
+}
+TD.TableTitle2 {
+	BACKGROUND-COLOR: #e4e8ef
+}
+TD.TableBody1 {
+	BACKGROUND-COLOR: #ffffff
+}
+TD.TableBody2 {
+	BACKGROUND-COLOR: #e4e8ef
+}
+TD.TopDarkNav {
+	BACKGROUND-IMAGE: url(skin/citye/a12.gif)
+}
+TD.TopLighNav {
+	BACKGROUND-IMAGE: url(skin/citye/a1.gif)
+}
+TD.TopLighNav1 {
+	BACKGROUND-IMAGE: url(skin/citye/a2.gif)
+}
+TD.TopLighNav2 {
+	BACKGROUND-COLOR: #ffffff
+}
+.tableBorder1 {
+	BORDER-BOTTOM: 1px; BORDER-LEFT: 1px; BACKGROUND-COLOR: #6595d6; WIDTH: 97%; BORDER-TOP: 1px; BORDER-RIGHT: 1px
+}
+.tableBorder2 {
+	BORDER-BOTTOM: #dedede 1px solid; BORDER-LEFT: #dedede 1px solid; BACKGROUND-COLOR: #efefef; WIDTH: 97%; BORDER-TOP: #dedede 1px solid; BORDER-RIGHT: #dedede 1px solid
+}
+#TableTitleLink A:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+#TableTitleLink A:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+#TableTitleLink A:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+#TableTitleLink A:hover {
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+SPAN {
+	WORD-WRAP: break-word
+}
+INPUT {
+	LINE-HEIGHT: 15px; FONT-FAMILY: Tahoma,Verdana,宋体; FONT-SIZE: 12px
+}
+SELECT {
+	LINE-HEIGHT: 15px; FONT-FAMILY: Tahoma,Verdana,宋体; FONT-SIZE: 12px
+}
+TEXTAREA {
+	LINE-HEIGHT: 15px; FONT-FAMILY: Tahoma,Verdana,宋体; FONT-SIZE: 12px
+}
+.normalTextSmall {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #000000; FONT-SIZE: 11px
+}
+A.contentlink:link {
+	COLOR: #4455aa; TEXT-DECORATION: underline
+}
+A.contentlink:visited {
+	COLOR: #000050; TEXT-DECORATION: underline
+}
+A.contentlink:active {
+	COLOR: #ff6600; TEXT-DECORATION: underline
+}
+A.contentlink:hover {
+	COLOR: #ff6600; TEXT-DECORATION: underline
+}
+.Text-20blackarial {
+	FONT-FAMILY: Arial; COLOR: #000000; FONT-SIZE: 20px
+}
+.Text-24blackarial {
+	LINE-HEIGHT: 24px; FONT-FAMILY: Arial; COLOR: #000000; FONT-SIZE: 24px
+}
+.TL {
+	BORDER-BOTTOM: 0px; TEXT-ALIGN: left; BORDER-LEFT: 0px; HEIGHT: 100%; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.TAL {
+	BORDER-BOTTOM: 0px; TEXT-ALIGN: left; BORDER-LEFT: 0px; HEIGHT: 100%; BORDER-TOP: 0px; CURSOR: text; BORDER-RIGHT: 0px
+}
+.TALC {
+	BORDER-BOTTOM: 0px; TEXT-ALIGN: center; BORDER-LEFT: 0px; HEIGHT: 100%; BORDER-TOP: 0px; CURSOR: text; BORDER-RIGHT: 0px
+}
+.TAR {
+	BORDER-BOTTOM: 0px; TEXT-ALIGN: right; BORDER-LEFT: 0px; HEIGHT: 100%; BORDER-TOP: 0px; CURSOR: text; BORDER-RIGHT: 0px
+}
+.TAC {
+	BORDER-BOTTOM: 0px; TEXT-ALIGN: center; BORDER-LEFT: 0px; WIDTH: 100%; HEIGHT: 100%; BORDER-TOP: 0px; CURSOR: text; BORDER-RIGHT: 0px
+}
+.TC {
+	BORDER-BOTTOM: 0px; TEXT-ALIGN: center; BORDER-LEFT: 0px; WIDTH: 100%; HEIGHT: 100%; OVERFLOW: hidden; BORDER-TOP: 0px; CURSOR: text; BORDER-RIGHT: 0px
+}
+.TCL {
+	BORDER-BOTTOM: 0px; TEXT-ALIGN: left; BORDER-LEFT: 0px; WIDTH: 100%; HEIGHT: 100%; OVERFLOW: hidden; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.TCBL {
+	BORDER-BOTTOM: 0px; TEXT-ALIGN: left; BORDER-LEFT: 0px; WIDTH: 100%; HEIGHT: 100%; VERTICAL-ALIGN: text-bottom; OVERFLOW: hidden; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.TCBC {
+	BORDER-BOTTOM: 0px; TEXT-ALIGN: center; BORDER-LEFT: 0px; WIDTH: 100%; HEIGHT: 100%; VERTICAL-ALIGN: bottom; OVERFLOW: hidden; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.TCNL {
+	BORDER-BOTTOM: #a0a0a0 1px solid; TEXT-ALIGN: left; BORDER-LEFT: medium none; BACKGROUND-COLOR: transparent; FONT-SIZE: 12px; OVERFLOW: hidden; BORDER-TOP: medium none; CURSOR: text; BORDER-RIGHT: medium none
+}
+.TCNR {
+	BORDER-BOTTOM: #a0a0a0 1px solid; TEXT-ALIGN: right; BORDER-LEFT: medium none; BACKGROUND-COLOR: transparent; FONT-SIZE: 12px; OVERFLOW: hidden; BORDER-TOP: medium none; CURSOR: text; BORDER-RIGHT: medium none
+}
+.TANL {
+	BORDER-BOTTOM: #a0a0a0 1px solid; TEXT-ALIGN: left; BORDER-LEFT: medium none; BACKGROUND-COLOR: transparent; FONT-SIZE: 12px; BORDER-TOP: medium none; CURSOR: text; BORDER-RIGHT: medium none
+}
+.TANC {
+	BORDER-BOTTOM: #a0a0a0 1px solid; TEXT-ALIGN: center; BORDER-LEFT: medium none; BACKGROUND-COLOR: transparent; FONT-SIZE: 12px; BORDER-TOP: medium none; CURSOR: text; BORDER-RIGHT: medium none
+}
+.TANR {
+	BORDER-BOTTOM: #a0a0a0 1px solid; TEXT-ALIGN: right; BORDER-LEFT: medium none; BACKGROUND-COLOR: transparent; FONT-SIZE: 12px; BORDER-TOP: medium none; CURSOR: text; BORDER-RIGHT: medium none
+}
+.Htd_allborders {
+	BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid
+}
+.Htd_topborders {
+	BORDER-TOP: #000000 1px solid
+}
+.Htd_bottomborders {
+	BORDER-BOTTOM: #000000 1px solid
+}
+.Htd_rightborders {
+	BORDER-RIGHT: #000000 1px solid
+}
+.Htd_leftborders {
+	BORDER-LEFT: #000000 1px solid
+}
+.Htd_lefttop {
+	BORDER-LEFT: #000000 1px solid; BORDER-TOP: #000000 1px solid
+}
+.Htd_righttop {
+	BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid
+}
+.Htd_bottomtop {
+	BORDER-BOTTOM: #000000 1px solid; BORDER-TOP: #000000 1px solid
+}
+.Htd_leftright {
+	BORDER-LEFT: #000000 1px solid; BORDER-RIGHT: #000000 1px solid
+}
+.Htd_leftbottom {
+	BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid
+}
+.Htd_rightbottom {
+	BORDER-BOTTOM: #000000 1px solid; BORDER-RIGHT: #000000 1px solid
+}
+.Htd_ltr {
+	BORDER-LEFT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid
+}
+.Htd_lbr {
+	BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-RIGHT: #000000 1px solid
+}
+.Htd_ltb {
+	BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-TOP: #000000 1px solid
+}
+.Htd_rtb {
+	BORDER-BOTTOM: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid
+}
+.Htd_noleft {
+	BORDER-LEFT: 0px solid
+}
+.Htd_noright {
+	BORDER-RIGHT: 0px solid
+}
+.Htd_notop {
+	BORDER-TOP: 0px solid
+}
+.Htd_nobottom {
+	BORDER-BOTTOM: 0px solid
+}
+.Htd_nolefttop {
+	BORDER-LEFT: 0px solid; BORDER-TOP: 0px solid
+}
+.Htd_noleftbottom {
+	BORDER-BOTTOM: 0px solid; BORDER-LEFT: 0px solid
+}
+.Htd_noleftright {
+	BORDER-LEFT: 0px solid; BORDER-RIGHT: 0px solid
+}
+.Htd_norighttop {
+	BORDER-TOP: 0px solid; BORDER-RIGHT: 0px solid
+}
+.Htd_norightbottom {
+	BORDER-BOTTOM: 0px solid; BORDER-RIGHT: 0px solid
+}
+.Htd_notopbottom {
+	BORDER-BOTTOM: 0px solid; BORDER-TOP: 0px solid
+}
+.Htd_noltr {
+	BORDER-LEFT: 0px solid; BORDER-TOP: 0px solid; BORDER-RIGHT: 0px solid
+}
+.Htd_nolbr {
+	BORDER-BOTTOM: 0px solid; BORDER-LEFT: 0px solid; BORDER-RIGHT: 0px solid
+}
+.Htd_nolbt {
+	BORDER-BOTTOM: 0px solid; BORDER-LEFT: 0px solid; BORDER-TOP: 0px solid
+}
+.Htd_norbt {
+	BORDER-BOTTOM: 0px solid; BORDER-TOP: 0px solid; BORDER-RIGHT: 0px solid
+}
+.Htd_noall {
+	BORDER-BOTTOM: 0px solid; BORDER-LEFT: 0px solid; BORDER-TOP: 0px solid; BORDER-RIGHT: 0px solid
+}
+.td_title {
+	LINE-HEIGHT: 30px; HEIGHT: 30px
+}
+.text_title {
+	LETTER-SPACING: 20px; FONT-SIZE: 24px; FONT-WEIGHT: bold
+}
+.spGrd {
+	WIDTH: 250px; HEIGHT: 79px
+}
+.spPrint {
+	LINE-HEIGHT: 15px; FONT-SIZE: 12px
+}
+.spPrint_Tal {
+	BORDER-BOTTOM: #c0c0c0 1px solid; LINE-HEIGHT: 15px; FONT-SIZE: 12px
+}

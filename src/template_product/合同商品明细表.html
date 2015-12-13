@@ -1,0 +1,150 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://219.224.135.40/SIMTrade/doc/CM08.aspx -->
+<HTML><HEAD><TITLE>商品明细表</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type><xml id=theXMLisland></xml><!--<ROOT><M08><M0801></M0801><M0802></M0802><M0803></M0803><M0804></M0804><M0805></M0805><M0806></M0806><M0807></M0807><M0808></M0808><M0809></M0809><M0810></M0810><M0811></M0811><M0812></M0812><M0813></M0813></M08></ROOT>--><xml id=xmlSrc><ROOT><M08><M0801></M0801><M0802></M0802><M0803></M0803><M0804></M0804><M0805></M0805><M0806></M0806><M0807></M0807><M0808></M0808><M0809></M0809><M0810></M0810><M0811></M0811><M0812></M0812><M0813></M0813></M08></ROOT></xml>
+<META name=GENERATOR content="MSHTML 9.00.8112.16723">
+<META name=CODE_LANGUAGE content=C#>
+<META content=no-cache http-equiv=pragma>
+<META content=no-cache,must-revalidate http-equiv=Cache-Control>
+<META name=vs_defaultClientScript content=JavaScript>
+<META name=vs_targetSchema 
+content=http://schemas.microsoft.com/intellisense/ie5><LINK rel=stylesheet 
+href="合同商品明细表_files/Doc.css">
+<SCRIPT language=javascript src="合同商品明细表_files/utils.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+			var k=window.dialogArguments;				
+			function LoadForm()			
+			{
+				var tmp1=document.all["flag2"].value;
+				var tmp2=parseInt(tmp1);
+				if (k.sourceChild.xml!="")
+				{
+					theXMLisland.loadXML(k.sourceChild.xml);
+					var objNodes = theXMLisland.selectNodes("//ROOT/M08");
+					var i = objNodes.length;
+					if (i == 0)
+					{
+						theXMLisland.loadXML(xmlSrc.xml);
+						tmp2=1;
+					}			
+				}
+				else
+				{
+					theXMLisland.loadXML(xmlSrc.xml);
+					tmp2=1;
+				}
+				if (tmp2!=NaN)
+				{
+					if (tmp2>0)
+					{
+						theXMLisland.recordset.AbsolutePosition=tmp2;
+					}
+					else if (tmp2==-1)
+					{
+						theXMLisland.recordset.AddNew();
+					}
+				}
+				if (document.all["flag"].value=="0")
+				{
+					document.all["M0803"].readOnly=false;
+				}
+				theXMLisland.recordset.fields("M0801").value = document.all["M0801"].value;
+			}
+			function save(arg)
+			{	
+
+				if (arg==0)
+				{
+					result=doClientSubmit("POST", "TestChildForm.aspx?map=M08&pfld=01&pid="+document.all["M0801"].value+"&cfld=03&cid="+document.all["M0803"].value, false,theXMLisland.xml,"text");
+					if ((result!="OK")&&(result!=""))
+					{
+						alert(result);
+						return false;
+					}
+				}
+				k.sourceChild.loadXML(theXMLisland.xml);
+				if ((k.trBody != undefined)&&(k.trBody.length == undefined))
+				{
+					if (k.trBody.style.display == "none")
+					{
+						k.trBody.style.display="inline";
+					}
+				}
+				window.close();
+			}
+		</SCRIPT>
+</HEAD>
+<BODY style="MARGIN-TOP: 10px; MARGIN-BOTTOM: 0px" onload=LoadForm() 
+MS_POSITIONING="GridLayout">
+<FORM id=Form1 method=post name=Form1 action=CM08.aspx?a1=&amp;a2=>
+<DIV><INPUT id=__VIEWSTATE name=__VIEWSTATE 
+value=/wEPDwUJLTIzNTUyOTE0ZGSp9pir16NvV/yK1N6eCJpSNfdcPw== type=hidden> 
+</DIV><INPUT name=flag value=0 type=hidden><INPUT name=flag2 value=-1 
+type=hidden> <INPUT id=M0801 name=M0801 type=hidden> 
+<TABLE style="BORDER-COLLAPSE: collapse" border=0 cellSpacing=0 
+borderColor=#000000 cellPadding=0 width=400 align=center>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE style="BORDER-COLLAPSE: collapse" border=1 cellSpacing=0 
+      borderColor=#000000 cellPadding=0 width="100%" align=center>
+        <TBODY>
+        <TR>
+          <TD width="20%" align=center>Product No.</TD>
+          <TD colSpan=3><INPUT value="TEAMPLATE_P_ProductId"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M0803 dataSrc=#theXMLisland dataFld=M0803 name=M0803 readOnly 
+            maxLength=20> </TD></TR>
+        <TR>
+          <TD height=40 vAlign=top width="20%" align=center>Description</TD>
+          <TD height=40 vAlign=top width="80%" colSpan=3><TEXTAREA style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 100%; BORDER-TOP-STYLE: none; HEIGHT: 40px; BORDER-RIGHT-STYLE: none" id=M0804 dataSrc=#theXMLisland dataFld=M0804 rows=3 name=M0804>
+TEAMPLATE_P_ProductNameEn
+TEAMPLATE_P_ProductDescEn		  
+		  </TEXTAREA> 
+          </TD></TR>
+        <TR>
+          <TD width="20%" align=center>Quantity</TD>
+          <TD width="25%"><INPUT value="TEAMPLATE_P_ProductQuantity"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M0805 dataSrc=#theXMLisland dataFld=M0805 
+            ondrop="javascript:return false;" 
+            onkeypress=javascript:InputFI(this.value,1); onpaste="return false;" 
+            name=M0805 maxLength=20> </TD>
+          <TD width="30%" align=center>Unit</TD>
+          <TD width="25%"><INPUT value="TEAMPLATE_P_ProductPC"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none" 
+            id=M0806 dataSrc=#theXMLisland dataFld=M0806 name=M0806 
+            maxLength=20> </TD></TR>
+        <TR>
+          <TD rowSpan=2 width="20%" align=center>Unit</TD>
+          <TD rowSpan=2 width="25%"><INPUT value="TEAMPLATE_P_SellCurrency"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none" 
+            id=M0807 dataSrc=#theXMLisland dataFld=M0807 name=M0807 
+            maxLength=20> </TD>
+          <TD width="30%" align=center>Price</TD>
+          <TD width="25%"><INPUT value="TEAMPLATE_P_ProductPriceOut"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M0808 dataSrc=#theXMLisland dataFld=M0808 
+            ondrop="javascript:return false;" 
+            onkeypress=javascript:InputFI(this.value,1); onpaste="return false;" 
+            name=M0808 maxLength=20></TD></TR>
+        <TR>
+          <TD width="30%" align=center>Amount</TD>
+          <TD width="25%"><INPUT value="TEAMPLATE_P_ProductTotalPriceOut"
+            style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; WIDTH: 90%; BORDER-TOP-STYLE: none; IME-MODE: disabled; BORDER-RIGHT-STYLE: none" 
+            id=M0809 dataSrc=#theXMLisland dataFld=M0809 
+            ondrop="javascript:return false;" 
+            onkeypress=javascript:InputFI(this.value,1); onpaste="return false;" 
+            name=M0809 maxLength=20> </TD></TR>
+        <TR>
+          <TD colSpan=4><SPAN style="COLOR: red" 
+        id=lblMsg></SPAN></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class=Htd_noall vAlign=top colSpan=4 align=center><A 
+      style="FONT-SIZE: 10pt" id=btnSave 
+      onclick="javascript:save(document.all['flag'].value)" 
+      href="http://219.224.135.40/SIMTrade/doc/CM08.aspx?a1=&amp;a2=#">[保存]</A> 
+      <A style="FONT-SIZE: 10pt" id=btnClose onclick=window.parent.close(); 
+      href="http://219.224.135.40/SIMTrade/doc/CM08.aspx?a1=&amp;a2=#">[退出]</A> 
+    </TD></TR></TBODY></TABLE></FORM></BODY></HTML>

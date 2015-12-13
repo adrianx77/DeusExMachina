@@ -1,0 +1,1005 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>出口报关单</title>
+    <meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+    <meta name="CODE_LANGUAGE" content="C#"><meta http-equiv="pragma" content="no-cache"><meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta name="vs_defaultClientScript" content="JavaScript">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+	<link href="出口报关单_files/doc.css" rel="stylesheet">
+	<style type="text/css">
+	td{height:35px}
+	.text-title{font-size:20px;height:20px;line-height:20px;font-weight:bold;font-family:"宋体"}
+	.text-11px-kai{font-size:12px;height:15px;line-height:15px;font-family:"华文楷体"}
+	.Htd_bottomborders-X{border-bottom:#000000 1px dotted}
+	</style>    
+	<script src="出口报关单_files/utils.js" language="javascript"></script>
+	<script language="javascript">
+    function LoadPage()
+    {
+    	var flag="0";
+		if (flag=="0")
+		{
+			LetTextReadOnly();
+			LetTextareaReadOnly();
+		}
+		if (sourceChild.xml=="")
+		{
+			trBody.style.display="none";
+		}
+    }
+    function docheck(arg)
+    {
+		document.all["flag3"].value=arg;
+    }
+    function save()
+    {	
+		if (M05AForm.flag.value!="0")
+		{
+			AppendNodes("//ROOT","//ROOT/M06");
+			var xmlResult=doClientSubmit("POST","PostForm.aspx?tb=M05&uid="+document.all["flag4"].value,false,source.xml,"text");
+			RemoveNodes("//ROOT","//ROOT/M06");
+			var xmlServerResponse = new ActiveXObject("MSXML2.DOMDocument");
+			xmlServerResponse.loadXML(xmlResult);
+			
+			var strUrl="../Common/ErrMsg.aspx";
+			var strID=xmlServerResponse.selectSingleNode("//Message/errID").text;						
+			var strMsg=xmlServerResponse.selectSingleNode("//Message/errMsg").text;
+			
+			ShowMessage("Manager",strUrl,strID,strMsg,"Close","Close");
+		}
+    }
+    function DetailOperate(args1,args2)
+    {			
+		if (M05AForm.flag.value!="0")
+		{
+			var str="";
+			var tmpA=document.all["flag3"].value;
+			if (args1==0)
+			{
+				str="CM06.aspx?a0=1&a1="+args2+"&a2=";
+			}
+			else
+			{
+				
+				if (tmpA!="")
+				{
+					document.all["flag3"].value = "";
+					switch (args1)
+					{
+						case 1:
+							{										
+								tmpA-=1;
+								var a;
+								if (document.all['s'].length != undefined)
+								{
+									a = document.all['s'][tmpA].innerText;
+								}
+								else
+								{
+									a = document.all['s'].innerText;
+								}
+								tmpA+=1;					
+								str="CM06.aspx?a0=1&a1="+args2+"&a2="+a+"&a3="+tmpA;
+								break;
+							}
+						case 2:
+						{
+							sourceChild.recordset.AbsolutePosition=tmpA;
+							if (tmpA>0)
+							{
+								str = "";
+								sourceChild.recordset.Delete();
+							}
+							break;
+						}
+					}
+				}
+				else
+				{
+					alert("请选择记录进行操作！");
+					return false;
+				}
+			}
+			if (str!= "")	PopDialog(str,window,'430px','350px');
+		}
+		else
+		{
+			return false;
+		}
+    }    
+    
+        function printDoc()
+		{
+			AppendNodes("//ROOT","//ROOT/M06");	
+			//WindowOpen("PrintDoc.aspx?t=M05A&c=M06","printWindow","800px","600px");			
+			open("PrintDoc.aspx?t=M05A&c=M06","M05A","height=600px,width=800px,center=yes,toolbar=no,menubar=yes,scrollbars=yes,location=no,resizable=yes,status=yes");	
+		}
+	</script> 
+  </head>
+  <body ms_positioning="GridLayout" style="margins:0px" onload="LoadPage()">
+     <form name="M05AForm" method="post" action="M05A.aspx?did=STEAC000494&amp;Uid=mb14084691&amp;R=0" id="M05AForm">
+<div>
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTYwMzY5OTQwNmRksr0SOAogeHf548n+eY4rq4ia5Hg=" type="hidden">
+</div>
+
+        <input name="flag" value="0" type="hidden"> 
+		<input name="flag2" value="STEAC000494" type="hidden">
+		<input name="flag3" value="" type="hidden">
+		<input name="flag4" value="mb14084691" type="hidden">
+		<!--<div id="target">正在加载……</div>-->
+		<xml id="source" src="Xml/Document.aspx?a1=M05&amp;a2=STEAC000494"></xml>
+		<xml id="sourceChild" src="Xml/Document.aspx?a1=M06&amp;a2=STEAC000494"></xml>
+		<table id="table1" align="center" border="0" cellpadding="0" cellspacing="0" width="740">
+			<tbody><tr>
+				<td>
+				<table id="table2" border="0" cellpadding="0" cellspacing="0" width="740">
+					<tbody><tr>
+						<td align="center"><a href="http://219.224.135.40/SIMTrade/help/doc/M05Ahelp.htm" target="_blank"><span class="text-title">中华人民共和国海关出口货物报关单</span></a></td>
+					</tr>
+					<tr>
+						<td>
+						<table id="table3" border="0" cellpadding="0" cellspacing="0" width="740">
+							<tbody><tr>
+								<td width="45">　</td>
+								<td width="75"><span class="text-11px-kai">预录入编号：</span></td>
+								<td width="300">
+									<input class="TAL" style="WIDTH:190px;HEIGHT:17px" name="txtM0507" datasrc="#source" datafld="M0507" maxlength="40" type="text">
+								</td>
+								<td width="60"><span class="text-11px-kai">海关编号：</span></td>
+								<td width="260">
+									<input class="TAL" style="WIDTH:190px;HEIGHT:17px" name="txtM0508" datasrc="#source" datafld="M0508" maxlength="40" type="text">
+								</td>
+							</tr>
+						</tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+				</td>
+			</tr>
+			<tr>
+				<td class="Htd_ltr">
+				<table id="table4" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tbody><tr>
+						<td>
+						<table id="table5" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td align="left" valign="top" width="300">
+								<table id="table6" height="100%" border="0" cellpadding="3" cellspacing="0" width="300">
+									<tbody><tr>
+										<td style="height: 15px" align="left" valign="top" width="60"><span class="text-11px-kai">出口口岸</span></td>
+										<td rowspan="2" align="left" valign="top" width="240">
+											<textarea name="txtM0509" class="TCL" rows="2" datasrc="#source" datafld="M0509" style="WIDTH:100%;HEIGHT:100%">TEMPLATE_ShipPortZh海关</textarea>
+										</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="left" valign="top" width="60">　</td>
+									</tr>
+								</tbody></table>
+								</td>
+								<td class="Htd_leftborders" align="left" valign="top" width="440">
+								<table id="table14" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody><tr>
+										<td align="left" valign="top">
+										<table id="table15" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tbody><tr>
+												<td align="left" valign="top" width="180">
+											<table id="table18" border="0" cellpadding="3" cellspacing="0" width="180">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="180"><span class="text-11px-kai">
+													备案号</span></td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="180">
+														<input class="TAL" style="WIDTH:160px;HEIGHT:17px" name="txtM0510" datasrc="#source" datafld="M0510" maxlength="40" type="text">
+													</td>
+												</tr>
+											</tbody></table>
+												</td>
+												<td class="Htd_leftborders" align="left" valign="top" width="150">
+											<table id="table17" border="0" cellpadding="3" cellspacing="0" width="150">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="150"><span class="text-11px-kai">
+													出口日期</span></td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="150">
+														<input value="TEMPLATE_Date" class="TAL" style="WIDTH:130px;HEIGHT:17px" name="txtM0511" datasrc="#source" datafld="M0511" maxlength="20" type="text">
+													</td>
+												</tr>
+											</tbody></table>
+												</td>
+												<td class="Htd_leftborders" align="left" valign="top" width="110">
+											<table id="table16" border="0" cellpadding="3" cellspacing="0" width="110">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="110"><span class="text-11px-kai">申报日期</span></td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="110">
+														<input value="TEMPLATE_Date" class="TAL" style="WIDTH:90px;HEIGHT:17px" name="txtM0512" datasrc="#source" datafld="M0512" maxlength="20" type="text">
+													</td>
+												</tr>
+											</tbody></table>
+												</td>
+											</tr>
+										</tbody></table>
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+							<tr>
+								<td class="Htd_topborders" align="left" valign="top" width="300">
+								<table id="table11" height="100%" border="0" cellpadding="3" cellspacing="0" width="300">
+									<tbody><tr>
+										<td style="height: 15px" align="left" valign="top" width="60"><span class="text-11px-kai">经营单位</span></td>
+										<td rowspan="2" align="left" valign="top" width="240">
+											<textarea name="txtM0513" class="TCL" rows="2" datasrc="#source" datafld="M0513" style="WIDTH:100%;HEIGHT:100%">
+TEMPLATE_CompanyNameZh									
+TEMPLATE_MyHaiguanNo									
+											</textarea>
+										</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="left" valign="top" width="60">　</td>
+									</tr>
+								</tbody></table>
+								</td>
+								<td align="left" valign="top" width="440">
+								<table id="table24" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody><tr>
+										<td class="Htd_lefttop" align="left" valign="top">
+										<table id="table25" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tbody><tr>
+												<td align="left" valign="top" width="75">
+											<table id="table26" border="0" cellpadding="3" cellspacing="0" width="75">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="75">
+														<span class="text-11px-kai">运输方式</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="75">
+														<input value="江海运输" class="TAL" style="WIDTH:65px;HEIGHT:17px" name="txtM0514" datasrc="#source" datafld="M0514" maxlength="20" type="text">
+													</td>
+												</tr>
+											</tbody></table>
+												</td>
+												<td class="Htd_leftborders" align="left" valign="top" width="200">
+											<table id="table27" border="0" cellpadding="3" cellspacing="0" width="200">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="200">
+														<span class="text-11px-kai">运输工具名称</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="200">
+														<input value="TEMPLATE_TheShipName/TEMPLATE_TheShipWorkNo" class="TAL" style="WIDTH:190px;HEIGHT:17px" name="txtM0515" datasrc="#source" datafld="M0515" maxlength="80" type="text"></td>
+												</tr>
+											</tbody></table>
+												</td>
+												<td class="Htd_leftborders" align="left" valign="top" width="165">
+													<table id="table28" border="0" cellpadding="3" cellspacing="0" width="165">
+														<tbody><tr>
+															<td style="height: 15px" align="left" valign="top" width="165">
+																<span class="text-11px-kai">提运单号</span>
+															</td>
+														</tr>
+														<tr>
+															<td style="height: 20px" align="left" valign="top" width="165">
+														<input class="TAL" style="WIDTH:155px;HEIGHT:17px" name="txtM0516" datasrc="#source" datafld="M0516" maxlength="40" type="text"></td>
+														</tr>
+													</tbody></table>
+												</td>
+											</tr>
+										</tbody></table>
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+							<tr>
+								<td class="Htd_topborders" align="left" valign="top" width="300">
+								<table id="table12" border="0" cellpadding="3" cellspacing="0" width="300">
+									<tbody><tr>
+										<td style="height: 15px" align="left" valign="top" width="60"><span class="text-11px-kai">发货单位</span></td>
+										<td rowspan="2" align="left" valign="top" width="240">
+											<textarea name="txtM0517" class="TCL" rows="2" datasrc="#source" datafld="M0517" style="WIDTH:100%;HEIGHT:100%">
+TEMPLATE_CompanyNameZh									
+TEMPLATE_MyHaiguanNo											
+											</textarea>	
+										</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="left" valign="top" width="60">　</td>
+									</tr>
+								</tbody></table>
+								</td>
+								<td class="Htd_lefttop" align="left" valign="top" width="440">
+								<table id="table33" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody><tr>
+										<td align="left" valign="top" width="170">
+											<table id="table34" border="0" cellpadding="3" cellspacing="0" width="170">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="170">
+														<span class="text-11px-kai">贸易方式</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="170">
+														<input value="一般贸易" class="TAL" style="WIDTH:160px;HEIGHT:17px" name="txtM0518" datasrc="#source" datafld="M0518" maxlength="40" type="text"></td>
+												</tr>
+											</tbody></table>
+										</td>
+										<td class="Htd_leftborders" align="left" valign="top" width="150">
+											<table id="table35" border="0" cellpadding="3" cellspacing="0" width="150">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="150">
+														<span class="text-11px-kai">征免性质</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="150">
+														<input value="一般征税" class="TAL" style="WIDTH:140px;HEIGHT:17px" name="txtM0519" datasrc="#source" datafld="M0519" maxlength="20" type="text"></td>
+												</tr>
+											</tbody></table>
+										</td>
+										<td class="Htd_leftborders" align="left" valign="top" width="120">
+											<table id="table36" border="0" cellpadding="3" cellspacing="0" width="120">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="120">
+														<span class="text-11px-kai">结汇方式</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="120">
+														<input value="TEMPLATE_Payment" class="TAL" style="WIDTH:110px;HEIGHT:17px" name="txtM0520" datasrc="#source" datafld="M0520" maxlength="20" type="text"></td>
+												</tr>
+											</tbody></table>
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+						</tbody></table>
+						</td>
+					</tr>
+					<tr>
+						<td class="Htd_topborders" align="left" valign="top">
+						<table id="table37" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td align="left" valign="top" width="220">
+								<table id="table38" border="0" cellpadding="3" cellspacing="0" width="220">
+									<tbody><tr>
+										<td style="height: 15px" align="left" valign="top" width="60"><span class="text-11px-kai">许可证号</span></td>
+										<td rowspan="2" align="left" valign="top" width="160">
+											<textarea name="txtM0521" class="TCL" rows="2" datasrc="#source" datafld="M0521" style="WIDTH:100%;HEIGHT:100%"></textarea>
+										</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="left" valign="top" width="60">　</td>
+									</tr>
+								</tbody></table>
+								</td>
+								<td class="Htd_leftborders" align="left" valign="top" width="520">
+								<table id="table42" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody><tr>
+										<td align="left" valign="top" width="180">
+											<table id="table46" border="0" cellpadding="3" cellspacing="0" width="180">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="180">
+														<span class="text-11px-kai">运抵国（地区）</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="180">
+														<input value="TEMPLATE_ImportContryZh" class="TAL" style="WIDTH:170px;HEIGHT:17px" name="txtM0522" datasrc="#source" datafld="M0522" maxlength="40" type="text"></td>
+												</tr>
+											</tbody></table>
+										</td>
+										<td class="Htd_leftborders" align="left" valign="top" width="200">
+											<table id="table47" border="0" cellpadding="3" cellspacing="0" width="200">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="200">
+														<span class="text-11px-kai">指运港</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="200">
+														<input value="TEMPLATE_DestPortZh" class="TAL" style="WIDTH:190px;HEIGHT:17px" name="txtM0523" datasrc="#source" datafld="M0523" maxlength="40" type="text"></td>
+												</tr>
+											</tbody></table>
+										</td>
+										<td class="Htd_leftborders" align="left" valign="top" width="140">
+											<table id="table48" border="0" cellpadding="3" cellspacing="0" width="140">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="140">
+														<span class="text-11px-kai">境内货源地</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="140">
+														<input class="TAL" style="WIDTH:130px;HEIGHT:17px" name="txtM0524" datasrc="#source" datafld="M0524" maxlength="40" type="text"></td>
+												</tr>
+											</tbody></table>
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+							<tr>
+								<td class="Htd_topborders" align="left" valign="top" width="220">
+								<table id="table39" border="0" cellpadding="3" cellspacing="0" width="220">
+									<tbody><tr>
+										<td style="height: 15px" align="left" valign="top" width="60"><span class="text-11px-kai">批准文号</span></td>
+										<td rowspan="2" align="left" valign="top" width="160">
+											<textarea name="txtM0525" class="TCL" rows="2" datasrc="#source" datafld="M0525" style="WIDTH:100%;HEIGHT:100%"></textarea>
+										</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="left" valign="top" width="60">　</td>
+									</tr>
+								</tbody></table>
+								</td>
+								<td class="Htd_lefttop" align="left" valign="top" width="520">
+								<table id="table43" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody><tr>
+										<td align="left" valign="top" width="80">
+											<table id="table56" border="0" cellpadding="3" cellspacing="0" width="80">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="80">
+														<span class="text-11px-kai">成交方式</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="80">
+														<input value="TEMPLATE_DeliveryType" class="TAL" style="WIDTH:70px;HEIGHT:17px" name="txtM0526" datasrc="#source" datafld="M0526" maxlength="40" type="text"></td>
+												</tr>
+											</tbody></table>
+										</td>
+										<td class="Htd_leftborders" align="left" valign="top" width="220">
+											<table id="table55" border="0" cellpadding="3" cellspacing="0" width="220">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="220">
+														<span class="text-11px-kai">运费</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="220">
+														[<input value="TEMPLATE_SellCurrency" class="TAL" style="WIDTH:45px;HEIGHT:17px" name="txtM0527" datasrc="#source" datafld="M0527" maxlength="40" type="text">]
+														[<input value="TEMPLATE_WaiBi_YouJiaGe_Haiyunfei" class="TAL" style="WIDTH:115px;HEIGHT:17px" name="txtM0528" datasrc="#source" datafld="M0528" maxlength="20" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" type="text">]
+													</td>
+												</tr>
+											</tbody></table>
+										</td>
+										<td class="Htd_leftborders" align="left" valign="top" width="79">
+											<table id="table53" border="0" cellpadding="3" cellspacing="0" width="79">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="79">
+														<span class="text-11px-kai">保费</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="79">
+														[<input value="TEMPLATE_SellCurrency" class="TAL" style="WIDTH:23;HEIGHT:17" name="txtM0529" datasrc="#source" datafld="M0529" maxlength="40" type="text">][<input value="TEMPLATE_WaiBi_YouJiaGe_Baoxianfei" class="TAL" style="WIDTH:34;HEIGHT:17" name="txtM0530" datasrc="#source" datafld="M0530" maxlength="20" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" type="text">]
+													</td>
+												</tr>
+											</tbody></table>
+										</td>
+										<td class="Htd_leftborders" align="left" valign="top" width="141">
+											<table id="table52" border="0" cellpadding="3" cellspacing="0" width="141">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="141">
+														<span class="text-11px-kai">杂费</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="141">
+														[<input class="TAL" style="WIDTH:30px;HEIGHT:17px" name="txtM0531" datasrc="#source" datafld="M0531" maxlength="40" type="text">]
+														[<input class="TAL" style="WIDTH:85px;HEIGHT:17px" name="txtM0532" datasrc="#source" datafld="M0532" maxlength="20" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" type="text">]
+													</td>
+												</tr>
+											</tbody></table>
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+							<tr>
+								<td class="Htd_topborders" align="left" valign="top" width="220">
+								<table id="table40" border="0" cellpadding="3" cellspacing="0" width="220">
+									<tbody><tr>
+										<td style="height: 15px" align="left" valign="top" width="70"><span class="text-11px-kai">合同协议号</span></td>
+										<td rowspan="2" align="left" valign="top" width="150">
+											<textarea name="txtM0533" class="TCL" rows="2" datasrc="#source" datafld="M0533" style="WIDTH:100%;HEIGHT:100%">TEMPLATE_ContractNo</textarea>	
+										</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="left" valign="top" width="70">　</td>
+									</tr>
+								</tbody></table>
+								</td>
+								<td class="Htd_lefttop" align="left" valign="top" width="520">
+								<table id="table44" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody><tr>
+										<td align="left" valign="top" width="100">
+											<table id="table57" border="0" cellpadding="3" cellspacing="0" width="100">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="100">
+														<span class="text-11px-kai">件数</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="100">
+														<input value="TEMPLATE_TotalCarton" class="TAL" style="WIDTH:90px;HEIGHT:17px" name="txtM0534" datasrc="#source" datafld="M0534" maxlength="20" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" type="text"></td>
+												</tr>
+											</tbody></table>
+										</td>
+										<td class="Htd_leftborders" align="left" valign="top" width="200">
+											<table id="table58" border="0" cellpadding="3" cellspacing="0" width="200">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="200">
+														<span class="text-11px-kai">包装种类</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="200">
+														<input value="TEMPLATE_TheTypeOfTotalCarton" class="TAL" style="WIDTH:190px;HEIGHT:17px" name="txtM0535" datasrc="#source" datafld="M0535" maxlength="40" type="text"></td>
+												</tr>
+											</tbody></table>
+										</td>
+										<td class="Htd_leftborders" align="left" valign="top" width="100">
+											<table id="table51" border="0" cellpadding="3" cellspacing="0" width="100">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="100">
+														<span class="text-11px-kai">毛重(公斤)</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="100">
+														<input value="TEMPLATE_TotalMaoWeight" class="TAL" style="WIDTH:90px;HEIGHT:17px" name="txtM0536" datasrc="#source" datafld="M0536" maxlength="20" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" type="text"></td>
+												</tr>
+											</tbody></table>
+										</td>
+										<td class="Htd_leftborders" align="left" valign="top" width="120">
+											<table id="table54" border="0" cellpadding="3" cellspacing="0" width="120">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="120">
+														<span class="text-11px-kai">净重(公斤)</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="120">
+														<input value="TEMPLATE_TotalJinWeight" class="TAL" style="WIDTH:110px;HEIGHT:17px" name="txtM0537" datasrc="#source" datafld="M0537" maxlength="20" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" type="text"></td>
+												</tr>
+											</tbody></table>
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+							<tr>
+								<td class="Htd_topborders" align="left" valign="top" width="220">
+								<table id="table41" border="0" cellpadding="3" cellspacing="0" width="220">
+									<tbody><tr>
+										<td style="height: 15px" align="left" valign="top" width="60"><span class="text-11px-kai">集装箱号</span></td>
+										<td rowspan="2" align="left" valign="top" width="160">
+											<textarea name="txtM0538" class="TCL" rows="2" datasrc="#source" datafld="M0538" style="WIDTH:100%;HEIGHT:100%"></textarea>	
+										</td>
+									</tr>
+									<tr>
+										<td style="height: 20px" align="left" valign="top" width="60">　</td>
+									</tr>
+								</tbody></table>
+								</td>
+								<td class="Htd_lefttop" align="left" valign="top" width="520">
+								<table id="table45" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody><tr>
+										<td align="left" valign="top" width="380">
+											<table id="table60" border="0" cellpadding="3" cellspacing="0" width="380">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="380">
+														<span class="text-11px-kai">随附单据</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="380">
+														<input value="出境货物通过单" class="TAL" style="WIDTH:370px;HEIGHT:17px" name="txtM0539" datasrc="#source" datafld="M0539" maxlength="2000" type="text"></td>
+												</tr>
+											</tbody></table>
+										</td>
+										<td class="Htd_leftborders" align="left" valign="top" width="140">
+											<table id="table59" border="0" cellpadding="3" cellspacing="0" width="141">
+												<tbody><tr>
+													<td style="height: 15px" align="left" valign="top" width="141">
+														<span class="text-11px-kai">生产厂家</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="height: 20px" align="left" valign="top" width="141">
+														<input class="TAL" style="WIDTH:130px;HEIGHT:17px" name="txtM0540" datasrc="#source" datafld="M0540" maxlength="80" type="text"></td>
+												</tr>
+											</tbody></table>
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+						</tbody></table>
+						</td>
+					</tr>
+					<tr>
+						<td class="Htd_topborders" style="height: 85px" align="left" valign="top" width="740">
+						<table id="table61" height="100%" border="0" cellpadding="3" cellspacing="0" width="740">
+							<tbody><tr>
+								<td style="height: 15px" align="left" valign="top" width="740">
+									<span class="text-11px-kai">标记唛码及备注</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="height: 70px" align="left" valign="top" width="740">
+									<textarea name="txtM0541" class="TCL" rows="2" datasrc="#source" datafld="M0541" style="WIDTH:100%;HEIGHT:100%">
+TEMPLATE_ShippingMark									
+									</textarea>
+								</td>
+							</tr>
+						</tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+				</td>
+			</tr>
+			<tr>
+				<td class="Htd_ltr" align="left" valign="top">
+				<table id="table62" datasrc="#sourceChild" border="0" cellpadding="3" cellspacing="0" width="100%">
+					<thead>
+						<tr>
+							<td style="height: 15px" class="Htd_bottomborders" align="center" width="30">
+								<span class="text-11px-kai">选择</span>
+							</td>
+							<td style="height: 15px" class="Htd_bottomborders" align="center" width="30">
+								<span class="text-11px-kai">项号</span>
+							</td>
+							<td style="height: 15px" class="Htd_bottomborders" align="center" width="70">
+								<span class="text-11px-kai">商品编号</span>
+							</td>
+							<td style="height: 15px" class="Htd_bottomborders" align="center" width="140">
+								<span class="text-11px-kai">商品名称、规格型号</span>
+							</td>
+							<td style="height: 15px" class="Htd_bottomborders" align="center" width="110">
+								<span class="text-11px-kai">数量及单位</span>
+							</td>
+							<td style="height: 15px" class="Htd_bottomborders" align="center" width="130">
+								<span class="text-11px-kai">最终目的国(地区)</span>
+							</td>
+							<td style="height: 15px" class="Htd_bottomborders" align="center" width="50">
+								<span class="text-11px-kai">单价</span>
+							</td>
+							<td style="height: 15px" class="Htd_bottomborders" align="center" width="60">
+								<span class="text-11px-kai">总价</span>
+							</td>
+							<td style="height: 15px" class="Htd_bottomborders" align="center" width="60">
+								<span class="text-11px-kai">币制</span>
+							</td>
+							<td style="height: 15px" class="Htd_bottomborders" align="center" width="60">
+								<span class="text-11px-kai">征免</span>
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr id="trBody" style="display:inline">
+							<td class="Htd_bottomborders-X" width="30"><span id="spRad"></span><input name="rad" onclick="javascript:docheck(this.recordNumber);" type="radio"></td>
+							<td class="Htd_bottomborders-X" width="30"><span id="s" datafld="M0602" style="font-size:12px"></span>&nbsp;</td>
+							<td class="Htd_bottomborders-X" width="70"><span id="s1" datafld="M0613" style="font-size:12px"></span>&nbsp;</td>
+							<td class="Htd_bottomborders-X" width="140"><span id="s2" datafld="M0604" style="font-size:12px"></span><span id="s3" datafld="M0605" style="font-size:12px"></span>&nbsp;</td>
+							<td class="Htd_bottomborders-X" width="110"><span id="s4" datafld="M0606" style="font-size:12px"></span><span id="s5" datafld="M0607" style="font-size:12px"></span>&nbsp;</td>
+							<td class="Htd_bottomborders-X" width="130"><span id="s6" datafld="M0608" style="font-size:12px"></span>&nbsp;</td>
+							<td class="Htd_bottomborders-X" width="50"><span id="s7" datafld="M0609" style="font-size:12px"></span>&nbsp;</td>
+							<td class="Htd_bottomborders-X" width="60"><span id="s8" datafld="M0610" style="font-size:12px"></span>&nbsp;</td>
+							<td class="Htd_bottomborders-X" width="60"><span id="s9" datafld="M0611" style="font-size:12px"></span>&nbsp;</td>
+							<td class="Htd_bottomborders-X" width="60"><span id="s10" datafld="M0612" style="font-size:12px"></span>&nbsp;</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td style="height: 80px" width="30">　</td>
+							<td style="height: 80px" width="30">　</td>
+							<td style="height: 80px" width="70">　</td>
+							<td style="height: 80px" width="140">　</td>
+							<td style="height: 80px" width="110">　</td>
+							<td style="height: 80px" width="130">　</td>
+							<td style="height: 80px" width="50">　</td>
+							<td style="height: 80px" width="60">　</td>
+							<td style="height: 80px" width="60">　</td>
+							<td style="height: 80px" width="60">　</td>
+						</tr>
+						PRODUCT_HERF_LINK
+						<tr>
+							<td colspan="10" class="Htd_topborders" align="right" width="740">
+								<a onclick="javascript:DetailOperate(0,document.all['flag2'].value)" href="#"><font style="FONT-SIZE: 10pt; LETTER-SPACING: 6pt">[添加]</font></a>
+								<a onclick="javascript:DetailOperate(1,document.all['flag2'].value)" href="#"><font style="FONT-SIZE: 10pt; LETTER-SPACING: 6pt">[修改]</font></a>
+								<a onclick="javascript:DetailOperate(2,document.all['flag2'].value)" href="#"><font style="FONT-SIZE: 10pt; LETTER-SPACING: 6pt">[刪除]</font></a>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="Htd_ltr" style="height: 165px" align="left" valign="top" width="740">
+						<table id="table63" height="100%" border="0" cellpadding="3" cellspacing="0" width="740">
+							<tbody><tr>
+								<td style="height: 15px" align="left" valign="top" width="740">
+									<span class="text-11px-kai">税费征收情况</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="height: 150px" align="left" valign="top" width="740">
+									<textarea name="txtM0546" class="TCL" rows="2" datasrc="#source" datafld="M0546" style="WIDTH:100%;HEIGHT:100%"></textarea>
+								</td>
+							</tr>
+						</tbody></table>
+						</td>
+			</tr>
+			<tr>
+				<td class="Htd_allborders" align="left" valign="top">
+				<table id="table64" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tbody><tr>
+						<td style="height: 180px" align="left" valign="top" width="240">
+						<table id="table66" height="100%" border="0" cellpadding="0" cellspacing="0" width="240%">
+							<tbody><tr>
+								<td style="height: 45px" class="Htd_rightbottom" align="left" valign="top" width="240">
+								<table id="table72" border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody><tr>
+										<td style="height: 15px; padding-left:3px" width="38">
+											<span class="text-11px-kai">录入员</span></td>
+										<td style="height: 15px; padding-left:5px;" width="202">
+											<span class="text-11px-kai">录入单位</span></td>
+									</tr>
+									<tr>
+										<td style="height: 30px" width="38">
+											<input class="TAL" style="WIDTH:37;HEIGHT:17" name="txtM0547" datasrc="#source" datafld="M0547" maxlength="40" type="text">
+										</td>
+										<td style="height: 30px" width="202">
+											<input class="TAL" style="WIDTH:190;HEIGHT:17" name="txtM0548" datasrc="#source" datafld="M0548" maxlength="80" type="text">
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+							<tr>
+								<td style="height: 55px" align="left" valign="top" width="240">
+								<table id="table70" height="100%" border="0" cellpadding="0" cellspacing="0" width="240">
+									<tbody><tr>
+										<td style="height: 15px; padding-left:3px;padding-top:2px" align="left" valign="top" width="38">
+											<span class="text-11px-kai">报关员</span></td>
+										<td rowspan="2" style="height: 55px" align="left" valign="top" width="190">
+											<textarea name="txtM0549" class="TCL" rows="2" datasrc="#source" datafld="M0549" style="WIDTH:100%;HEIGHT:100%">TEMPLATE_MyNameZn</textarea>
+										</td>
+									</tr>
+									<tr>
+										<td style="height: 40px" align="left" valign="top" width="38">　</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+							<tr>
+								<td style="height: 50px" align="left" valign="top" width="240">
+								<table id="table71" height="100%" border="0" cellpadding="0" cellspacing="0" width="240">
+									<tbody><tr>
+										<td style="height: 15px; padding-left:3px;padding-top:2px" align="left" valign="top" width="60">
+											<span class="text-11px-kai">单位地址</span>
+										</td>
+										<td rowspan="2" style="height: 50px" align="left" valign="top" width="180">
+											<textarea name="txtM0550" class="TCL" rows="2" datasrc="#source" datafld="M0550" style="WIDTH:100%;HEIGHT:100%">
+TEMPLATE_CompanyAddressZh											
+											</textarea>
+										</td>
+									</tr>
+									<tr>
+										<td align="left" valign="top" width="60">　</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+							<tr>
+								<td style="height: 30px" align="left" valign="top" width="240">
+								<table id="table68" height="100%" border="0" cellpadding="0" cellspacing="0" width="240">
+									<tbody><tr>
+										<td style="height: 30px; padding-left:3px;padding-top:2px" valign="top" width="30">
+											<span class="text-11px-kai">邮编</span>
+										</td>
+										<td style="height: 30px;" valign="top" width="90">
+											<input value="TEMPLATE_MyPostNo" class="TAL" style="WIDTH:80;HEIGHT:17" name="txtM0551" datasrc="#source" datafld="M0551" maxlength="20" type="text">
+										</td>
+										<td style="height: 30px;padding-top:2px" valign="top" width="30">
+											<span class="text-11px-kai">电话</span>
+										</td>
+										<td style="height: 30px" valign="top" width="90">
+											<input value="TEMPLATE_MyPhoneNo" class="TAL" style="WIDTH:80;HEIGHT:17" name="txtM0552" datasrc="#source" datafld="M0552" maxlength="40" type="text">
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+						</tbody></table>
+						</td>
+						<td style="height: 180px" align="left" valign="top" width="240">
+						<table id="table67" height="100%" border="0" cellpadding="0" cellspacing="0" width="240">
+							<tbody><tr>
+								<td style="height: 46px" class="Htd_leftborders" align="center" valign="top" width="240">
+									<span class="text-11px-kai">兹声明以上申报无讹并承担法律责任</span></td>
+							</tr>
+							<tr>
+								<td style="height: 45px;text-indent:25px" valign="bottom" width="240">
+									<span class="text-11px-kai">申报单位（签章）</span></td>
+							</tr>
+							<tr>
+								<td style="height: 60px" align="left" valign="top" width="240">　</td>
+							</tr>
+							<tr>
+								<td style="height: 30px" width="240">
+								<table id="table69" height="100%" border="0" cellpadding="0" cellspacing="0" width="240">
+									<tbody><tr>
+										<td style="height: 30px" valign="top" width="65">
+									　		</td>
+										<td style="height: 30px;padding-top:2px" valign="top" width="55">
+											<span class="text-11px-kai">填制日期</span>
+										</td>
+										<td style="height: 30px" valign="top" width="120">
+											<input value="TEMPLATE_Date" class="TAL" style="WIDTH:110;HEIGHT:17" name="txtM0554" datasrc="#source" datafld="M0554" maxlength="20" type="text">
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+						</tbody></table>
+						</td>
+						<td class="Htd_leftborders" style="height: 180px" align="left" valign="top" width="260">
+						<table id="table65" height="100%" border="0" cellpadding="0" cellspacing="0" width="260">
+							<tbody><tr>
+								<td style="height: 45px" align="left" valign="top" width="260">
+										<table id="table82" height="100%" border="0" cellpadding="0" cellspacing="0" width="260">
+											<tbody><tr>
+												<td style="height: 15px;padding-left:3px" width="260">
+													<span class="text-11px-kai">海关审单批注及放行日期(签章)</span>
+												</td>
+											</tr>
+											<tr>
+												<td style="height: 30px" width="130">　</td>
+											</tr>
+										</tbody></table>
+										</td>
+							</tr>
+							<tr>
+								<td style="height: 45px" class="Htd_bottomborders" align="left" valign="top" width="260">
+								<table id="table75" height="100%" border="0" cellpadding="0" cellspacing="0" width="260">
+									<tbody><tr>
+										<td style="height: 45px" align="left" valign="top" width="130">
+										<table id="table76" height="100%" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td style="height: 15px;padding-left:3px" width="30">
+													<span class="text-11px-kai">审单</span>
+												</td>
+												<td rowspan="2" style="height: 45px" align="left" valign="top" width="100">
+													<textarea name="txtM0555" class="TCL" rows="2" datasrc="#source" datafld="M0555" style="WIDTH:100%;HEIGHT:100%" readonly="readonly"></textarea>
+												</td>
+											</tr>
+											<tr>
+												<td style="height: 30px" width="30">　</td>
+											</tr>
+										</tbody></table>
+										</td>
+										<td style="height: 45px" align="left" valign="top" width="130">
+										<table id="table77" height="100%" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td style="height: 15px;padding-left:3px" width="30">
+													<span class="text-11px-kai">审价</span>
+												</td>
+												<td rowspan="2" style="height: 45px" align="left" valign="top" width="100">
+													<textarea name="txtM0556" class="TCL" rows="2" datasrc="#source" datafld="M0556" style="WIDTH:100%;HEIGHT:100%" readonly="readonly"></textarea>
+												</td>
+											</tr>
+											<tr>
+												<td style="height: 30px" width="30">　</td>
+											</tr>
+										</tbody></table>
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+							<tr>
+								<td style="height: 45px" class="Htd_bottomborders" align="left" valign="top" width="260">
+								<table id="table74" height="100%" border="0" cellpadding="0" cellspacing="0" width="260">
+									<tbody><tr>
+										<td style="height: 45px" align="left" valign="top" width="130">
+										<table id="table79" height="100%" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td style="height: 15px;padding-left:3px" width="30">
+													<span class="text-11px-kai">征税</span>
+												</td>
+												<td rowspan="2" style="height: 45px" align="left" valign="top" width="100">
+													<textarea name="txtM0557" class="TCL" rows="2" datasrc="#source" datafld="M0557" style="WIDTH:100%;HEIGHT:100%" readonly="readonly"></textarea>
+												</td>
+											</tr>
+											<tr>
+												<td style="height: 30px" width="30">　</td>
+											</tr>
+										</tbody></table>
+										</td>
+										<td style="height: 45px" align="left" valign="top" width="130">
+										<table id="table78" height="100%" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td style="height: 15px;padding-left:3px" width="30">
+													<span class="text-11px-kai">统计</span>
+												</td>
+												<td rowspan="2" style="height: 45px" align="left" valign="top" width="100">
+													<textarea name="txtM0558" class="TCL" rows="2" datasrc="#source" datafld="M0558" style="WIDTH:100%;HEIGHT:100%" readonly="readonly"></textarea>
+												</td>
+											</tr>
+											<tr>
+												<td style="height: 30px" width="30">　</td>
+											</tr>
+										</tbody></table>
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+							<tr>
+								<td style="height: 45px" align="left" valign="top" width="260">
+								<table id="table73" height="100%" border="0" cellpadding="0" cellspacing="0" width="260">
+									<tbody><tr>
+										<td style="height: 45px" align="left" valign="top" width="130">
+										<table id="table80" height="100%" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td style="height: 15px;padding-left:3px" width="30">
+													<span class="text-11px-kai">查验</span>
+												</td>
+												<td rowspan="2" style="height: 45px" align="left" valign="top" width="100">
+													<textarea name="txtM0559" class="TCL" rows="2" datasrc="#source" datafld="M0559" style="WIDTH:100%;HEIGHT:100%" readonly="readonly"></textarea>
+												</td>
+											</tr>
+											<tr>
+												<td style="height: 30px" width="30">　</td>
+											</tr>
+										</tbody></table>
+										</td>
+										<td style="height: 45px" align="left" valign="top" width="130">
+										<table id="table81" height="100%" border="0" cellpadding="0" cellspacing="0" width="130">
+											<tbody><tr>
+												<td style="height: 15px;padding-left:3px" width="30">
+													<span class="text-11px-kai">放行</span>
+												</td>
+												<td rowspan="2" style="height: 45px" align="left" valign="top" width="100">
+													<textarea name="txtM0560" class="TCL" rows="2" datasrc="#source" datafld="M0560" style="WIDTH:100%;HEIGHT:100%" readonly="readonly"></textarea>
+												</td>
+											</tr>
+											<tr>
+												<td style="height: 30px" width="30">　</td>
+											</tr>
+										</tbody></table>
+										</td>
+									</tr>
+								</tbody></table>
+								</td>
+							</tr>
+						</tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+				</td>
+			</tr>
+			<tr>
+				<td align="center" width="740px">
+					<a style="FONT-SIZE: 10pt" href="javascript:printDoc()">[打印预览]</a>
+					<a id="btnSave" style="FONT-SIZE: 10pt" href="javascript:save()">[保存]</a>
+					<a id="btnClose" style="FONT-SIZE: 10pt" href="javascript:window.parent.close();">[退出]</a>
+				</td>
+			</tr>
+		</tbody></table>
+     </form>	
+  
+
+</body></html>

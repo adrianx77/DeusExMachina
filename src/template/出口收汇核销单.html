@@ -1,0 +1,692 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>出口收汇核销单</title>
+    <meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+    <meta name="CODE_LANGUAGE" content="C#"><meta http-equiv="pragma" content="no-cache"><meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta name="vs_defaultClientScript" content="JavaScript">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+	<link href="出口收汇核销单_files/doc.css" rel="stylesheet">
+	<style type="text/css">
+	.text-title{font-size:22px;font-weight:bold;height:24px;line-height:24px;letter-spacing:3px}
+	.text-title-en{font-size:20px;font-weight:bold;height:28px;line-height:28px;font-family:"宋体"}
+	.text-14px{font-size:14px;font-weight:bold;height:15px;line-height:15px;font-family:"宋体"}
+	.text-13px{font-size:13px;font-weight:bold;height:15px;line-height:15px;font-family:"宋体"}
+	.text-12px{font-size:12px;height:15px;font-weight:bold;line-height:15px;font-family:"宋体"}
+	.text-13px-kai{font-size:13px;height:15px;line-height:20px;font-family:"华文楷体"}
+	.texttxm{font-size:11px;height:12px;line-height:12px;font-family:"宋体";letter-spacing:10px}
+	</style>
+	<script src="出口收汇核销单_files/utils.js" language="javascript"></script>
+	<script language="javascript">
+    function LoadPage()
+    {
+    	var flag="0";
+		if (flag=="0")
+		{
+			LetTextReadOnly();
+			LetTextareaReadOnly();
+		}
+		if (sourceChild.xml=="")
+		{
+			trBody.style.display="none";
+		}
+    }
+    function docheck(arg)
+    {
+		document.all["flag3"].value=arg;
+    }
+    function save()
+    {	
+		if (M28AForm.flag.value!="0")
+		{
+			AppendNodes("//ROOT","//ROOT/M29");
+			var xmlResult=doClientSubmit("POST","PostForm.aspx?tb=M28&uid="+document.all["flag4"].value,false,source.xml,"text");
+			RemoveNodes("//ROOT","//ROOT/M29");
+			
+			var xmlServerResponse = new ActiveXObject("MSXML2.DOMDocument");
+			xmlServerResponse.loadXML(xmlResult);
+			
+			var strUrl="../Common/ErrMsg.aspx";
+			var strID=xmlServerResponse.selectSingleNode("//Message/errID").text;						
+			var strMsg=xmlServerResponse.selectSingleNode("//Message/errMsg").text;
+			
+			ShowMessage("Manager",strUrl,strID,strMsg,"Close","Close");
+		}
+    }
+    function DetailOperate(args1,args2)
+    {			
+		if (M28AForm.flag.value!="0")
+		{
+			var str="";
+			var tmpA=document.all["flag3"].value;
+			if (args1==0)
+			{
+				str="CM29.aspx?a1="+args2+"&a2=";
+			}
+			else
+			{
+				
+				if (tmpA!="")
+				{
+					document.all["flag3"].value = "";
+					switch (args1)
+					{
+						case 1:
+							{										
+								tmpA-=1;
+								var a;
+								if (document.all['s'].length != undefined)
+								{
+									a = document.all['s'][tmpA].innerText;
+								}
+								else
+								{
+									a = document.all['s'].innerText;
+								}
+								tmpA+=1;					
+								str="CM29.aspx?a1="+args2+"&a2="+a+"&a3="+tmpA;
+								break;
+							}
+						case 2:
+						{
+							sourceChild.recordset.AbsolutePosition=tmpA;
+							if (tmpA>0)
+							{
+								str = "";
+								sourceChild.recordset.Delete();
+							}
+							break;
+						}
+					}
+				}
+				else
+				{
+					alert("请选择记录进行操作！");
+					return false;
+				}
+			}
+			if (str!= "")	PopDialog(str,window,'430px','225px');
+		}
+		else
+		{
+			return false;
+		}
+    }    
+    	function printDoc()
+		{
+			AppendNodes("//ROOT","//ROOT/M29");	
+			//WindowOpen("PrintDoc.aspx?t=M28A&c=M29","printWindow","800px","600px");			
+			open("PrintDoc.aspx?t=M28A&c=M29","M28","height=600px,width=800px,center=yes,toolbar=no,menubar=yes,scrollbars=yes,location=no,resizable=yes,status=yes");				
+		}
+	</script>  
+  </head>
+  <body ms_positioning="GridLayout" style="margins:0px" onload="LoadPage()">	
+     <form name="M28AForm" method="post" action="M28A.aspx?did=STECA000491&amp;Uid=mb14084691&amp;R=0" id="M28AForm">
+<div>
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTYwMzY5OTQwNmRkSzrrNwzqi73HZKSTjz2c0T1Q/6w=" type="hidden">
+</div>
+
+        <input name="flag" value="0" type="hidden"> 
+		<input name="flag2" value="STECA000491" type="hidden">
+		<input name="flag3" value="" type="hidden">
+		<input name="flag4" value="mb14084691" type="hidden">
+		<!--<div id="target">正在加载……</div>-->
+		<xml id="source" src="Xml/Document.aspx?a1=M28&amp;a2=STECA000491"></xml>
+		<xml id="sourceChild" src="Xml/Document.aspx?a1=M29&amp;a2=STECA000491"></xml>
+<table id="table1" border="0" cellpadding="0" cellspacing="0" width="1070">
+	<tbody><tr>
+		<td align="left" valign="top" width="690">
+
+<table id="table28" border="0" cellpadding="0" cellspacing="0" width="690">
+<tbody><tr><td align="left" height="410" valign="top" width="250">
+	<table id="table29" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td style="height: 70px" align="center" height="70" width="250">
+				<a href="http://219.224.135.40/SIMTrade/help/Doc/M28Ahelp.htm" target="_blank"><span class="text-title"><u>出口收汇核销单</u></span></a><br>
+				<span class="text-15px">存根</span><br>
+			</td>
+		</tr>
+		<tr>
+			<td style="height: 40px; padding-bottom: 20px" align="left" height="40" valign="top" width="250">
+		<table id="table30" height="20" border="0" cellpadding="0" cellspacing="0" width="250">
+			<tbody><tr>
+				<td align="right" width="130">
+					<span class="text-12px">( 苏 ) 编号：</span>
+				</td>
+				<td width="120">
+					<input readonly="readonly" class="TAL" style="width:115;height:20" name="txtM2838" datasrc="#source" datafld="M2801" maxlength="40" size="20" type="text"></td>
+			</tr>
+		</tbody></table>
+			</td>
+		</tr>
+		<tr>
+			<td style="height: 300px" class="Htd_allborders" align="left" height="300" valign="top" width="250">
+			<table id="table31" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody><tr>
+					<td align="left" valign="top" width="250">
+		<table id="table32" border="0" cellpadding="3" cellspacing="0" width="250">
+			<tbody><tr>
+				<td align="left" width="80">
+					<span class="text-12px">出口单位：</span>
+				</td>
+				<td width="170">
+					<input value="TEMPLATE_CompanyNameZh" class="TAL" style="width:160;height:17" name="txtM2807" datasrc="#source" datafld="M2807" maxlength="80" type="text"></td>
+			</tr>
+		</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td class="Htd_topborders" align="left" valign="top" width="250">
+		<table id="table33" border="0" cellpadding="3" cellspacing="0" width="250">
+			<tbody><tr>
+				<td align="left" width="80">
+					<span class="text-12px">单位代码：</span>
+				</td>
+				<td width="170">
+					<input value="TEMPLATE_CompanyIdentifier" class="TAL" style="width:160;height:17" name="txtM2808" datasrc="#source" datafld="M2808" maxlength="40" type="text"></td>
+			</tr>
+		</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td class="Htd_topborders" align="left" valign="top" width="250">
+					<table id="table34" border="0" cellpadding="3" cellspacing="0" width="250">
+						<tbody><tr>
+							<td align="left" width="100">
+								<span class="text-12px">出口币种总价：</span>
+							</td>
+							<td width="150">
+								[<input value="TEMPLATE_SellCurrency" class="TAL" style="width:30;height:17" name="txtM2809" datasrc="#source" datafld="M2809" maxlength="40" type="text">]
+								[<input value="TEMPLATE_TotalSell" class="TAL" style="width:90;height:17" name="txtM2810" datasrc="#source" datafld="M2810" maxlength="20" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" type="text">]								
+							</td>
+						</tr>
+					</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td class="Htd_topborders" align="left" valign="top" width="250">
+		<table id="table35" border="0" cellpadding="3" cellspacing="0" width="250">
+			<tbody><tr>
+				<td align="left" width="80">
+					<span class="text-12px">收汇方式：</span>
+				</td>
+				<td width="170">
+					<input value="TEMPLATE_Payment" class="TAL" style="width:160;height:17" name="txtM2811" datasrc="#source" datafld="M2811" maxlength="40" type="text"></td>
+			</tr>
+		</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td class="Htd_topborders" align="left" valign="top" width="250">
+		<table id="table36" border="0" cellpadding="3" cellspacing="0" width="250">
+			<tbody><tr>
+				<td align="left" width="110">
+					<span class="text-12px">预计收款日期：</span>
+				</td>
+				<td width="140">
+					<input value="TEMPLATE_Date" class="TAL" style="width:140;height:17" name="txtM2812" datasrc="#source" datafld="M2812" maxlength="20" type="text">
+				</td>
+			</tr>
+		</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td class="Htd_topborders" align="left" valign="top" width="250">
+		<table id="table37" border="0" cellpadding="3" cellspacing="0" width="250">
+			<tbody><tr>
+				<td align="left" width="80">
+					<span class="text-12px">报关日期：</span>
+				</td>
+				<td width="170">
+					<input value="TEMPLATE_Date" class="TAL" style="width:160;height:17" name="txtM2813" datasrc="#source" datafld="M2813" maxlength="40" type="text"></td>
+			</tr>
+		</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 100px" class="Htd_topborders" align="left" valign="top" width="250">
+		<table id="table38" height="100" border="0" cellpadding="3" cellspacing="0" width="250">
+			<tbody><tr>
+				<td align="left" width="250">
+					<span class="text-12px">备注：</span></td>
+			</tr>
+			<tr>
+				<td style="height: 80px" align="left" valign="top" width="250">
+					<textarea name="txtM2814" class="TCL" rows="2" datasrc="#source" datafld="M2814" style="width:100%;height:80px"></textarea>
+				</td>
+			</tr>
+		</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 80px" class="Htd_topborders" align="left" valign="top" width="250">
+		<table id="table39" height="80" border="0" cellpadding="3" cellspacing="0" width="250">
+			<tbody><tr>
+				<td align="left" width="250">
+					<span class="text-12px">此单报关有效期截止到</span></td>
+			</tr>
+			<tr>
+				<td style="height: 62px" align="left" valign="top" width="250">
+					<textarea name="txtM2815" class="TCL" rows="2" datasrc="#source" datafld="M2815" style="width:100%;height:62px"></textarea></td>
+			</tr>
+		</tbody></table>
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+		</tr>
+	</tbody></table>
+	</td><td align="right" height="410" valign="top" width="440">
+	<table id="table40" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td style="height: 410px" rowspan="2" align="left" valign="top" width="20">
+			<table id="table41" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody><tr>
+					<td style="height: 45px">　</td>
+				</tr>
+				<tr>
+					<td style="height: 365px" align="center" valign="top">
+						<span class="text-12px">
+							︵<br>出<br>口<br>单<br>位<br>盖<br>章<br>︶
+						</span>
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+			<td style="height: 110px" align="left" height="110" valign="top" width="400">
+			<table id="table42" height="0" border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody><tr>
+					<td style="height: 60px" colspan="2" align="center" width="400">
+			<span class="text-title">出口收汇核销单</span></td>
+				</tr>
+				<tr>
+					<td style="height: 50px" align="left" valign="top" width="180">
+					<table id="table43" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody><tr>
+							<td style="height: 33px">
+								<img src="出口收汇核销单_files/image001.jpg" height="33" width="180"></td>
+						</tr>
+						<tr>
+							<td style="height: 12px" align="center">
+								<span name="txtM2801" datasrc="#source" datafld="M2801" class="texttxm"></span>
+							</td>
+						</tr>
+					</tbody></table>
+					</td>
+					<td style="height: 50px; padding-top: 10px; padding-bottom: 20px" width="220">
+					<table id="table44" height="20" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody><tr>
+							<td align="right" width="105">
+					<span class="text-12px">( 苏 ) 编号：</span></td>
+							<td style="padding-bottom:4px" width="115">
+								<input readonly="readonly" class="TAL" style="width:115;height:17" name="txtM2801" datasrc="#source" datafld="M2801" maxlength="40" type="text">
+							</td>
+						</tr>
+					</tbody></table>
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+			<td style="height: 410px" rowspan="2" align="left" valign="top" width="20">
+			<table id="table45" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody><tr>
+					<td style="height: 45px" align="center">　</td>
+				</tr>
+				<tr>
+					<td style="height: 170px" align="center" valign="top">
+						<span class="text-12px">
+							︵<br>出<br>口<br>单<br>位<br>盖<br>章<br>︶
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 195px" align="center" valign="top">
+						<span class="text-12px">
+							︵<br>海<br>关<br>盖<br>章<br>︶
+						</span>
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+		</tr>
+		<tr>
+			<td style="height: 300px" class="Htd_allborders" align="left" height="300" valign="top" width="400">
+			<table id="table46" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody><tr>
+					<td align="left" valign="top" width="400">
+				<table id="table47" border="0" cellpadding="3" cellspacing="0" width="400">
+					<tbody><tr>
+						<td width="80">
+					<span class="text-12px">出口单位：</span></td>
+						<td width="320">
+							<input value="TEMPLATE_CompanyNameZh" class="TAL" style="width:320;height:17" name="txtM2817" datasrc="#source" datafld="M2817" maxlength="80" type="text">
+						</td>
+					</tr>
+				</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td class="Htd_topborders" align="left" valign="top" width="400">
+				<table id="table48" border="0" cellpadding="3" cellspacing="0" width="400">
+					<tbody><tr>
+						<td width="80">
+							<span class="text-12px">单位代码：</span></td>
+						<td width="320">
+							<input value="TEMPLATE_CompanyIdentifier" class="TAL" style="width:320;height:17" name="txtM2818" datasrc="#source" datafld="M2818" maxlength="40" type="text">
+						</td>
+					</tr>
+				</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td class="Htd_topborders" style="height: 92px" align="left" valign="top" width="400">
+					<table id="table49" height="100%" border="0" cellpadding="3" cellspacing="0" width="100%">
+						<tbody><tr>
+							<td rowspan="2" width="30">
+							<table id="table50" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tbody><tr>
+									<td align="center">
+										<span class="text-12px">银<br>行<br>签<br>注<br>栏
+										</span>
+									</td>
+								</tr>
+							</tbody></table>
+							</td>
+							<td class="Htd_leftborders" align="center" width="85">
+							<span class="text-12px" style="letter-spacing:24px">类别</span></td>
+							<td class="Htd_leftborders" align="center" width="110">
+							<span class="text-12px">币种金额</span></td>
+							<td class="Htd_leftborders" align="center" width="75">
+							<span class="text-12px">日期</span></td>
+							<td class="Htd_leftborders" align="center" width="100">
+							<span class="text-12px" style="letter-spacing:24px">盖章</span></td>
+						</tr>
+						<tr>
+							<td style="height: 93px" class="Htd_lefttop" width="85">　</td>
+							<td style="height: 93px" class="Htd_lefttop" align="left" valign="top" width="110">
+							<table id="table51" border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tbody><tr>
+									<td>
+										[<input class="TAL" style="width:25;height:17" name="txtM2819" datasrc="#source" datafld="M2819" maxlength="40" type="text">]
+										[<input class="TAL" style="width:50;height:17" name="txtM2820" datasrc="#source" datafld="M2820" maxlength="20" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" type="text">]								
+									</td>
+								</tr>
+							</tbody></table>
+							</td>
+							<td style="height: 93px" class="Htd_lefttop" align="left" valign="top" width="75">
+							<table id="table52" border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tbody><tr>
+									<td>
+										<input class="TANL" style="width:75;height:17" name="txtM2821" datasrc="#source" datafld="M2821" maxlength="20" type="text">
+									</td>
+								</tr>
+							</tbody></table>
+							</td>
+							<td style="height: 93px" class="Htd_lefttop" align="left" valign="top" width="100">　</td>
+						</tr>
+					</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 80px" class="Htd_topborders" align="left" valign="top" width="400">
+		<table id="table53" height="80" border="0" cellpadding="3" cellspacing="0" width="400">
+			<tbody><tr>
+				<td width="400">
+					<span class="text-12px">海关签注栏：</span></td>
+			</tr>
+			<tr>
+				<td style="height: 69px" align="left" valign="top" width="400">
+					<textarea name="txtM2823" class="TCL" rows="2" datasrc="#source" datafld="M2823" style="width:100%;height:69px"></textarea></td>
+			</tr>
+		</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 80px" class="Htd_topborders" align="left" valign="top" width="400">
+		<table id="table54" height="80" border="0" cellpadding="3" cellspacing="0" width="400">
+			<tbody><tr>
+				<td colspan="7" width="400">
+					<span class="text-12px">外汇局签注栏：</span></td>
+			</tr>
+			<tr>
+				<td style="height: 38px" colspan="7" align="left" valign="top" width="400">
+					<textarea name="txtM2837" class="TCL" rows="2" datasrc="#source" datafld="M2837" style="width:100%;height:38px"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top" width="210">　</td>
+				<td style="padding-bottom: 3px" align="right" valign="top" width="40">
+					<input class="TAL" style="WIDTH:40px;height:17px" name="txtM2825" maxlength="4" datasrc="#source" datafld="M2825" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+				<td align="left" valign="bottom" width="20">
+					<span class="text-12px">年</span>
+				</td>
+				<td style="padding-bottom: 3px" align="right" valign="top" width="20">
+					<input class="TAL" style="WIDTH:18px;height:17px" name="txtM2826" maxlength="2" datasrc="#source" datafld="M2826" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+				<td align="left" valign="bottom" width="20">
+					<span class="text-12px">月</span>
+				</td>
+				<td style="padding-bottom: 3px" align="right" valign="top" width="20">
+											<input class="TAL" style="WIDTH:18px;height:17px" name="txtM2827" maxlength="2" datasrc="#source" datafld="M2827" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+				<td align="left" valign="bottom" width="70">
+					<span class="text-12px">日(盖章)</span>
+				</td>
+			</tr>
+		</tbody></table>
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+		</tr>
+	</tbody></table>
+	</td></tr>
+</tbody></table>
+
+		</td>
+		<td align="left" valign="top" width="380">
+
+	<table id="table65" border="0" cellpadding="0" cellspacing="0" width="380">
+		<tbody><tr>
+			<td style="height: 110px" align="left" height="110" valign="top" width="350">
+			<table id="table66" height="0" border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody><tr>
+					<td style="height: 60px" colspan="2" align="center" width="400">
+						<span class="text-title">出口收汇核销单</span><br>
+						出口退税专用
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 50px" align="left" valign="top" width="130">
+					<table id="table67" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody><tr>
+							<td style="height: 33px" width="130">
+								　</td>
+						</tr>
+						<tr>
+							<td style="height: 12px" width="130">　</td>
+						</tr>
+					</tbody></table>
+					</td>
+					<td style="height: 50px; padding-top: 10px; padding-bottom: 20px" width="220">
+					<table id="table68" height="20" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody><tr>
+							<td align="right" width="105">
+					<span class="text-12px">( 苏 ) 编号：</span></td>
+							<td style="padding-bottom:4px" width="115">
+								<input readonly="readonly" class="TAL" style="width:115;height:17" name="txtM2839" datasrc="#source" datafld="M2801" maxlength="40" type="text"></td>
+						</tr>
+					</tbody></table>
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+			<td style="height: 410px" rowspan="2" align="left" valign="top" width="30">
+			<table id="table69" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody><tr>
+					<td style="height: 170px" align="center">　</td>
+				</tr>
+				<tr>
+					<td style="height: 150px" align="center" valign="top">
+						未<br>经<br>核<br>销<br>此<br>联<br>不<br>得<br>撕<br>开
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 90px" align="center" valign="top">
+						　</td>
+				</tr>
+			</tbody></table>
+			</td>
+		</tr>
+		<tr>
+			<td style="height: 300px" class="Htd_allborders" align="left" height="300" valign="top" width="350">
+			<table id="table70" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody><tr>
+					<td align="left" valign="top" width="350">
+				<table id="table71" border="0" cellpadding="3" cellspacing="0" width="350">
+					<tbody><tr>
+						<td width="80">
+					<span class="text-12px">出口单位：</span></td>
+						<td width="270">
+							<input value="TEMPLATE_CompanyNameZh" class="TAL" style="width:260;height:17" name="txtM2828" datasrc="#source" datafld="M2828" maxlength="80" type="text"></td>
+					</tr>
+				</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td class="Htd_topborders" align="left" valign="top" width="350">
+				<table id="table72" border="0" cellpadding="3" cellspacing="0" width="350">
+					<tbody><tr>
+						<td width="80">
+					<span class="text-12px">单位代码：</span></td>
+						<td width="270">
+							<input value="TEMPLATE_CompanyIdentifier" class="TAL" style="width:260;height:17" name="txtM2829" datasrc="#source" datafld="M2829" maxlength="80" type="text"></td>
+					</tr>
+				</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td class="Htd_topborders" style="height: 92px" align="left" valign="top" width="350">
+					<table id="table73" height="100%" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody><tr>
+							<td style="height: 77px" align="left" valign="top" width="250">
+							<table id="table79" border="0" cellpadding="0" cellspacing="0" width="100%">
+								<thead>
+								<tr>
+							<td style="height: 21px" align="center" width="40"><span class="text-13px">选择</span></td>
+							<td class="Htd_leftborders" style="height: 21px" align="center" width="120">
+							<span class="text-12px">货物名称</span></td>
+							<td class="Htd_leftborders" style="height: 21px" align="center" width="90">
+							<span class="text-12px" style="letter-spacing:24px">
+							数量</span></td>
+								</tr>
+								</thead>
+								<tbody><tr>
+							<td colspan="3" style="height: 79px" class="Htd_topborders" align="left" valign="top" width="250">
+							<span id="spGrd" style=" OVERFLOW-Y:auto;" class="spGrd">
+								<table id="table80" datasrc="#sourceChild" border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody>
+									<tr id="trBody" style="display:inline">
+										<td class="Htd_bottomborders" width="40"><span id="spRad"></span><input name="rad" onclick="javascript:docheck(this.recordNumber);" type="radio"></td>								
+										<td class="Htd_leftbottom" align="left" valign="top" width="119"><span id="s" datafld="M2902" style="font-size:13px"></span><span id="s0" datafld="M2904" style="font-size:13px;"></span>&nbsp;</td>
+										<td class="Htd_leftbottom" align="left" valign="top"><span id="s1" datafld="M2905" style="font-size:13px"></span>&nbsp;</td>
+									</tr>
+									</tbody>
+								</table>
+							</span>
+							PRODUCT_HERF_LINK
+							</td>
+								</tr>								
+								</tbody><tbody style=" OVERFLOW-Y:scroll;">
+								</tbody>
+								<tfoot>
+								</tfoot>
+							</table>
+							</td>
+							<td class="Htd_leftborders" rowspan="2" align="left" valign="top" width="100">
+							<table id="table78" height="79" border="0" cellpadding="3" cellspacing="0" width="100%">
+								<tbody><tr>
+									<td align="center">
+					<span class="text-12px">币种总价</span></td>
+								</tr>
+								<tr>
+									<td style="height: 90px" class="Htd_topborders" align="left" valign="top">
+										[<input value="TEMPLATE_SellCurrency" class="TAL" style="width:28;height:17" name="txtM2830" datasrc="#source" datafld="M2830" maxlength="40" type="text">]
+										[<input value="TEMPLATE_TotalSell" class="TAL" style="width:44;height:17" name="txtM2839" datasrc="#source" datafld="M2839" maxlength="20" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,1);" onpaste="return false;" type="text">]
+									</td>
+								</tr>
+							</tbody></table>
+							</td>
+						</tr>
+						<tr>
+							<td style="height: 13px" class="Htd_topborders" align="right" valign="top" width="250">
+								<a onclick="javascript:DetailOperate(0,document.all['flag2'].value)" href="#"><font style="FONT-SIZE: 11px; LETTER-SPACING: 6pt">[添加]</font></a>
+								<a onclick="javascript:DetailOperate(1,document.all['flag2'].value)" href="#"><font style="FONT-SIZE: 11px; LETTER-SPACING: 6pt">[修改]</font></a>
+								<a onclick="javascript:DetailOperate(2,document.all['flag2'].value)" href="#"><font style="FONT-SIZE: 11px; LETTER-SPACING: 6pt">[刪除]</font></a>
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 80px" class="Htd_topborders" align="left" valign="top" width="350">
+		<table id="table74" height="80" border="0" cellpadding="3" cellspacing="0" width="350">
+			<tbody><tr>
+				<td width="350">
+					<span class="text-12px">报关单编号：</span></td>
+			</tr>
+			<tr>
+				<td style="height: 69px" align="left" valign="top" width="350">
+					<textarea name="txtM2831" class="TCL" rows="2" datasrc="#source" datafld="M2831" style="width:100%;height:66px"></textarea></td>
+			</tr>
+		</tbody></table>
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 80px" class="Htd_topborders" align="left" valign="top" width="350">						
+							<table id="table75" height="80" border="0" cellpadding="3" cellspacing="0" width="350">
+								<tbody><tr>
+									<td colspan="7" width="350">
+										<span class="text-12px">外汇局签注栏：</span></td>
+								</tr>
+								<tr>
+									<td style="height: 38px" colspan="7" align="left" valign="top" width="350">
+										<textarea name="txtM2838" class="TCL" rows="2" datasrc="#source" datafld="M2838" style="width:100%;height:38px"></textarea></td>
+								</tr>
+								<tr>
+									<td align="left" valign="top" width="160">　</td>
+									<td style="padding-bottom: 3px" align="right" valign="top" width="40">
+										<input class="TAL" style="WIDTH:40px;height:17px" name="txtM2833" maxlength="4" datasrc="#source" datafld="M2833" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+									<td align="left" valign="bottom" width="20">
+										<span class="text-12px">年</span>
+									</td>
+									<td style="padding-bottom: 3px" align="right" valign="top" width="20">
+										<input class="TAL" style="WIDTH:18px;height:17px" name="txtM2834" maxlength="2" datasrc="#source" datafld="M2834" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+									<td align="left" valign="bottom" width="20">
+										<span class="text-12px">月</span>
+									</td>
+									<td style="padding-bottom: 3px" align="right" valign="top" width="20">
+										<input class="TAL" style="WIDTH:18px;height:17px" name="txtM2835" maxlength="2" datasrc="#source" datafld="M2835" ondrop="javascript:return false;" onkeypress="javascript:InputFI(this.value,0);" onpaste="return false;" type="text"></td>
+									<td align="left" valign="bottom" width="70">
+										<span class="text-12px">日(盖章)</span>
+									</td>
+								</tr>
+							</tbody></table>
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+		</tr>
+	</tbody></table>
+	
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center" width="1070">
+			<a style="FONT-SIZE: 10pt" href="javascript:printDoc()">[打印预览]</a>
+			<a id="btnSave" style="FONT-SIZE: 10pt" href="javascript:save()">[保存]</a>
+			<a id="btnClose" style="FONT-SIZE: 10pt" href="javascript:window.parent.close();">[退出]</a></td>
+	</tr>
+</tbody></table>
+     </form>	
+  
+
+</body></html>
