@@ -1,6 +1,56 @@
 #include "product.h"
 #include <QString>
-#include <math.h>
+#include <QtNetwork/QtNetwork>
+
+QDataStream& operator >> (QDataStream& in, Product& data)
+{
+    in      >> data.m_number
+            >> data.m_priceIn
+            >> data.m_priceOut
+            >> data.m_name
+            >> data.m_pakUnit
+            >> data.m_mWeight
+            >> data.m_jWeight
+            >> data.m_volume
+            >> data.m_zTax
+            >> data.m_xTax
+            >> data.m_tTax
+            >> data.m_id
+            >> data.m_nameEn
+            >> data.m_type
+            >> data.m_haiguan
+            >> data.m_birth
+            >> data.m_pc
+            >> data.m_carton
+            >> data.m_descZh
+            >> data.m_descEn;
+    return in;
+}
+
+QDataStream& operator << (QDataStream& out, Product& data)
+{
+    out     << data.m_number
+            << data.m_priceIn
+            << data.m_priceOut
+            << data.m_name
+            << data.m_pakUnit
+            << data.m_mWeight
+            << data.m_jWeight
+            << data.m_volume
+            << data.m_zTax
+            << data.m_xTax
+            << data.m_tTax
+            << data.m_id
+            << data.m_nameEn
+            << data.m_type
+            << data.m_haiguan
+            << data.m_birth
+            << data.m_pc
+            << data.m_carton
+            << data.m_descZh
+            << data.m_descEn;
+    return out;
+}
 
 Product::Product()
 {

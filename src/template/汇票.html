@@ -1,0 +1,225 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0078)http://219.224.135.40/SIMTrade/doc/M42.aspx -->
+<HTML><HEAD><TITLE>汇票</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 9.00.8112.16723">
+<META name=CODE_LANGUAGE content=C#>
+<META content=no-cache http-equiv=pragma>
+<META content=no-cache,must-revalidate http-equiv=Cache-Control>
+<META name=vs_defaultClientScript content=JavaScript>
+<META name=vs_targetSchema 
+content=http://schemas.microsoft.com/intellisense/ie5><LINK rel=stylesheet 
+href="汇票_files/doc.css">
+<STYLE type=text/css>.text-title-en {
+	LINE-HEIGHT: 28px; FONT-FAMILY: "宋体"; HEIGHT: 28px; FONT-SIZE: 20px; FONT-WEIGHT: bold
+}
+.TANL {
+	BORDER-BOTTOM: #a0a0a0 1px dotted; TEXT-ALIGN: left; BORDER-LEFT: medium none; BACKGROUND-COLOR: transparent; FONT-SIZE: 12px; BORDER-TOP: medium none; CURSOR: text; BORDER-RIGHT: medium none
+}
+</STYLE>
+
+<SCRIPT language=javascript src="汇票_files/utils.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+    function LoadPage()
+    {
+    	var flag="1";
+		if (flag=="0")
+		{
+			LetTextReadOnly();
+			LetTextareaReadOnly();
+		}
+    }
+    function docheck(arg)
+    {
+		document.all["flag3"].value=arg;
+    }
+    function save()
+    {	
+		if (M42Form.flag.value!="0")
+		{
+			var xmlResult=doClientSubmit("POST","PostForm.aspx?tb=M42&uid="+document.all["flag4"].value,false,source.xml,"text");
+			
+			var xmlServerResponse = new ActiveXObject("MSXML2.DOMDocument");
+			xmlServerResponse.loadXML(xmlResult);
+			
+			var strUrl="../Common/ErrMsg.aspx";
+			var strID=xmlServerResponse.selectSingleNode("//Message/errID").text;						
+			var strMsg=xmlServerResponse.selectSingleNode("//Message/errMsg").text;
+			
+			ShowMessage("Manager",strUrl,strID,strMsg,"Close","Close");
+		}
+    }
+		function printDoc()
+		{
+			//WindowOpen("PrintDoc.aspx?t=M42","printWindow","800px","600px");			
+			open("PrintDoc.aspx?t=M42","M42","height=600px,width=800px,center=yes,toolbar=no,menubar=yes,scrollbars=yes,location=no,resizable=yes,status=yes");	
+		}
+	</SCRIPT>
+</HEAD>
+<BODY style="margins: 0px" onload=LoadPage() MS_POSITIONING="GridLayout">
+<FORM id=M42Form method=post name=M42Form 
+action=M42.aspx?did=STDFT000356&amp;Uid=mb14084691&amp;R=1>
+<DIV><INPUT id=__VIEWSTATE name=__VIEWSTATE 
+value=/wEPDwUJLTkxNTA4NDgxZGTU+FyTT7NI/7vzeeDKNP2OYtBwxQ== type=hidden> 
+</DIV><INPUT name=flag value=1 type=hidden> <INPUT name=flag2 value=STDFT000356 
+type=hidden> <INPUT name=flag3 type=hidden> <INPUT name=flag4 value=mb14084691 
+type=hidden> <!--<div id="target">正在加载……</div>--><xml id=source src="Xml/Document.aspx?a1=M42&amp;a2=STDFT000356"></xml>
+<TABLE id=table1 border=0 cellSpacing=0 cellPadding=0 width=740 align=center>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=740 align=left>
+      <TABLE id=table12 border=0 cellSpacing=0 cellPadding=0 width=740>
+        <TBODY>
+        <TR>
+          <TD 
+          style="PADDING-BOTTOM: 20px; PADDING-LEFT: 50px; PADDING-RIGHT: 50px; PADDING-TOP: 20px" 
+          class=Htd_allborders>
+            <TABLE id=table13 border=0 cellSpacing=0 cellPadding=3 
+              width="100%"><TBODY>
+              <TR>
+                <TD align=center><A 
+                  href="http://219.224.135.40/SIMTrade/help/Doc/M42help.htm" 
+                  target=_blank><SPAN class=text-title-en>BILL OF 
+                  EXCHANGE</SPAN></A></TD></TR>
+              <TR>
+                <TD>
+                  <TABLE id=table14 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD width=25>No.</TD>
+                      <TD width=425><INPUT style="WIDTH: 200px; HEIGHT: 18px" 
+                        dataSrc=#source class=TANL dataFld=M4201 name=txtM4201 
+                        readOnly maxLength=40></TD>
+                      <TD width=40>Dated</TD>
+                      <TD width=150><INPUT style="WIDTH: 150px; HEIGHT: 18px" value="TEMPLATE_Date"
+                        dataSrc=#source class=TANL dataFld=M4207 name=txtM4207 
+                        maxLength=20></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD style="HEIGHT: 25px">
+                  <TABLE id=table15 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD width=95>Exchange for</TD>
+                      <TD width=215><INPUT style="WIDTH: 50px; HEIGHT: 18px" value="TEMPLATE_SellCurrency"
+                        dataSrc=#source class=TANL dataFld=M4208 name=txtM4208 
+                        maxLength=10> &nbsp;&nbsp;<INPUT value="TEMPLATE_TotalSell"
+                        style="WIDTH: 142px; IME-MODE: disabled; HEIGHT: 18px" 
+                        dataSrc=#source class=TANL dataFld=M4209 
+                        ondrop="javascript:return false;" 
+                        onkeypress=javascript:InputFI(this.value,1); 
+                        onpaste="return false;" name=txtM4209 maxLength=20> </TD>
+                      <TD width=330>　</TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD>
+                  <TABLE id=table16 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD width=95 align=right>At&nbsp;&nbsp;&nbsp;</TD>
+                      <TD width=215><!--<input type=text class="TANL" style="width:205px;height:18px" name="txtM4210"  datasrc="#source" datafld="M4210" maxlength=200 >--><SELECT 
+                        style="WIDTH: 187px" dataSrc=#source dataFld=M4210 
+                        name=selM4210> <OPTION selected 
+                          value="">Select</OPTION> <OPTION 
+                          value=---->----</OPTION> <OPTION 
+                          value="30 days after B/L date">30 days after B/L 
+                          date</OPTION> <OPTION 
+                          value="45 days after B/L date">45 days after B/L 
+                          date</OPTION> <OPTION 
+                          value="60 days after B/L date">60 days after B/L 
+                          date</OPTION> <OPTION 
+                          value="90 days after B/L date">90 days after B/L 
+                          date</OPTION></SELECT> </TD>
+                      <TD 
+                        width=330>Sight&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        FIRST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;&nbsp;&nbsp;&nbsp;Exchange 
+                      </TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD>
+                  <TABLE id=table17 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD>(Second of exchange being 
+                unpaid)</TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD>
+                  <TABLE id=table18 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD width=135>Pay to the Order of</TD>
+                      <TD width=505><INPUT style="WIDTH: 505px; HEIGHT: 18px" value="TEMPLATE_BankNameEn"
+                        dataSrc=#source class=TANL dataFld=M4211 name=txtM4211 
+                        maxLength=200></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD>
+                  <TABLE id=table19 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD width=80>the sum of</TD>
+                      <TD width=560><INPUT style="WIDTH: 560px; HEIGHT: 18px" value="TEMPLATE_TotalSaySell ONLY"
+                        dataSrc=#source class=TANL dataFld=M4212 name=txtM4212 
+                        maxLength=2000></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD>
+                  <TABLE id=table20 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD width=140>Drawn under L/C No.</TD>
+                      <TD width=260><INPUT style="WIDTH: 200px; HEIGHT: 18px" value="TEMPLATE_CreditNo"
+                        dataSrc=#source class=TANL dataFld=M4213 name=txtM4213 
+                        maxLength=200></TD>
+                      <TD width=40>Dated</TD>
+                      <TD width=200><INPUT style="WIDTH: 200px; HEIGHT: 18px" value="TEMPLATE_Date"
+                        dataSrc=#source class=TANL dataFld=M4214 name=txtM4214 
+                        maxLength=20></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD>
+                  <TABLE id=table21 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD width=75>Issued by </TD>
+                      <TD width=565><INPUT style="WIDTH: 565px; HEIGHT: 18px" value="TEMPLATE_ImportBankName"
+                        dataSrc=#source class=TANL dataFld=M4215 name=txtM4215 
+                        maxLength=2000></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD>
+                  <TABLE id=table22 border=0 cellSpacing=0 cellPadding=0 
+                  width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD height=18 width=25>To</TD>
+                      <TD style="PADDING-TOP: 6px" class=TANL vAlign=top 
+                      rowSpan=3 width=308 align=left><TEXTAREA style="WIDTH: 100%; HEIGHT: 60px" dataSrc=#source class=TCL dataFld=M4216 name=txtM4216>
+TEMPLATE_ImportBankName					  
+					  </TEXTAREA></TD>
+                      <TD height=18 width=20>　 &nbsp;</TD>
+                      <TD height=18 width=280></TD></TR>
+                    <TR>
+                      <TD height=22 width=25>　</TD>
+                      <TD height=22 width=20>　 &nbsp;</TD>
+                      <TD class=TANL rowSpan=2 width=280><INPUT value="TEMPLATE_CompanyNameEn"
+                        style="WIDTH: 280px; HEIGHT: 18px" dataSrc=#source 
+                        class=TAL dataFld=M4217 name=txtM4217 
+                    maxLength=200></TD></TR>
+                    <TR>
+                      <TD width=25>　</TD>
+                      <TD width=20>　 </TD></TR>
+                    <TR>
+                      <TD width=25>　</TD>
+                      <TD width=308>　 </TD>
+                      <TD width=20 align=center>　 </TD>
+                      <TD width=280 align=center>(Authorized 
+                    Signature)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD width=740 align=center><A style="FONT-SIZE: 10pt" 
+      href="javascript:printDoc()">[打印预览]</A> <A style="FONT-SIZE: 10pt" 
+      id=btnSave href="javascript:save()">[保存]</A> <A style="FONT-SIZE: 10pt" 
+      id=btnClose href="javascript:window.parent.close();">[退出]</A> 
+  </TD></TR></TBODY></TABLE></FORM></BODY></HTML>

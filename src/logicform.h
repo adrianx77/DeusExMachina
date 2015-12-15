@@ -29,6 +29,9 @@ public:
 
     void refreshProductList ();
     void refreshFinal ();
+
+    void onOpenTrigger ();
+    void onSaveTrigger ();
 private slots:
     void on_addProduct_clicked();
 
@@ -155,6 +158,7 @@ private:
     DEF_TOKEN_FUNC(TEMPLATE_TheShipName);
     DEF_TOKEN_FUNC(TEMPLATE_TheShipWorkNo);
     DEF_TOKEN_FUNC(TEMPLATE_HexiaodanNo);
+    DEF_TOKEN_FUNC(TEMPLATE_ImportBankName);
 
     DEF_TOKEN_FUNC(TEMPLATE_Hetongjine);
     DEF_TOKEN_FUNC(TEMPLATE_Caigoucengben);

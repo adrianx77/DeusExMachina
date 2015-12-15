@@ -2,10 +2,14 @@
 #define PRODUCTLIST_H
 
 #include <QVector>
+#include <QObject>
 
 class Product;
-class ProductList
+class ProductList : public QObject
 {
+    friend QDataStream& operator >> (QDataStream&, ProductList&);
+    friend QDataStream& operator << (QDataStream&, ProductList&);
+
 public:
     ProductList();
     ~ProductList();

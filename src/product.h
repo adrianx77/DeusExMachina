@@ -2,9 +2,13 @@
 #define PRODUCT_H
 
 #include <QString>
+#include <QObject>
 
-class Product
+class Product : public QObject
 {
+    friend QDataStream& operator >> (QDataStream&, Product&);
+    friend QDataStream& operator << (QDataStream&, Product&);
+
 public:
     Product ();
     ~Product();

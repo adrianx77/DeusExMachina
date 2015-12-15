@@ -10,6 +10,7 @@
 #include <QDateTime>
 #include <QTextStream>
 #include <math.h>
+#include <QFileDialog>
 
 #define MAX(a, b) ((a)>(b)?(a):(b))
 #define MIN(a, b) ((a)<(b)?(a):(b))
@@ -35,6 +36,301 @@
 #define UI_TEXT(name)           ui->name->text()
 #define UI_VALUE(name)          ui->name->value()
 #define UI_CHECKED(name)        ui->name->isChecked()
+
+#define UI_READ_FLOAT(name)		{								\
+									float value;				\
+									in >> value;				\
+									ui->name->setValue(value);	\
+								}
+								
+#define UI_READ_INT(name)		{								\
+									int value;					\
+									in >> value;				\
+									ui->name->setValue(value);	\
+								}
+								
+#define UI_READ_STR(name)		{								\
+									QString value;				\
+									in >> value;				\
+									ui->name->setText(value);	\
+								}
+
+#define UI_READ_CHECK3(c0, c1, c2) 	{								\
+										int value;					\
+										in >> value;				\
+										ui->c0->setChecked(value==0);	\
+										ui->c1->setChecked(value==1);	\
+										ui->c2->setChecked(value==2);	\
+									}
+									
+#define UI_READ_CHECK4(c0, c1, c2, c3) 	{								\
+										int value;					\
+										in >> value;				\
+										ui->c0->setChecked(value==0);	\
+										ui->c1->setChecked(value==1);	\
+										ui->c2->setChecked(value==2);	\
+										ui->c3->setChecked(value==3);	\
+									}
+
+
+#define UI_WRITE_FLOAT(name)	{								\
+                                    out << ui->name->value();	\
+                                }
+
+#define UI_WRITE_INT(name)		{								\
+                                    out << ui->name->value();	\
+                                }
+
+#define UI_WRITE_STR(name)		{                                   \
+                                    out << ui->name->text();	\
+                                }
+
+#define UI_WRITE_CHECK3(c0, c1, c2) {								\
+                                        int value;					\
+                                        value = UI_CHECKED(c0) ? 0 : value; \
+                                        value = UI_CHECKED(c1) ? 1 : value; \
+                                        value = UI_CHECKED(c2) ? 2 : value; \
+                                        out << value;               \
+                                    }
+
+#define UI_WRITE_CHECK4(c0, c1, c2, c3) 	{								\
+                                                int value;					\
+                                                value = UI_CHECKED(c0) ? 0 : value; \
+                                                value = UI_CHECKED(c1) ? 1 : value; \
+                                                value = UI_CHECKED(c2) ? 2 : value; \
+                                                value = UI_CHECKED(c3) ? 3 : value; \
+                                                out << value;               \
+                                            }
+
+void LogicForm::onOpenTrigger ()
+{
+    QString path = QFileDialog::getOpenFileName(this, QString::fromWCharArray(L"打开数据"), ".", QString::fromWCharArray(L"数据文件(*.dat)"));
+    if(path.length() != 0) {
+        QFile file(path);
+        if (!file.open(QIODevice::ReadOnly)) {
+            QMessageBox::information(NULL, "", QString::fromWCharArray(L"加载失败。"));
+        }
+        QDataStream in(&file);
+
+        in >> *m_productList;
+
+		UI_READ_FLOAT(g0);
+		UI_READ_FLOAT(g1);
+		UI_READ_FLOAT(g2);
+		UI_READ_FLOAT(g3);
+		UI_READ_FLOAT(g4);
+		UI_READ_FLOAT(g5);
+		UI_READ_FLOAT(g6);
+		UI_READ_FLOAT(g7);
+		UI_READ_FLOAT(g8);
+		UI_READ_FLOAT(g9);
+		UI_READ_FLOAT(g10);
+		UI_READ_FLOAT(g11);
+		UI_READ_FLOAT(g12);
+		UI_READ_FLOAT(g13);
+		UI_READ_FLOAT(g14);
+		UI_READ_FLOAT(g15);
+		UI_READ_FLOAT(g16);
+		UI_READ_FLOAT(g17);
+		UI_READ_FLOAT(g18);
+		UI_READ_FLOAT(g19);
+		
+		UI_READ_FLOAT(h0);
+		UI_READ_FLOAT(h1);
+		UI_READ_FLOAT(h2);
+		UI_READ_FLOAT(h3);
+		UI_READ_FLOAT(h4);
+		UI_READ_FLOAT(h5);
+		UI_READ_FLOAT(h6);
+		UI_READ_FLOAT(h7);
+		UI_READ_FLOAT(h8);
+		UI_READ_FLOAT(h9);
+		UI_READ_FLOAT(h10);
+		UI_READ_FLOAT(h11);
+		UI_READ_FLOAT(h12);
+		
+		UI_READ_CHECK3(t0_0, t0_1, t0_2);
+		UI_READ_INT(t1);
+		UI_READ_INT(t2);
+		UI_READ_FLOAT(t3);
+		UI_READ_CHECK3(t4_0, t4_1, t4_2);
+		UI_READ_FLOAT(t5);
+		UI_READ_FLOAT(t6);
+        UI_READ_CHECK4(t6_0, t6_1, t6_2, t6_3);
+		UI_READ_INT(t7);
+		UI_READ_INT(t8);
+		UI_READ_INT(t9);
+		UI_READ_INT(t10);
+		UI_READ_INT(t11);
+		UI_READ_INT(t12);
+		UI_READ_INT(t13);
+		UI_READ_FLOAT(t14);
+		UI_READ_FLOAT(t15);
+		UI_READ_FLOAT(t16);
+		
+		UI_READ_STR(c0);
+        UI_READ_STR(c1);
+        UI_READ_STR(c2);
+        UI_READ_STR(c3);
+        UI_READ_STR(c4);
+        UI_READ_STR(c5);
+        UI_READ_STR(c6);
+        UI_READ_STR(c7);
+        UI_READ_STR(c8);
+        UI_READ_STR(c9);
+        UI_READ_STR(c10);
+        UI_READ_STR(c11);
+        UI_READ_STR(c12);
+        UI_READ_STR(c13);
+        UI_READ_STR(c14);
+        UI_READ_STR(c15);
+
+        UI_READ_STR(e0);
+        UI_READ_STR(e1);
+        UI_READ_STR(e2);
+        UI_READ_STR(e3);
+        UI_READ_STR(e4);
+        UI_READ_STR(e5);
+        UI_READ_STR(e6);
+        UI_READ_STR(e7);
+        UI_READ_STR(e8);
+        UI_READ_STR(e9);
+        UI_READ_STR(e10);
+        UI_READ_STR(e11);
+        UI_READ_STR(c12);
+
+        UI_READ_STR(e20);
+        UI_READ_STR(e21);
+        UI_READ_STR(e22);
+        UI_READ_STR(e23);
+        UI_READ_STR(e24);
+        UI_READ_STR(e25);
+
+        UI_READ_STR(e30);
+        UI_READ_STR(e31);
+
+        file.close();
+        refreshProductList();
+        QMessageBox::information(NULL, "", QString::fromWCharArray(L"加载成功。"));
+    } else {
+        QMessageBox::information(NULL, "", QString::fromWCharArray(L"加载失败。"));
+    }
+}
+
+void LogicForm::onSaveTrigger ()
+{
+    QString path = QFileDialog::getSaveFileName(this, QString::fromWCharArray(L"保存数据"), ".", QString::fromWCharArray(L"数据文件(*.dat)"));
+    if (path.length() != 0) {
+        QFile file(path);
+        if (!file.open(QIODevice::WriteOnly)) {
+            QMessageBox::information(NULL, "", QString::fromWCharArray(L"保存失败。"));
+        }
+        QDataStream out(&file);
+
+        out << *m_productList;
+
+        UI_WRITE_FLOAT(g0);
+        UI_WRITE_FLOAT(g1);
+        UI_WRITE_FLOAT(g2);
+        UI_WRITE_FLOAT(g3);
+        UI_WRITE_FLOAT(g4);
+        UI_WRITE_FLOAT(g5);
+        UI_WRITE_FLOAT(g6);
+        UI_WRITE_FLOAT(g7);
+        UI_WRITE_FLOAT(g8);
+        UI_WRITE_FLOAT(g9);
+        UI_WRITE_FLOAT(g10);
+        UI_WRITE_FLOAT(g11);
+        UI_WRITE_FLOAT(g12);
+        UI_WRITE_FLOAT(g13);
+        UI_WRITE_FLOAT(g14);
+        UI_WRITE_FLOAT(g15);
+        UI_WRITE_FLOAT(g16);
+        UI_WRITE_FLOAT(g17);
+        UI_WRITE_FLOAT(g18);
+        UI_WRITE_FLOAT(g19);
+
+        UI_WRITE_FLOAT(h0);
+        UI_WRITE_FLOAT(h1);
+        UI_WRITE_FLOAT(h2);
+        UI_WRITE_FLOAT(h3);
+        UI_WRITE_FLOAT(h4);
+        UI_WRITE_FLOAT(h5);
+        UI_WRITE_FLOAT(h6);
+        UI_WRITE_FLOAT(h7);
+        UI_WRITE_FLOAT(h8);
+        UI_WRITE_FLOAT(h9);
+        UI_WRITE_FLOAT(h10);
+        UI_WRITE_FLOAT(h11);
+        UI_WRITE_FLOAT(h12);
+
+        UI_WRITE_CHECK3(t0_0, t0_1, t0_2);
+        UI_WRITE_INT(t1);
+        UI_WRITE_INT(t2);
+        UI_WRITE_FLOAT(t3);
+        UI_WRITE_CHECK3(t4_0, t4_1, t4_2);
+        UI_WRITE_FLOAT(t5);
+        UI_WRITE_FLOAT(t6);
+        UI_WRITE_CHECK4(t6_0, t6_1, t6_2, t6_3);
+        UI_WRITE_INT(t7);
+        UI_WRITE_INT(t8);
+        UI_WRITE_INT(t9);
+        UI_WRITE_INT(t10);
+        UI_WRITE_INT(t11);
+        UI_WRITE_INT(t12);
+        UI_WRITE_INT(t13);
+        UI_WRITE_FLOAT(t14);
+        UI_WRITE_FLOAT(t15);
+        UI_WRITE_FLOAT(t16);
+
+        UI_WRITE_STR(c0);
+        UI_WRITE_STR(c1);
+        UI_WRITE_STR(c2);
+        UI_WRITE_STR(c3);
+        UI_WRITE_STR(c4);
+        UI_WRITE_STR(c5);
+        UI_WRITE_STR(c6);
+        UI_WRITE_STR(c7);
+        UI_WRITE_STR(c8);
+        UI_WRITE_STR(c9);
+        UI_WRITE_STR(c10);
+        UI_WRITE_STR(c11);
+        UI_WRITE_STR(c12);
+        UI_WRITE_STR(c13);
+        UI_WRITE_STR(c14);
+        UI_WRITE_STR(c15);
+
+        UI_WRITE_STR(e0);
+        UI_WRITE_STR(e1);
+        UI_WRITE_STR(e2);
+        UI_WRITE_STR(e3);
+        UI_WRITE_STR(e4);
+        UI_WRITE_STR(e5);
+        UI_WRITE_STR(e6);
+        UI_WRITE_STR(e7);
+        UI_WRITE_STR(e8);
+        UI_WRITE_STR(e9);
+        UI_WRITE_STR(e10);
+        UI_WRITE_STR(e11);
+        UI_WRITE_STR(c12);
+
+        UI_WRITE_STR(e20);
+        UI_WRITE_STR(e21);
+        UI_WRITE_STR(e22);
+        UI_WRITE_STR(e23);
+        UI_WRITE_STR(e24);
+        UI_WRITE_STR(e25);
+
+        UI_WRITE_STR(e30);
+        UI_WRITE_STR(e31);
+
+        file.close();
+
+        QMessageBox::information(NULL, "", QString::fromWCharArray(L"保存成功。"));
+    } else {
+        QMessageBox::information(NULL, "", QString::fromWCharArray(L"保存失败。"));
+    }
+}
 
 LogicForm::LogicForm(QWidget *parent) :
     QWidget(parent),
@@ -602,6 +898,9 @@ void LogicForm::registerFileList ()
 
     m_processList.push_back(QString::fromWCharArray(L"买卖合同.html"));
     m_processProductList.push_back(QString::fromWCharArray(L"买卖合同商品明细表.html"));
+
+    m_processList.push_back(QString::fromWCharArray(L"汇票.html"));
+    m_processProductList.push_back(QString::fromWCharArray(L""));
 }
 
 void LogicForm::registerTokenFunc ()
@@ -658,6 +957,7 @@ void LogicForm::registerTokenFunc ()
     TOKEN_FUNC_REG(TEMPLATE_TheShipName);
     TOKEN_FUNC_REG(TEMPLATE_TheShipWorkNo);
     TOKEN_FUNC_REG(TEMPLATE_HexiaodanNo);
+    TOKEN_FUNC_REG(TEMPLATE_ImportBankName);
 
     TOKEN_FUNC_REG(TEMPLATE_Hetongjine);
     TOKEN_FUNC_REG(TEMPLATE_Caigoucengben);
@@ -936,7 +1236,7 @@ TOKEN_FUNC_END
 
 TOKEN_FUNC_BEG(TEMPLATE_TotalSaySell)
 PronounceNum p;
-return UI_TEXT(e1) + ". " + p.numToString(m_productList->getTotalPriceOut()).c_str() + "SAY";
+return UI_TEXT(e1) + ". " + p.numToString(m_productList->getTotalPriceOut()).c_str();
 TOKEN_FUNC_END
 
 TOKEN_FUNC_BEG(TEMPLATE_Payment)
@@ -977,7 +1277,7 @@ TOKEN_FUNC_END
 
 TOKEN_FUNC_BEG(TEMPLATE_TotalSayCarton)
 PronounceNum p;
-return (p.numToString(m_productList->getTotalPakNumber()) + "SAY").c_str();
+return (p.numToString(m_productList->getTotalPakNumber())).c_str();
 TOKEN_FUNC_END
 
 TOKEN_FUNC_BEG(TEMPLATE_TheTypeOfTotalCarton)
@@ -1132,6 +1432,10 @@ TOKEN_FUNC_BEG(TEMPLATE_HexiaodanNo)
 return UI_TEXT(e24);
 TOKEN_FUNC_END
 
+TOKEN_FUNC_BEG(TEMPLATE_ImportBankName)
+return UI_TEXT(e25);
+TOKEN_FUNC_END
+
 TOKEN_FUNC_BEG(TEMPLATE_BankNo)
 return UI_TEXT(e10);
 TOKEN_FUNC_END
@@ -1166,7 +1470,7 @@ TOKEN_FUNC_END
 
 TOKEN_FUNC_BEG(TEMPLATE_ShipContainer)
 if(UI_CHECKED(t4_0))
-    return QString::fromWCharArray(L"参考-配舱通知");
+    return "LCL";
 else if(UI_CHECKED(t4_1))
     return QString("20' X ") + QString::number(getShip20Number());
 else if(UI_CHECKED(t4_2))

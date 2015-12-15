@@ -1,5 +1,32 @@
 #include "productlist.h"
 #include "product.h"
+#include <QtNetwork/QtNetwork>
+
+QDataStream& operator >> (QDataStream& in, ProductList& data)
+{
+    for (int i = 0; i < data.m_productList.length(); ++i) {
+        delete data.m_productList[i];
+    }
+    data.m_productList.clear();
+
+    int productNum;
+    in >> productNum;
+    for (int i = 0; i < productNum; ++i) {
+        Product* p = new Product();
+        in >> *p;
+        data.m_productList.push_back(p);
+    }
+    return in;
+}
+
+QDataStream& operator << (QDataStream& out, ProductList& data)
+{
+    out << data.m_productList.length();
+    for (int i = 0; i < data.m_productList.length(); ++i) {
+        out << *data.m_productList[i];
+    }
+    return out;
+}
 
 ProductList::ProductList()
 {
