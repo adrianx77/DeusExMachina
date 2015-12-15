@@ -61,6 +61,14 @@ private:
     float getInsuranceCFR () const;
     float getInsuranceFOB () const;
 
+    float getInsuranceJine () const;
+    float getRealInsuranceJine () const;
+    float getWaibiInsuranceJine () const;
+    float getWaibiRealInsuranceJine () const;
+    float getInsuranceJineCIF () const;
+    float getInsuranceJineCFR () const;
+    float getInsuranceJineFOB () const;
+
     float getBank () const;
     float getBankLC () const;
     float getBankDP () const;

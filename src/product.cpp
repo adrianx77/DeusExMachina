@@ -1,5 +1,6 @@
 #include "product.h"
 #include <QString>
+#include <math.h>
 
 Product::Product()
 {

@@ -1,4 +1,4 @@
-#include "logicform.h"
+﻿#include "logicform.h"
 #include "ui_logicform.h"
 #include "productdialog.h"
 #include "productlist.h"
@@ -227,27 +227,79 @@ float LogicForm::getWaibiRealInsurance () const
 
 float LogicForm::getInsuranceCIF () const
 {
-    float c = m_productList->getTotalPriceOut() * ui->t3->value();
-    float a = (1.0f + ui->t5->value() / 100.0f);
     float b = ui->t6->value() / 100.0f;
-    return c * a * b;
+    return getInsuranceJineCIF() * b;
 }
 
 float LogicForm::getInsuranceCFR () const
 {
-    float c = m_productList->getTotalPriceOut() * ui->t3->value();
-    float a = (1.0f + ui->t5->value() / 100.0f);
     float b = ui->t6->value() / 100.0f;
-    return c * a / (1 - a * b) * b;
+    return getInsuranceJineCFR() * b;
 }
 
 float LogicForm::getInsuranceFOB () const
+{
+    float b = ui->t6->value() / 100.0f;
+    return getInsuranceJineFOB() * b;
+}
+
+float LogicForm::getInsuranceJine () const
+{
+    bool isFOBMode = ui->t0_0->isChecked();
+    bool isCFRMode = ui->t0_1->isChecked();
+    bool isCIFMode = ui->t0_2->isChecked();
+    if (isCIFMode) {
+        return getInsuranceJineCIF();
+    } else if (isCFRMode) {
+        return getInsuranceJineCFR();
+    } else if (isFOBMode) {
+        return getInsuranceJineFOB();
+    }
+    return 0.0f;
+}
+
+float LogicForm::getRealInsuranceJine () const
+{
+    bool isCIFMode = ui->t0_2->isChecked();
+    if (isCIFMode) {
+        return getInsuranceJineCIF();
+    } else {
+        return 0.0f;
+    }
+}
+
+float LogicForm::getWaibiInsuranceJine () const
+{
+    return getInsuranceJine() / UI_VALUE(t3);
+}
+
+float LogicForm::getWaibiRealInsuranceJine () const
+{
+    return getRealInsuranceJine() / UI_VALUE(t3);
+}
+
+float LogicForm::getInsuranceJineCIF () const
+{
+    float c = m_productList->getTotalPriceOut() * ui->t3->value();
+    float a = (1.0f + ui->t5->value() / 100.0f);
+    return c * a;
+}
+
+float LogicForm::getInsuranceJineCFR () const
+{
+    float c = m_productList->getTotalPriceOut() * ui->t3->value();
+    float a = (1.0f + ui->t5->value() / 100.0f);
+    float b = ui->t6->value() / 100.0f;
+    return c * a / (1 - a * b);
+}
+
+float LogicForm::getInsuranceJineFOB () const
 {
     float c = m_productList->getTotalPriceOut() * ui->t3->value();
     float s = getShipCost();
     float a = (1.0f + ui->t5->value() / 100.0f);
     float b = ui->t6->value() / 100.0f;
-    return (c + s) * a / (1 - a * b) * b;
+    return (c + s) * a / (1 - a * b);
 }
 
 float LogicForm::getBank () const
@@ -1109,7 +1161,7 @@ return QString::number(getShipCost()/UI_VALUE(t3), 'f', 2);
 TOKEN_FUNC_END
 
 TOKEN_FUNC_BEG(TEMPLATE_WaiBi_YouJiaGe_Baoxianjine)
-return QString::number(getWaibiInsurance() / UI_VALUE(t6) * 100.0f, 'f', 2);
+return QString::number(getWaibiInsuranceJine(), 'f', 2);
 TOKEN_FUNC_END
 
 TOKEN_FUNC_BEG(TEMPLATE_ShipContainer)
